@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		
+		<script type="text/javascript">
+			// 函数嵌套函数，内部函数可以访问外部函数的变量
+			
+			/*function fn1(){
+				var a =1 ;
+				function fn2(){
+					//
+					alert(a)
+				}
+				
+				fn1();
+			}*/
+			
+			
+			/*function fn1(){
+				var a =1 ;
+				function fn2(){
+					//
+					alert(a++)
+				}
+				return fn2;     //返回是一个引用类型的值;   引用类型是一个url指向       f 和  fn2指向同一个地址，在函数执行完毕时，不会销毁变量  
+			}
+			var f = fn1();
+			f();
+			f();*/
+			
+			
+			function fn1(){
+				var a =1 ;
+				function fn2(){
+					//
+					alert(a++)
+				}
+				return fn2();     //
+			}
+			var f = fn1;
+			f();
+			f();
+			
+			
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

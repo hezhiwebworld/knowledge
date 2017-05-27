@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			
+			/*fn()    //1
+			function fn(){
+				console.log(1)
+			}*/
+			
+			//函数申明是可以提前的  ，fn可以在任何地方调用
+//			fn()     //undefine
+//			var fn = function(){
+//				console.log(1)
+//			}
+			
+			//函数表达式，fn只能在表达式后面调用
+			
+			var   fn  =  function fw(){
+				console.log(1)
+			}
+			
+//			fw()      //fw is not defined   涨知识了
+			
+			fn()
+			fw()
+			
+
+			预解析的区别        函数声明：代码在预解析的的时候；函数声明会被提前  
+						函数表达式不会：在执行到某一句的时候，再预解析
+			
+			调用的区别              函数声明 ： 可以在任何地方调用； 
+					    函数表达式： 只能在函数表达式后面调用；
+			
+			函数名的区别          函数表达式：将 命名函数 或者 匿名函数  赋值给一个变量，
+						函数调用的时候，以变量名（） 的形式调用;命民函数的名字没有意义
+			
+			
+		</script>
+	</body>
+</html>

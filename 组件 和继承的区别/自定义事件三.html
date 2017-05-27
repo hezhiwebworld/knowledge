@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#div1{
+				width: 100px;
+				height: 100px;
+				position: absolute;
+				background-color: red;
+			}
+			#div2{
+				width: 100px;
+				height: 100px;
+				position: absolute;
+				background-color: green;
+				left: 100px;
+			}
+			#div3{
+				width: 100px;
+				height: 100px;
+				position: absolute;
+				background-color: pink;
+				left: 200px;
+			}
+			#div4{
+				width: 100px;
+				height: 100px;
+				position: absolute;
+				background-color: olive;
+				left: 300px;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="div1"></div>
+		<div id="div2"></div>
+		<div id="div3"></div>
+		<div id="div4"></div>
+		
+<script type="text/javascript">
+window.onload = function(){
+	var d = new Drag();
+    d.init({
+    	id : 'div1'
+    });
+    
+    var dd = new Drag();
+    
+     dd.init({
+     	id : 'div2'
+    });
+    
+    bE(dd,'todown',function(){
+ 		 document.title ="hezhi"
+  	});
+     
+     var ddd = new Drag();
+    
+    
+     ddd.init({
+     	id : "div3"
+     	
+     });
+     //别人写的
+     bE(ddd,'todown',function(){
+ 			document.title ="秒v"
+  	});
+  	//自己写的   有利于多人开发
+  	 bE(ddd,'todown',function(){
+ 			document.body.style.background = "black"
+  	});
+  	
+  	
+     bE(ddd,'toup',function(){
+ 			document.title ="黑马"
+  	});
+     
+     
+     var dddd = new Drag();
+    
+     dddd.init({
+     	id  : 'div4'
+     });
+     
+     bE(dddd,'toup',function(){
+ 			document.title ="byby"
+  	 });
+}
+
+function Drag() {
+	this.obj = null;
+
+	this.disx = 0;
+
+	this.disy = 0;
+	
+	this.settings = {
+		
+	}
+}
+
+Drag.prototype.init = function(options) {
+	
+	var This = this
+	
+	this.obj = document.getElementById(options.id);
+	
+	
+	extend(this.settings,options)
+	
+	this.obj.onmousedown = function(ev) {
+
+		var ev = ev || window.event;
+		This.fnDown(ev);
+		fE(This,'todown');
+		
+		document.onmousemove = function(ev) {
+			var ev = ev || window.event;
+			This.fnMove(ev);
+		}
+		document.onmouseup = function() {
+			This.fnup();
+			fE(This,'toup');
+		}
+		return false;
+	}
+
+}
+
+Drag.prototype.fnDown = function(ev) {
+	this.disx = ev.clientX - this.obj.offsetLeft;
+	this.disy = ev.clientY - this.obj.offsetTop;
+}
+Drag.prototype.fnMove = function(ev) {
+	this.obj.style.left = ev.clientX - this.disx +'px';
+	this.obj.style.top = ev.clientY - this.disy + 'px';
+}
+Drag.prototype.fnup = function(){
+	document.onmousemove = null;
+   	document.onmouseup = null;
+}
+	
+function extend(obj1,obj2){
+	for (var attr in obj2) {
+		obj1[attr] = obj2[attr]
+	}
+	
+}
+
+
+function bE(obj,events,fn){
+			
+			//创建映射的关系
+	obj.listener = obj.listener || {};
+	obj.listener[events] = obj.listener[events] || [];
+	obj.listener[events].push( fn );
+	
+	
+	if(obj.nodeType){
+		if(obj.addEventListener){
+			obj.addEventListener(events,fn,false)
+		}else{
+			obj.attachEvent('on'+events,fn)
+		}
+	}
+	
+}
+
+function fE(obj,events){
+	
+	if(obj.listener && obj.listener[events]){
+		for(var i =0;i<obj.listener[events].length;i++){
+			obj.listener[events][i]();
+		}
+	}
+	
+}
+
+
+</script>
+	</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		
+		<script type="text/javascript">
+			function Aaa(){
+				
+			}
+			
+			/*Aaa.prototype.name = 'hezhi';
+			
+			var a = new Aaa();
+			
+			console.log(Aaa.prototype.constructor)
+			console.log(a.name)*/
+			
+			Aaa.prototype = {
+				constructor: Aaa,    //手动修改为原来的指向
+				name: 'hezhi'
+			}
+			
+			var a = new Aaa();
+			console.log(a.name)
+			console.log(Aaa.prototype.constructor)   //不经意间修改了Aaa.prototype.constructor的指向问题
+		
+			
+			
+		</script>
+	</body>
+</html>

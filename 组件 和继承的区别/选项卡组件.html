@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		
+		<style type="text/css">
+			#box div{
+				width: 200px;
+				height: 200px;
+				border: 1px solid black;
+				display: none;
+			}
+			#box1 div,#box2 div,#box3 div,#box4 div,#box5 div{
+				width: 200px;
+				height: 200px;
+				border: 1px solid black;
+				display: none;
+			}
+			.icur{
+				background-color: red;
+			}
+		</style>
+		<script src="jquery-1.11.0.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			/**
+			 * title :  基于jq选项卡组件
+			 * 
+			 * option : event delay
+			 * 
+			 * mehtod :  nowactive(index)   getcontent(that)
+			 * 
+			 * events :   beforclick   afterclick
+			 * 
+			 * //  www.baidu.com / magic
+			 */
+			
+			$(function(){
+				var t1 = new Tab();
+				
+				t1.init('box',{})
+				
+				var t2 = new Tab();
+				
+				t2.init('box1',{
+					event : 'mouseover'
+				})
+				
+				var t3 = new Tab();
+				
+				t3.init('box2',{
+					event : 'mouseover',
+					delay :200
+				})
+				
+				var t4 = new Tab();
+				
+				t4.init('box3',{
+					
+				})
+				t4.nowactive(2)
+				
+				var t5 = new Tab();
+				
+				t5.init('box4',{
+					
+				})
+				
+				$('#box4 input').on('click',function(){
+					var that = this;
+					alert( t5.getcontent(that))   //获取当前的内容
+				})
+				
+				var t6 = new Tab();
+				
+				t6.init('box5',{
+					
+				})
+				t6.nowactive(1);
+				
+				//jq 中主动出发   trigger
+				
+				$('#box5 input').on('click',function(){
+					var that = this;
+					alert( t6.getcontent(that))   //获取当前的内容
+				})
+				
+				$(t6).on('beforeClick',function(){
+					var that = this;
+					alert( t6.getcontent(that))
+				});
+				$(t6).on('afterClick',function(){
+					var that = this;
+					alert( t6.getcontent(that))
+				});
+				
+			})
+			
+			function Tab(){
+				this.settings = { //默认的配置参数 
+					event : 'click',
+					delay : 0
+				}
+			}
+			
+			Tab.prototype.init = function(oparent ,opt){
+				
+				$.extend(this.settings,opt);
+				
+				this.oParent = $('#'+ oparent)
+				this.ainput = this.oParent.find('input')
+				this.adiv = this.oParent.find('div')
+				
+				this.change();
+			}
+			
+			Tab.prototype.change = function(){
+				var This = this;
+				var timer = null;
+				this.ainput.on(this.settings.event,function(){
+					
+					
+					
+						  //通过传参的方式 指定调用对象
+					var _this = this
+					 if(This.settings.event == 'mouseover' && This.settings.delay){
+					 		
+					 	 timer = setTimeout(function(){
+					 			show(_this)   //定时器中this 指向有被修改了
+					 		},This.settings.delay)
+					 }else{
+					 	show(this)
+					 }
+					 
+				}).mouseout(function(){
+					clearInterval(timer);
+				})
+				
+				function show(obj){
+					
+					$(This).trigger('beforeClick');
+					
+					$(obj).attr('class','icur').
+					siblings('input').attr('class','');
+					
+					This.adiv.eq($(obj).index()).css('display','block')
+					.siblings('div').css('display','none');
+					
+					$(This).trigger('afterClick');
+				}
+			}
+			
+			//更改默认当前状态
+			Tab.prototype.nowactive = function(index){
+				this.ainput.eq(index).attr('class','icur').
+				siblings('input').attr('class','');
+				
+				this.adiv.eq(index).css('display','block')
+				.siblings('div').css('display','none');
+				 
+			}
+			
+			Tab.prototype.getcontent =function(target){
+				 return this.adiv.eq($(target).index()).html();
+			}
+			
+		</script>
+	</head>
+	<body>
+		
+		<div id="box">
+			<input type="button"class="icur" value="选项卡一" />
+			<input type="button"  value="选项卡二" />
+			<input type="button"  value="选项卡三" />
+			<div style="display: block;">1111111</div>
+			<div>2222222</div>
+			<div>3333333</div>
+		</div>
+		
+		
+		<div id="box1">
+			<input type="button"class="icur" value="选项卡一" />
+			<input type="button"  value="选项卡二" />
+			<input type="button"  value="选项卡三" />
+			<div style="display: block;">1111111</div>
+			<div>2222222</div>
+			<div>3333333</div>
+		</div>
+		
+		
+		<div id="box2">
+			<input type="button"class="icur" value="选项卡一" />
+			<input type="button"  value="选项卡二" />
+			<input type="button"  value="选项卡三" />
+			<div style="display: block;">1111111</div>
+			<div>2222222</div>
+			<div>3333333</div>
+		</div>
+		
+		<div id="box3">
+			<input type="button"class="icur" value="选项卡一" />
+			<input type="button"  value="选项卡二" />
+			<input type="button"  value="选项卡三" />
+			<div style="display: block;">1111111</div>
+			<div>2222222</div>
+			<div>3333333</div>
+		</div>
+		
+		<div id="box4">
+			<input type="button"class="icur" value="选项卡一" />
+			<input type="button"  value="选项卡二"  id="input1"/>
+			<input type="button"  value="选项卡三" />
+			<div style="display: block;">1111111</div>
+			<div>2222222</div>
+			<div>3333333</div>
+		</div>
+		
+		
+		<div id="box5">
+			<input type="button"class="icur" value="选项卡一" />
+			<input type="button"  value="选项卡二"  id="input1"/>
+			<input type="button"  value="选项卡三" />
+			<div style="display: block;">1111111</div>
+			<div>2222222</div>
+			<div>3333333</div>
+		</div>
+	</body>
+</html>

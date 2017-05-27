@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			
+			.login{
+				width: 300px;
+				height: 300px;
+				background-color: #fff;
+				border: 1px solid #000;
+				position: absolute;
+				left:0;
+				top: 0;
+			}
+			.title{
+				height: 30px;
+				background-color: #CCCCCC;
+				color: white;
+			}
+			.close{
+				float: right;
+			}
+		</style>
+		<script type="text/javascript">
+			window.onload = function(){
+				var ainput = document.getElementsByTagName('input');
+				ainput[0].onclick = function (){
+					var d1 = new Dialog();
+					dl.init({ //配置参数
+						
+					})
+				}
+			}
+			
+				
+			function Dialog(){
+				this.settings = { //默认参数
+					
+				}
+			}
+			
+			Dialog.prototype.init = function(options){
+				extend(this.settings,options)
+			}
+			
+			function extend(obj1,obj2){
+				for (var attr in obj2) {
+					obj1[attr] = obj2[attr]
+				}
+				
+			}
+		</script>
+	</head>
+	<body>
+		<input type="button" id="" value="11111" />
+		<input type="button" id="" value="22222" />
+		<input type="button" id="" value="33333" />
+		<div class="login">
+			<div class="title">
+				<span>标题</span><span class="close">X</span>
+				<div class="content"></div>
+			</div>
+		</div>
+	</body>
+</html>

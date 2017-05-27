@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			//通过构造函数的继承
+			
+			function Aaa(){
+//				this.name = "xiaoming"
+				this.name = [1,2,3]
+			}
+			
+			Aaa.prototype.show = function(){
+				alert(this.name)
+			}
+			
+			
+			function Bbb(){
+				
+			}
+			
+			//
+			Bbb.prototype  = new Aaa()
+			
+			var b1 = new Bbb();
+//			 b1.name = "hezhi"  //重新赋值
+			
+			 b1.name.push(4)    //修改属性
+			 
+			var b2 = new Bbb();
+			
+			alert(b2.name)   //[1，2，3，4]
+			
+			//方法属性分开继承
+		</script>
+	</body>
+</html>

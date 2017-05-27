@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		
+		<script type="text/javascript">
+			var nub1 = 1;
+			var nub2 = 111;
+			
+			function sum(nub1,nub2){
+				var arr =[];
+				var shiweishu = 0;
+				nub1 += "";
+				nub2 +="";
+				
+				
+				
+				var dis = nub1.length - nub2.length;
+				
+				for (var i =0;i<Math.abs(dis) ;i++) {
+					if(dis > 0){
+						nub2="0"+nub2
+					}else{
+						nub1= "0"+nub1
+					}
+				}
+				var arr1 = nub1.split('');
+				var arr2 = nub2.split('')
+				
+				for (var i = nub1.length-1;i>=0;i--) {
+					var nub = parseInt(arr1[i]) + parseInt(arr2[i]) + shiweishu  //十位数
+					if(nub>=10){
+						shiweishu =1;
+						arr.unshift(nub-10)
+					}else{
+						shiweishu =0;
+						arr.unshift(nub)
+					}
+				}
+				
+				
+				if(shiweishu){
+					arr.unshift(shiweishu)
+				}
+				
+				return arr.join('')
+			}
+			
+			var s =sum(nub1,nub2)
+			console.log(s)
+		</script>
+	</body>
+</html>

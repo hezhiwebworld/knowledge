@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		
+		span > i {
+			color: blue !important;
+			font-size: 20px;
+
+		}
+		span:first-letter {
+			color: red;
+			font-size: 40px;
+		}
+
+
+		/*demo2*/
+		div {
+			color: yellow !important;
+		}
+		div p {
+			color: green;
+		} 
+
+		/*::first-leter(:first-letter),的使用时获取的文本的第一个字符或者字母，这个字母相当于当前元素的子元素，那么我们给当前元素设置最高
+		级别权重样式之后，他的子元素时继承他的颜色，单伪元素自身又又样式设置，自身的样式设置权重高于继承的样式，故为
+		红色,demo2坐车很好的证明;*/
+		
+		/*自己设置的就是比继承的牛逼*/
+	</style>
+</head>
+<body>
+	<span><i>第一个</i>字是什么颜色</span>
+	<div><p>wenzhi</p></div>  
+</body>
+</html>

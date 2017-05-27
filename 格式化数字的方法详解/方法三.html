@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		
+		
+		<script type="text/javascript">
+			var n = "1234567"
+			 
+			var result = '';
+			
+			while(n.length >3){
+				result = ','+ n.slice(-3) + result;
+				n = n.slice(0 , n.length-3)
+			}
+			if(n){
+				result = n+result
+			}
+			console.log(result)
+		</script>
+	</body>
+</html>

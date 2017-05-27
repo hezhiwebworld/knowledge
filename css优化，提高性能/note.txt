@@ -1,0 +1,44 @@
+
+关键选择器（key selector）。选择器的最后面的部分为关键选择器（即用来匹配目标元素的部分）；
+
+如果规则拥有 ID 选择器作为其关键选择器，则不要为规则增加标签。过滤掉无关的规则（这样样式系统就不会浪费时间去匹配它们了）；
+
+提取项目的通用公有样式，增强可复用性，按模块编写组件；增强项目的协同开发性、可维护性和可扩展性;
+
+使用预处理工具或构建工具（gulp对css进行语法检查、自动补前缀、打包压缩、自动优雅降级）；
+
+
+详细的解释
+
+
+https://www.zhihu.com/question/19886806    
+
+
+###  [attr^="val"]    //以图标字体为例   体现了css重构的思想
+
+```js
+		[class^="wjs-icon-"]{
+		  font-family: "hezhi";
+		}
+		
+		
+		.wjs-icon-phone::before{
+		  content:"\e908";
+		}
+		
+		.wjs-icon-tel::before{
+		  content:"\e909";
+		}
+		
+		.wjs-icon-logo::before{
+		  content:"\e920";
+		}
+		
+		.wjs-icon-word::before{
+		  content:"\e93e";
+		}
+		
+		.wjs-icon-E903::before{
+		  content: "\e903";
+		}
+```

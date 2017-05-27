@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		
+		<script type="text/javascript">
+			var n = '1234567';
+			var arr = n.split('')
+			var result = [];
+			var cs =0;
+			for (var i = arr.length-1;i>=0;i--) {
+				cs++;
+				result.unshift(arr[i]);
+				if(!(cs%3)&&i!=0){
+					result.unshift(',')
+				}
+			}
+			console.log(result)
+			
+		</script>
+	</body>
+</html>

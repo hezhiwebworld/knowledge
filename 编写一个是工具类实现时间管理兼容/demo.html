@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		
+		<input type="button" id="btn" value="111111" />
+		<script type="text/javascript">
+			var EventUtil = {
+				getEvent : function(ev){
+					return ev || event;
+				},
+				getTarget :function(ev){
+					return this.getEvent(ev).target 
+							||  this.getEvent(ev).srcElement
+				},
+				
+				on :function(ele,type,handler){
+					
+					if(ele.addEventListener){
+						ele.addEventListener(type,handler);
+						return handler
+					}else if(ele.attachEvent){
+						var wrapper =  function( ev){
+							var ev = ev ||event;
+							
+							event.target = event.srcElement;
+							
+							handler.call(ele,event)
+						};
+						ele.attachEvent('on'+type, wrapper)
+						
+						return wrapper;
+					}
+				},
+				
+				off : function(ele,type,handler){
+					if(ele.removeEventListener){
+						ele.removeEventListener(type,handler)
+					}else if(ele.detachEvent){
+						ele.detachEvent('on'+type,handler)
+					}
+				},
+				
+				preventDefault : function(ev){
+					var ev = ev || event
+					if(ev.preventDefault){
+						ev.preventDefault()
+					} else if('returnValue' in ev){
+						ev.returnValue = false;
+					}
+				},
+				
+				stopPropagation :function(ev){
+					var ev = ev || event
+					if(ev.stopPropagation){
+						ev.stopPropagation();
+					}else if('cancelBubble' in event){
+						ev.cancelBubble = true;
+					}
+				}
+				
+			}
+			
+			var btn = document.getElementById("btn");
+				btn.onclick = function(ev){
+					console.log(ev)
+				}
+			
+		</script>
+	</body>
+</html>

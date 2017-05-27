@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+			function a(x,y){
+				y = function(){
+					x =2;   // 沿着作用域进行查找
+				};
+				return function(){
+					var x =3;
+					y();
+					console.log(this.x);
+					
+					console.log(x)
+				}.apply(this,arguments)
+			}
+			
+			a();
+			
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

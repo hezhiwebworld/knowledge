@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+			window.onload = function(){
+				var ar = new Array();
+				var of = document.createElement('iframe');
+				document.body.appendChild( of ) ;
+				var ifArray = window.frames[0].Array;
+				var arr = new ifArray();
+				
+				alert(arr.constructor == Array); //跨页面的数组无法判断
+				alert(ar.constructor == Array)
+			}
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

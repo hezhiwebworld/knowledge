@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	
+	<script type="text/javascript">
+		window.onload = function (){
+			var odiv = document.getElementById("div1");
+			var ospan = document.getElementById("span1");
+			
+			bE(odiv,'click',function(){
+				alert(1)
+			});
+			bE(ospan,'click',function(){
+				alert(2)
+			});
+			bE(odiv,'show',function(){
+				alert(3)
+			});
+			bE(odiv,'show',function(){
+				alert(4)
+			});
+			
+			fE(odiv,'show')
+		}
+		
+		function bE(obj,events,fn){
+			
+			//创建映射的关系
+			obj.listener = obj.listener || {};
+			obj.listener[events] = obj.listener[events] || [];
+			obj.listener[events].push( fn );
+			
+			
+			if(obj.addEventListener){
+				obj.addEventListener(events,fn,false)
+			}else{
+				obj.attachEvent('on'+events,fn)
+			}
+		}
+		
+		function fE(obj,events){
+			for(var i =0;i<obj.listener[events].length;i++){
+				obj.listener[events][i]();
+			}
+		}
+	</script>
+	<body>
+		<div id="div1">div1</div>
+		<span id="span1">div1</span>
+	</body>
+</html>

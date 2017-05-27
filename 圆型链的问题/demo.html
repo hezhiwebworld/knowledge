@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+			function Person(){
+				
+			}
+			
+			var  p1 = new Person()
+			
+//			console.log(Person.constructor);
+			
+			console.log(Person.prototype);
+			
+			console.log(Person.prototype.constructor);
+			
+			
+			console.log(p1.__proto__);
+			
+			console.log(p1.constructor)   //p1自身没有constructor，但是原型上有，通过原型链继承过来的
+			
+			console.log(p1.constructor  === Person.prototype.constructor)
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

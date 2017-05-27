@@ -1,0 +1,572 @@
+@-webkit-keyframes fadeInDown {
+            0% {
+                opacity: 0;
+                -webkit-transform: translate3d(0,-100%,0);
+                transform: translate3d(0,-100%,0)
+            }
+
+            100% {
+                opacity: 1;
+                -webkit-transform: none;
+                transform: none
+            }
+        }
+
+@keyframes fadeInDown {
+            0% {
+                opacity: 0;
+                -webkit-transform: translate3d(0,-100%,0);
+                -ms-transform: translate3d(0,-100%,0);
+                transform: translate3d(0,-100%,0)
+            }
+
+            100% {
+                opacity: 1;
+                -webkit-transform: none;
+                -ms-transform: none;
+                transform: none
+            }
+        }
+@-webkit-keyframes fadeInUp {
+            0% {
+                opacity: 0;
+                -webkit-transform: translate3d(0, 100%, 0);
+                transform: translate3d(0, 100%, 0)
+            }
+            100% {
+                opacity: 1;
+                -webkit-transform: none;
+                transform: none
+            }
+        }
+@keyframes fadeInUp {
+            0% {
+                opacity: 0;
+                -webkit-transform: translate3d(0, 100%, 0);
+                -ms-transform: translate3d(0, 100%, 0);
+                transform: translate3d(0, 100%, 0)
+            }
+            100% {
+                opacity: 1;
+                -webkit-transform: none;
+                -ms-transform: none;
+                transform: none
+            }
+        }
+
+*{
+	padding:0;
+	margin:0;
+}
+html,body,.swiper-container,.swiper-wrapper,.swiper-slide{
+	width:100%;
+	height:100%;
+}
+html{
+	font: 12px/1.5 "Microsoft YaHei","PingFang SC","Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+img{
+	vertical-align: middle; 
+}
+a{
+	text-decoration:none;
+}
+.swiper-slide{background-position:50% 50%; position:relative;}
+.slide1{background: goldenrod;}
+.slide2{background: green;}
+.slide3{background: pink;}
+.slide4{background: grey;}
+.slide5{background: olive;}
+
+.pagination{
+	position: fixed;
+    z-index: 100;
+    margin-top: -81.5px;
+    top: 50%;
+	right:17px;
+}
+.swiper-pagination-switch{
+	width:11px;
+	height:11px;
+	border:1px solid #ddd;
+	border-radius:50%;
+	display:block;
+	margin:7px 7px 13px;
+	cursor:pointer;
+}
+.swiper-active-switch{
+	background:#ddd;
+}
+.logo{
+	position: absolute;
+    left: 60px;
+    top: 60px;
+}
+.fs16{font-size:16px;}
+.fs24{font-size:24px;}
+.pt5{padding-top:5px;}
+.pt10{padding-top:10px;}
+.mt30{margin-top:30px;}
+.mb20 {margin-bottom: 20px;}
+.mt20 {margin-top: 20px;}
+.mt15{margin-top:15px;}
+.mt40{margin-top:40px;}
+.mr35{margin-right:35px;}
+.ml10 {margin-left: 10px;}
+.line {width: 40px;height: 1px;background: #fff;}
+.dividing-line {display: inline-block;vertical-align: middle;border-left: 1px solid #fff;height: 15px;margin: 0 8px;}
+.white{color:#fff;}
+.btn{
+	display: inline-block;
+    vertical-align: middle;
+    width: 240px;
+    height: 60px;
+    line-height: 60px;
+    background: #f8ac00;
+    border-radius: 2px;
+    text-align: center;
+    color: #fff;
+    font-size: 18px;
+	transition: all 1s;   
+    -webkit-transition: all 1s;  
+}
+.btn:hover{
+	 background: #ffc555;
+}
+.slide1 p{
+	color: #666;
+}
+.ani{
+	opacity:0;
+}
+.ani-slide .ani1-1{
+	opacity:1;
+	-webkit-animation: fadeInDown 0.5s both;
+    animation: fadeInDown 0.5s both;
+}
+.ani-slide .ani1-2{
+	opacity:1;
+    -webkit-animation: fadeInDown 1s 0.5s both;
+    animation: fadeInDown 1s 0.5s both;
+}
+.ani-slide .ani1-3{
+	opacity:1;
+    -webkit-animation: fadeInDown 1s 1s both;
+    animation: fadeInDown 1s 1s both;
+}
+.ani-slide .ani2-1,.ani-slide .ani3-1,.ani-slide .ani4-1,.ani-slide .ani5-1{
+    opacity: 1;
+    -webkit-animation: fadeInUp 1s both;
+    animation: fadeInUp 1s both;
+}
+.ani-slide .ani2-2,.ani-slide .ani3-2,.ani-slide .ani4-2,.ani-slide .ani5-2{
+    opacity: 1;
+    -webkit-animation: fadeInUp 1s 0.5s both;
+    animation: fadeInUp 1s 0.5s both;
+}
+.ani-slide .ani5-1-2{
+	opacity: 1;
+	-webkit-animation: fadeInUp 1s 0.3s both;
+    animation: fadeInUp 1s 0.3s both;
+}
+.ani-slide .ani6-1 {
+    opacity: 1;
+    -webkit-animation: fadeInDown 0.5s both;
+    animation: fadeInDown 0.5s both;
+}
+.ani-slide .ani6-2 {
+    opacity: 1;
+    -webkit-animation: fadeInDown 1s 0.5s both;
+    animation: fadeInDown 1s 0.5s both;
+}
+.ani-slide .ani6-3 {
+    opacity: 1;
+    -webkit-animation: fadeInDown 1s 1s both;
+    animation: fadeInDown 1s 1s both;
+}
+
+
+
+
+.icon {
+   width: 1em; height: 1em;
+   vertical-align: -0.15em;
+   fill: currentColor;
+   overflow: hidden;
+   
+}
+
+/*字体图标*/
+body,html{
+	width: 100%;
+	height: 100%;
+	overflow-x: hidden;
+	/*overflow: hidden;*/
+}
+/*page_1*/
+
+
+#page_1 .header{
+	height: 100%;
+	width: 100%;
+	background: url(../img/login_bg.jpg) no-repeat center center;
+	background-size: cover;
+	position: relative;
+}
+
+#page_1 .header .mark{
+	position: absolute;
+	height: 100%;
+	width: 100%;
+	background: rgba(0,0,0,.3);
+	top:0px;
+	left:0px;
+}
+/*华丽的分割线*/
+#page_1 .header .nav .mark .nav_l{
+	width: 140px;
+	height: 36px;
+	padding-left: 20px;
+	margin-top: 20px;
+}
+#page_1 .header .nav .mark .nav_l h1 a{
+	display: inline-block;
+	width: 134px;
+	height: 36px;
+	background: url(../img/logo_login.png);
+	background-size: cover;
+	text-indent: -9999px;
+}
+#page_1 .header .nav .mark .nav_r{
+	width: 200px;
+	height: 36px;
+	margin-top: 20px;
+}
+#page_1 .header .nav .mark .nav_r a{
+	color: white;
+}
+#page_1 .header .nav .mark .nav_r a:hover{
+	text-decoration: underline;
+}
+#page_1 .header .nav .mark .nav_r a.sign{
+	display: inline-block;
+	width: 76px;
+	height: 32px;
+	line-height: 32px;
+	text-align: center;
+	border: 1px solid white;
+	border-radius: 3px;
+	color:#eee;
+	background: rgba(0,0,0,0);
+	transition: 1s;
+	margin-right: 20px;
+}
+#page_1 .header .nav .mark .nav_r a.sign:hover{
+	transition: .5s;
+	background: #00B4FF;
+	border-color: #00B4FF;
+	text-decoration: none;
+}
+#page_1 .header .nav .mark .title h2{
+	height: 54px;
+	width: 628px;
+	background: url(../img/login_index_title.png) no-repeat center center;
+	background-size: cover;
+	text-indent: -9999px;
+	margin:0 auto;
+	margin-top: 125px;
+}
+
+#page_1 .header .nav .mark .login_form{
+	width: 700px;
+	height: 430px;
+	margin: 0 auto;
+	margin-top: 55px;
+	
+}
+
+#page_1 .header .nav .mark .login_form .login{
+	overflow: hidden;
+
+	
+}
+#page_1 .header .nav .mark .login_form #box{
+	margin-top:60px ;
+	margin-left: 200px;
+	height: 232px;
+	width: 302px;
+	overflow: hidden;
+}
+#page_1 .header .nav .mark .login  input[type="text"]{
+	width: 300px;
+	height: 40px;
+	border: none;
+	text-align: center;
+	border: 1px solid white;
+	border-radius: 3px;
+	background-color: white;
+	opacity: .3;
+	margin-bottom: 20px;
+}
+#page_1 .header .nav .mark .login .info{
+	position: relative;
+	
+}
+#page_1 .header .nav .mark .login .info  span#user{
+	visibility: hidden;
+}
+#page_1 .header .nav .mark .login .info  span#pass{
+	visibility: hidden;
+}
+#page_1 .header .nav .mark .login .info  span.info_user{
+	background: #F3F7F9;
+	border-radius: 5px;
+	padding: 10px 15px;
+	border: 1px solid white;
+	
+}
+#page_1 .header .nav .mark .login .info  span.info_pass{
+	background: #F3F7F9;
+	border-radius: 5px;
+	padding: 10px 15px;
+	border: 1px solid white;
+	
+}
+#page_1 .header .nav .mark .login .info .arrow{
+	display: inline-block;
+	font-size: 0;
+	border-width: 7px;
+	border-style: solid;
+	margin-top: 0px;
+	border-color: transparent #F3F7F9 transparent transparent;
+}
+#page_1 .header .nav .mark .login .sug{
+	width: 300px;
+	height: 14px;
+	line-height: 14px;
+	margin-bottom: 20px;
+}
+#page_1 .header .nav .mark .login .sug input[type="checkbox"]{
+	vertical-align: top;
+}
+#page_1 .header .nav .mark .login .sug label{
+	display: inline-block;
+	vertical-align: middle;
+	line-height: 14px;
+}
+#page_1 .header .nav .mark .login .sug a{
+	float: right;
+}
+#page_1 .header .nav .mark .login .sub{
+	margin-top:20px;
+}
+#page_1 .header .nav .mark .login  input[type="submit"]{
+	position: absolute;
+	z-index: -1;
+}
+#page_1 .header .nav .mark .login  .sub label{
+	display: block;
+	width: 300px;
+	height: 36px;
+	line-height: 32px;
+	background: #00B4FF;
+	border-radius: 30px;
+	text-align: center;
+	border: none;
+	cursor: pointer;
+}
+/*注册按钮开始*/
+#page_1 .header .nav .mark .login_zhuce{
+	
+}
+#page_1 .header .nav .mark .login_zhuce input[type="text"]{
+	width: 300px;
+	height: 40px;
+	border: none;
+	text-align: center;
+	border: 1px solid white;
+	border-radius: 3px;
+	background-color: white;
+	opacity: .3;
+	margin-bottom: 20px;
+}
+#page_1 .header .nav .mark .login_zhuce  input[type="submit"]{
+	position: absolute;
+	z-index: -1;
+}
+#page_1 .header .nav .mark .login_zhuce label{
+	display: block;
+	width: 300px;
+	height: 36px;
+	line-height: 32px;
+	background: #00B4FF;
+	border-radius: 30px;
+	text-align: center;
+	border: none;
+	cursor: pointer;
+}
+/*注册按钮结束*/
+#page_1 .header .mark .login_content{
+	text-align: center;
+	margin-top: -40px;
+}
+
+#page_1 .header .mark .login_content p{
+	height: 13px;
+	font-size: 13px;
+	color: white;
+	line-height: 13px;
+	margin: 8px 0;
+	word-wrap: break-word;
+	letter-spacing: 3px;
+}
+/*第二页*/
+
+#page_2{
+	background: url("../img/login_timeline_bg (1).jpg") no-repeat center center;
+	background-size: cover;
+	background-color: red;
+	position: relative;
+}
+
+#page_2 .mark{
+	position: absolute;
+	height: 100%;
+	width: 100%;
+	background: rgba(0,0,0,.3);
+	top:0px;
+	left:0px;
+}
+#page_2 .mark .time_box{
+	width: 86%;
+	height: 121px;
+	margin: 0 auto;
+	margin-top: 145px;
+	
+	position: relative;
+}
+#page_2 .mark .time_box .time_wrap{
+	width: 900px;
+	overflow: hidden;
+	height: 121px;
+	position: relative;
+}
+#page_2 .mark .time_box ul{
+	position: absolute;
+	width: 10000px;
+}
+#page_2 .mark .time_box ul li{
+	float: left;
+	width: 1200px;
+}
+#page_2 .mark .time_box .time_content{
+	width: 86%;
+	height: 121px;
+	margin-left: 90px;
+	margin-right: 90px;
+}
+#page_2 .mark .time_box .time_content .time_date{
+	width: 15%;
+	height: 80px;
+}
+#page_2 .mark .time_box .time_content .time_date span{
+	display: block;
+	height: 80px;
+	width: 80px;
+	background: #00B4FF;
+	font-size: 24px;
+	color: white;
+	text-align: center;
+}
+#page_2 .mark .time_box .time_content .time_date i{
+	color: white;
+}
+#page_2 .mark .time_box .time_content .time_title{
+	width: 85%;
+	
+}
+#page_2 .mark .time_box .time_content .time_title h3{
+	color:#00B4FF;
+	font-size: 45px;
+	font-weight: bolder;
+}
+#page_2 .mark .time_box .time_content .time_title span{
+	margin: 16px 0 20px;
+    font-size: 18px;
+    color: #eee;
+}
+
+#page_2 .mark .time_box .time_content .time_title p{
+	font-size: 14px;
+    line-height: 22px;
+    color: #eee;
+}
+/*左右两个按钮*/
+#page_2 .mark  a{
+	width: 7%;
+	height: 100%;
+	display: block;
+	
+	position: absolute;
+}
+#page_2 .mark  a#time_left{
+	left:0;
+	top:0;
+}
+#page_2 .mark  a#time_left span{
+	display: inline-block;
+	height: 58px;
+	width: 43px;
+	background: url("../img/timeline_arrow_left.png") no-repeat center center;
+	background-size:cover;
+	position: absolute;
+}
+#page_2 .mark  a#time_right{
+	right:0;
+	top:0;
+	
+}
+#page_2 .mark  a#time_right span{
+	display: inline-block;
+	height: 58px;
+	width: 43px;
+	background: url("../img/timeline_arrow_right.png") no-repeat center center;
+	background-size:cover;
+	position: absolute;
+}
+#page_2 .mark  a#time_left  .arrow_left{
+	
+	left:20px;
+	top:166px;
+}
+#page_2 .mark  a#time_right  .arrow_right{
+	right:40px;
+	top:166px;
+}
+/*小图滚动*/
+
+#page_2 .mark .time_small_wrap{
+	width: 100%;
+	height: 130px;
+	position: absolute;
+	bottom: 0px;
+	overflow: hidden;
+	border: 5px solid gainsboro;
+	border-left:none;
+	padding-left:25px;
+}
+#page_2 .mark .time_small_wrap  .time_small_img {
+	position: relative;
+	width:1300px;
+	height: 130px;
+	overflow: hidden;
+}
+#page_2 .mark .time_small_wrap  .time_small_img ul{
+	position: absolute;
+	overflow: hidden;
+	
+}
+#page_2 .mark .time_small_wrap ul li{
+	float: left;
+	margin: 5px;
+}

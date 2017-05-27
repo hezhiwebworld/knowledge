@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			
+			#div1{
+				height: 100px;
+				width: 100px;
+				position: absolute;
+				background-color: red;
+				top: 0;
+				left: 0;
+			}
+			
+			#div2{
+				height: 100px;
+				width: 100px;
+				position: absolute;
+				background-color: green;
+				left: 100px;
+				top: 0;
+			}
+		</style>
+	</head>
+	<body>
+		
+		<div id="div1"></div>
+		<div id="div2"></div>
+		
+		<script type="text/javascript">
+			  window.onload = function(){
+			  	 var  d  = new Drag('div1');
+			      d.init();
+			  }
+			  
+			   function Drag(id){
+			   	this.obj = document.getElementById(id);
+			   	
+			   	this.disx = 0;
+			   	
+			   	this.disy = 0;
+			   }
+			   
+			   Drag.prototype.init =function(){
+			   	    var This = this
+			   		this.obj.onmousedown = function(ev){
+			   			
+			   			var ev = ev || window.event;
+			   			This.fnDown(ev);
+			   			document.onmousemove = function(ev){
+			   				var ev = ev || window.event;
+			   				This.fnMove(ev);
+			   			}
+			   			document.onmouseup = function(){
+			   				This.fnup();
+			   			}
+			   			return false;
+			   		}
+			   		
+			   }
+			   
+			   Drag.prototype.fnDown = function(ev){
+		   			this.disx =  ev.clientX - this.obj.offsetLeft;
+		   			this.disy = ev.clientY - this.obj.offsetTop;
+			   }
+			   Drag.prototype.fnMove = function(ev){
+		   			this.obj.style.left = ev.clientX - this.disx + 'px';
+			   		this.obj.style.top = ev.clientY - this.disy + 'px';
+			   }
+			   Drag.prototype.fnup = function(){
+		   			document.onmousemove = null;
+			   		document.onmouseup = null;
+			   }
+			   
+		</script>
+	</body>
+</html>

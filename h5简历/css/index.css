@@ -1,0 +1,396 @@
+*{
+	padding: 0;
+	margin: 0;
+	list-style: none;
+	border: none;
+	text-decoration: none;
+}
+body{
+	cursor: pointer;
+}
+
+
+
+.nav{
+	position: fixed;
+	z-index: 10;
+	height: 100px;
+	background: rgba(0,0,0,0.5);
+	color: white;
+	width: 100%;
+	display: flex;
+	text-align: center;
+	line-height: 100px;
+}
+.nav a{
+	flex: 1;
+	
+}
+@keyframes hezhi-move{
+	0%{
+		transform:translateY(0px) ;
+	}
+	50%{
+		transform:translateY(300px);
+	}
+}
+
+.swiper-pagination-switch {
+	font-size: 30px;
+	width: 60px;
+	height:60px;
+	line-height: 120px;
+	background: url(../img/png-0727.png) no-repeat;
+	animation:hezhi-move 10s infinite;
+	background-size: cover;
+	
+}
+
+.pagination {
+    position: fixed;
+    z-index: 100;
+    margin-top: -250.5px;
+    top: 50%;
+    right: 17px;
+}
+
+.swiper-active-switch {
+     background: url(../img/png-0726.png) no-repeat;
+     background-size: cover;
+}
+
+/*nav条部分*/
+
+
+
+.grjl::before{
+	content: '';
+	display: inline-block;
+	height: 80px;
+	width: 80px;
+	border-radius: 50%;
+	border: 10px double black;
+	background: url(../img/png-0726.png) no-repeat;
+	background-size: cover;
+	background-position: center center;
+	vertical-align: middle;
+	box-sizing: border-box;
+}
+.grjl span{
+	vertical-align: middle;
+	padding-left: 20px;
+}
+.grjl span:nth-child(1){
+	display: inline-block;
+	line-height: 40px;
+	padding: 10px 35px;
+	background: white;
+	border-radius: 20px 20px 20px 20px /20px;
+}
+
+.zyjn span{
+	display: inline-block;
+	line-height: 40px;
+	position: relative;
+}
+
+.zyjn span::before,
+.zyjn span::after{
+	content: '';
+	display: inline-block;
+	height: 40px;
+	padding: 10px 65px;
+	background: white;
+	border-radius: 40px 40px 40px 40px /40px;
+	letter-spacing: 5px;
+	position: absolute;
+	top: -11px;
+    left: -39px;
+	z-index: -1;
+	transition: transform 0.3s, background-color 0.3s;
+	transition-timing-function: cubic-bezier(0.25, 0, 0.3, 1);
+	
+}
+.zyjn span::before{
+	background: rgba(0,0,0,0.5);
+	transform: scale(0.7, 0.7);
+	border: 2px solid white;
+}
+.zyjn span::after{
+	background: white;
+}
+.zyjn span:hover::before{
+	transform: scale(1,1)
+}
+
+.zyjn span:hover::after{
+	transform: scale(0.7,0.7);
+}
+/*nav条部分*/
+
+/*个人简介*/
+.user-info{
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%,-50%);
+	writing-mode: tb-rl;
+}
+
+.user-info div span{
+	font-size: 30px;
+	font-family: "微软雅黑";
+}
+.user-info div span:nth-of-type(1){
+	padding-bottom: 30px;
+}
+/*个人简介*/
+
+/*进度条*/
+.progressbar{
+	position: fixed;
+	top:120px;
+	left: 10px;
+	height: 50px;
+	z-index: 99;
+	width: auto;
+}
+.progressbar{
+	width: 0px;
+	position: fixed;
+	font-size: 0;
+}
+.progressbar .pro-left{
+	padding-right: 50px;
+	height: 50px;
+	float: left;
+	width: 100%;
+	margin-top:20px;
+	box-sizing: content-box;
+}
+.progressbar .pro-right{
+	width: 50px;
+	height: 50px;
+	background: url(../img/png-0727.png);
+	background-size: cover;
+	position: absolute;
+	right: -50px;
+	top:0px;
+}
+.progressbar .pro-left::before{
+	content: '';
+	display: inline-block;
+	height: 10px;
+	width: 100%;
+	position: absolute;
+	z-index: 99;
+	background: linear-gradient(45deg,
+		#fff 0%,
+		#fff 25%,
+		#000 25%,
+		#000 50%,
+		#fff 50%,
+		#fff 75%,
+		#000 75%,
+		#000 100%
+	);
+	background-size: 10px 10px;
+	animation: progressbar 1s linear infinite;
+	border-radius: 5px;
+}
+
+@keyframes progressbar{
+	from{background-position: 0px 0px ;}
+	to{background-position: 10px 0px ;}
+}
+
+/*进度条*/
+
+/*专业技能*/
+.box{
+	width: 800px;
+	height: 400px;
+	margin: 200px auto;
+	border: 1px solid black;
+}
+
+
+/*金丹*/
+
+
+
+	
+
+
+
+
+/*专业技能*/
+
+/*旋转*/
+
+.box-3{
+	    width: 800px;
+	
+		position: relative;
+		border: 1px solid red;
+		margin: 400px auto;
+}
+.jd-item1{
+	width: 100px;
+	height: 100px;
+	border-right: 10px solid #00ff96;
+	border-radius: 50%;
+	position: absolute;
+	left: 0;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	margin: auto;
+}
+.jd-item:nth-child(n){
+	
+	
+	/*transition: all 2s linear infinite;*/
+	 transform: rotate(90deg);
+	animation: arcAnimation 2s linear infinite;
+}
+
+@-webkit-keyframes arcAnimation {
+	  100% {
+	    transform: rotate(450deg);
+	  }
+}
+	
+@keyframes arcAnimation {
+  100% {
+    transform: rotate(450deg);
+  }
+}
+
+
+/*旋转*/
+
+/*
+ 能力
+ * */
+
+.power{
+	width: 100px;
+	height: 100px;
+	background-color: red;
+	position: absolute;
+	top:200px;
+	left:100px;
+}
+.power span{
+
+	font-size: 50px;
+	font-family: "微软雅黑";
+	font-weight: 900;
+	text-shadow: -1px -1px 1px #fff,  1px 1px 1px #000;
+}
+
+/*火箭*/
+
+.roket{
+	height: 100px;
+	width: 100px;
+	background: url(../img/rocket.png);
+	background-size: cover;
+}
+
+.people{
+	height: 200px;
+	width: 200px;
+	
+	margin: 200px auto;
+	position: relative;
+}
+
+.head{
+	height: 50px;
+	width: 50px;
+	border-radius: 50%;
+	border: 1px solid black;
+	position: absolute;
+	left: 80px;
+}
+.tz{
+	height: 40px;
+	width: 2px;
+	background: black;
+	position: absolute;
+	top: 52px;
+    left: 105px;
+}
+
+
+.sl{
+	height: 40px;
+	width: 2px;
+	background: black;
+	position: absolute;
+	top: 55px;
+    left: 91px;
+	transform: rotate(45deg);
+}
+
+.sr{
+	height: 40px;
+	width: 2px;
+	background: black;
+	top: 83px;
+    left: 119px;
+    transform: rotate(-45deg);
+	position: absolute;
+}
+
+
+.fl{
+	height: 40px;
+	width: 2px;
+	background: black;
+	top: 83px;
+    left: 91px;
+	transform: rotate(45deg);
+	position: absolute;
+}
+.fr{
+	height: 40px;
+	width: 2px;
+	background: black;
+	position: absolute;
+	top: 55px;
+    left: 119px;
+    transform: rotate(-45deg);
+}
+/*小人步行*/
+@keyframes people{
+	from{
+		transform: rotate(45deg);
+	}
+	to{
+		
+	}
+}
+
+/*火箭*/
+.roket{
+	transform-origin: center center; 
+	transform: rotate(180deg) translateX(-1360px) translateY(100px);
+	/*transform:  rotate(180deg) translateX(-1060px) translateY(-300px);*/
+	animation: toroket 5s infinite;
+}
+
+@keyframes toroket{
+	
+	30%{transform:  rotate(180deg) translateX(-1060px) translateY(-300px);}
+	31%{transform:  rotate(180deg) translateX(-1060px) translateY(-300px);}
+	100%{transform:  rotate(225deg) translateX(0px) translateY(-300px); }
+}
+
+
+/*作品展示*/
+
+
+

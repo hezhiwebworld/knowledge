@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			//系统对象的toString都是自带，
+			//自己写的对象都是通过原型链 找到obeject.prototype
+			
+			//toString()  把对象转化成字符串
+			
+			//手动修改系统内置对象的toString() 
+			
+			 var arr = [1,2,3]
+			
+			 Array.prototype.toString = function(){
+			 	return this.join('+')
+			 }
+			 
+			alert(arr.toString())
+		</script>
+	</body>
+</html>

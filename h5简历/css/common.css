@@ -1,0 +1,45 @@
+/*样式初始化*/
+head,body,h1,h2,h3,h4,h5,h6,p,input,img,form,ul,li,a,label,table,tbody,dd,dt,em,b,i,span,label{
+	padding: 0;
+	margin: 0;
+	font-size: 13px;
+	font-family: Arial,"Hiragino Sans GB","冬青黑","Microsoft YaHei","微软雅黑",SimSun,Helvetica,Tahoma,sans-serif;
+}
+body,input,select{
+	font:12px/1.5 tahoma,arial,"\5b8b\4f53";
+}
+em,b,i,span{
+	font-style: normal;
+	color: #999;
+}
+a{
+	color: #999;
+	text-decoration: none;
+}
+li{
+	list-style: none;
+}
+/*通用样式*/
+.center{
+	width: 1230px;
+	margin: 0 auto;
+}
+.fl{
+	float: left;
+}
+.fr{
+	float: right;
+}	
+.clearfixed:after{content:'';display:block;clear:both;height:0;overflow:hidden;visibility:hidden;}
+.clearfixed{zoom:1;}
+
+/*top 样式*/
+.top{
+	height: 32px;
+	background-color: #F2F2F2;
+	border-bottom: 1px solid #e5e5e5
+}
+
+.top-nav .top-nav-r ul li{
+	float: left;
+}
