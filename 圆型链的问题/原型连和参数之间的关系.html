@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			//创建一个构造函数
+			 function Person(name,age){
+			 	this.name = name ;
+			 	this.age = age || 18;
+			 }
+			 //给构造函数的原型添加方法和属性
+			 Person.prototype.sex = "你叫什么名字"
+			 
+			 var p1 = new Person('网吧')
+			 var p2 = new Person();
+			 
+			 console.log(p1.name) //网吧
+			 //undefine   //name是参数，参数被声明，却未传递参数，所以是undefine
+			 console.log(p2.name) 
+			
+			 console.log(p2.sex)  //  实例化对象自身世没有的；就去原型链上寻找
+			 
+			 
+			 
+		</script>
+	</body>
+</html>

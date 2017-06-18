@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		
+		<script type="text/javascript">
+			function Foo() {
+			    getName = function () { alert (1); };  //当函数被调用的时候，会产生一个隐式全局变量
+			    console.log(this)
+			    return this;
+			}
+			Foo.getName = function () { alert (2);};
+			Foo.prototype.getName = function () { alert (3);};
+			var getName = function () { alert (4);};
+			function getName() { alert (5);}
+			
+			//请写出以下输出结果：
+			Foo.getName();   
+			getName();		
+			Foo().getName();  
+			getName();     
+			new Foo.getName();  
+			new Foo().getName(); 
+			new new Foo().getName(); 
+		</script>
+	</body>
+</html>

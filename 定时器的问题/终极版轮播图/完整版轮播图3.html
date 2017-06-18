@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style type="text/css">
+        * {
+            padding: 0;
+            margin: 0;
+            list-style: none;
+            border: 0;
+        }
+
+        .all {
+            width: 500px;
+            height: 200px;
+            padding: 7px;
+            border: 1px solid #ccc;
+            margin: 100px auto;
+            position: relative;
+        }
+
+        .screen {
+            width: 500px;
+            height: 200px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .screen li {
+            width: 500px;
+            height: 200px;
+            overflow: hidden;
+            float: left;
+        }
+
+        .screen ul {
+            position: absolute;
+            left: 0;
+            top: 0px;
+            width: 3000px;
+        }
+
+        .all ol {
+            position: absolute;
+            right: 10px;
+            bottom: 10px;
+            line-height: 20px;
+            text-align: center;
+        }
+
+        .all ol li {
+            float: left;
+            width: 20px;
+            height: 20px;
+            background: #fff;
+            border: 1px solid #ccc;
+            margin-left: 10px;
+            cursor: pointer;
+        }
+
+        .all ol li.current {
+            background: #DB192A;
+        }
+
+        #arr {
+            display: none;
+        }
+
+        #arr span {
+            width: 40px;
+            height: 40px;
+            position: absolute;
+            left: 5px;
+            top: 50%;
+            margin-top: -20px;
+            background: #000;
+            cursor: pointer;
+            line-height: 40px;
+            text-align: center;
+            font-weight: bold;
+            font-family: '黑体';
+            font-size: 30px;
+            color: #fff;
+            opacity: 0.3;
+            border: 1px solid #fff;
+        }
+
+        #arr #right {
+            right: 5px;
+            left: auto;
+        }
+    </style>
+</head>
+<body>
+<div class="all" id='box'>
+    <div class="screen">
+        <ul id="ulist">
+            <li><img src="images/1.jpg" width="500" height="200"/></li>
+            <li><img src="images/2.jpg" width="500" height="200"/></li>
+            <li><img src="images/3.jpg" width="500" height="200"/></li>
+            <li><img src="images/4.jpg" width="500" height="200"/></li>
+            <li><img src="images/5.jpg" width="500" height="200"/></li>
+        </ul>
+        <ol id="olist">
+           
+        </ol>
+    </div>
+    <div id="arr"><span id="left">&lt;</span><span id="right">&gt;</span></div>
+</div>
+
+<script>
+	//获取目标元素
+	var oUlist =document.getElementById("ulist")
+	var oOlist = document.getElementById("olist")
+	var oArr  = document.getElementById("arr")
+	var oBox = document.getElementById("box")
+	
+	var  auLi = oUlist.getElementsByTagName('li');
+	
+	//创建一个变量来存储索引
+	var num =0;
+	//创建ol列表
+	for (var i=0;i<auLi.length;i++) {
+		var ali = document.createElement('li');
+		ali.innerHTML =i+1;
+		ali.index = i;
+		oOlist.appendChild(ali)
+	}
+	
+	//获取ol列表里面的li，并且给每个li添加鼠标移入事件
+	var aoLi = oOlist.getElementsByTagName('li');
+	for (var i=0;i<aoLi.length;i++) {
+		aoLi[i].onmouseover = function(){
+			num = this.index
+			move(oUlist,-num*auLi[0].offsetWidth)
+			
+			for (var j=0;j<aoLi.length;j++) {
+				aoLi[j].removeAttribute('class')
+			}
+			aoLi[num].className = 'current'
+		}
+	}
+	
+	
+	//无缝滚动的左右切换，需要ul列表的li克隆第一个
+	//auLi不是节点无法克隆
+	
+	var oli = oUlist.children[0].cloneNode(true);
+	
+	oUlist.appendChild(oli)
+	
+	//默认状态，oOlist的第一个子元素，有默认的样式
+	oOlist.children[0].className = 'current'
+	
+	
+	//左右焦点的显示影藏
+	oBox.onmouseover = function(){
+		oArr.style.display = "block"
+		
+		clearInterval(timer)
+	}
+	oBox.onmouseout = function(){
+		oArr.style.display = "none"
+		// 开启定时器的时候，不能用var
+		timer = setInterval(handle,2000)
+	}
+	
+	//给左右焦点添加点击事件
+	var oLeft = document.getElementById("left")
+	var oRight = document.getElementById("right")
+	
+	oRight.onclick = handle;
+
+	function handle(){
+	
+		if(num>=aoLi.length){
+			num = 0
+			oUlist.style.left = -num*auLi[0].offsetWidth+'px';
+		}
+		num++;
+		move(oUlist,-num*auLi[0].offsetWidth)
+		for (var i=0;i<aoLi.length;i++) {
+			aoLi[i].className = ""
+		}
+		//当走到第六张的时候将，
+		if(num==5){
+			aoLi[0].className ="current";
+		}else{
+			aoLi[num].className ="current";
+		}
+		
+	}
+	oLeft.onclick = function(){
+		
+			if(num<=0){
+				num = aoLi.length;
+				oUlist.style.left = -num*auLi[0].offsetWidth+'px';
+			}
+			num--;
+			move(oUlist,-num*auLi[0].offsetWidth)
+			for (var i=0;i<aoLi.length;i++) {
+				aoLi[i].className = ""
+			}
+			//当走到第六张的时候将，
+			if(num==5){
+				aoLi[0].className ="current";
+			}else{
+				aoLi[num].className ="current";
+			}
+			
+	}
+	
+	
+	//自动播放，可以理解成有人不停的点击右焦点
+	
+	//var timer = setInterval(handle,2000)
+	
+	
+	/* window.onfocus = function(){
+		console.log(1);
+		timer = setInterval(handle,2000);
+	};
+	
+	window.onblur = function(){
+		console.log(2);
+		clearInterval(timer);
+	}; */
+	
+	
+	
+	
+	//运动框架
+	
+	function move(obj,target){
+		clearInterval(obj.timer);
+		obj.timer= setInterval(function(){
+			
+			//获取目标当前位置
+			var icur = obj.offsetLeft
+			speed = 10
+			speed = target>icur?speed:speed*-1
+			var left = icur +speed
+			
+			
+			if(Math.abs(target-icur)<=Math.abs(speed)){
+				clearInterval(obj.timer);
+				obj.style.left = target + 'px';
+			}else{
+				obj.style.left = left + 'px';
+			}
+			
+		},30)
+	}
+</script>
+
+</body>
+</html>

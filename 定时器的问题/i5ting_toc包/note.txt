@@ -1,0 +1,13 @@
+
+
+//直接在cmd   然后输入
+
+ npm wrapper of i5ting_ztree_toc https://github.com/i5ting/i5ting_ztree_toc
+ 
+
+//新建一个md文件
+
+
+//在当前文件下 打开命令行窗口，然后输入
+
+i5ting_toc -f  filename.md

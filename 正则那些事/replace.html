@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+		
+			'1 2 3'.replace(/\d+/g,function(a,b,c,d){console.log(a,b,c,d)})
+			'1 2 3'.replace(/(\d+)/g,function(a,b,c,d){console.log(a,b,c,d)})
+			
+			//当分组时，参数个数，和对应位置都不一样
+			
+			
+			(function (window) {    
+			    function fn(str) {    
+			        this.str = str;    
+			    }    
+			    fn.prototype.format = function () {    
+			        var arg = Array.prototype.slice.call(arguments,0);    
+			        return this.str.replace(/\{(\d+)\}/g, function (a, b) { console.log(a,b)   
+			            return arg[b] || '';    
+			        });    
+			    }    
+			    window.fn = fn;    
+			})(window);    
+			// use
+			(function(){    
+			    var t = new fn('<p><a href="{0}">{1}</a><span>{2}</span></p>');  
+			    console.log( t.format('http://www.alibaba.com', 'Alibaba', 'Welcome') );    
+			})(); 
+			
+			
+			var arr = [1,2,5,6];
+			console.log(arr.slice(1))
+		</script>
+	</body>
+</html>

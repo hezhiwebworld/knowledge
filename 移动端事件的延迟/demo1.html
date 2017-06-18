@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+		<style type="text/css">
+			.box{
+				height: 150px;
+				background-color: green;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="box"></div>
+		
+		<script type="text/javascript">
+			//click  点击事件延迟300ms
+			
+			//touch 事件为点击事件  判断条件
+			   //1， 触屏开始 触屏结束，手指没有移动
+			   
+			var box = document.querySelector(".box");
+			
+			var flag = false;
+			var starttime = 0;
+			var   endtime =0;
+			box.addEventListener('click',function(){
+				console.log('click')
+			})
+			
+			box.addEventListener('touchstart',function(){
+				
+				console.log('start')
+				starttime = Date.now();
+			})
+			
+			box.addEventListener('touchmove',function(){
+				
+				endtime = Date.now();
+				flag = true;
+			})
+			
+			box.addEventListener('touchend',function(){
+				
+				console.log('end')
+				
+				if(!flag && (starttime-endtime)<150){
+					console.log(tab.CLICK)
+				}
+				
+				var starttime = 0;
+			    var   endtime =0;
+				
+			})
+		</script>
+	</body>
+</html>

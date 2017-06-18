@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			
+			var f1 = (function(){
+				var i =0;
+				return function(){
+					console.log(i++)
+				}
+			})();
+			
+			var f2 = (function(){
+				var i =0;
+				return function(){
+					console.log(i++)
+				}
+			})()
+			
+			f1();
+			f1 = null;
+			f1();
+			f2();
+			
+		</script>
+	</body>
+</html>

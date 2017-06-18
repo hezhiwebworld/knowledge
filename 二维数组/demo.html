@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			var table = [];
+			
+			for (var i=1;i<=10;i++) {
+				table[i] = new Array( 10 );
+			}
+			
+			for (var row = 1; row <= 10; row++ ) {
+				for(var col = 1;col<=10;col++){
+					table[row][col] = row+'+'+col;
+					document.write(table[row][col]+'===')
+				}
+				document.write('<br />')
+			}
+			console.log( table[10][10] );
+		</script>
+	</body>
+</html>

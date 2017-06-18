@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<ul id="list">
+			<li>1</li>
+			<li>2</li>
+			<li>3</li>
+			<li>4</li>
+		</ul>
+		<script type="text/javascript">
+			
+			function ReverseLi(id){
+				var target = document.getElementById(id);
+				var alis = target.children;
+				var frag = document.createDocumentFragment();
+				for (var i = alis.length-1;i >=0 ; i--) {
+					frag.appendChild( alis[i] );
+				}
+				
+				target.appendChild( frag );
+			}
+			
+			ReverseLi('list')
+		</script>
+	</body>
+</html>

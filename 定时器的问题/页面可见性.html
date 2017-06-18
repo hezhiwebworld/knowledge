@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<video width="800" height="" id="ctrl" autoplay="autoplay" controls="controls">
+			<source src="movie.mp4" type="video/mp4"></source>
+		</video>
+		
+		<script type="text/javascript">
+			var oCtrl = document.getElementById('ctrl')
+			function handleVisibilityChange() {
+			  if (document.hidden) {
+			  	//如果页面处于被认为是对用户隐藏状态时返回true，否则返回false。
+			 	oCtrl.pause()
+			  } else  {
+			     console.log(2)
+			     oCtrl.play()
+			  }
+			}
+			
+			document.addEventListener("visibilitychange", handleVisibilityChange, false);
+		</script>
+	</body>
+</html>

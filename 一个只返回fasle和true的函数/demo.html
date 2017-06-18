@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			function Page(){
+				console.log('pages')
+			}
+			Page.prototype = {
+				constructor : Page , //修正这个this指向
+				posta : function(){
+					console.log('a')
+				},
+				postb : function(){
+					console.log('b')
+				},
+				postc : function(){
+					console.log('c')
+				},
+				check : function(){
+					return Math.random() > 0.5
+				}
+			}
+		</script>
+	</body>
+</html>

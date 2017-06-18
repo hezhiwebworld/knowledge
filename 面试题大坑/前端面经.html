@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		
+		<script type="text/javascript">
+			
+			
+			
+//			
+//			function log(){
+//				var arg = Array.prototype.slice.call(arguments,0)
+//				
+//				arg.unshift('(app)')
+//				console.log.applay(console,arg)
+//			}
+
+			var User = {
+			  count: 1,
+			
+			  getCount: function() {
+			    return this.count;
+			  }
+			};
+			
+			console.log(User.getCount()) //1
+			
+			 var func = User.getCount;  //谁调用，this指谁
+			console.log(func.call(User));    //手动更改函数上下文的指向
+		</script>
+	</body>
+</html>

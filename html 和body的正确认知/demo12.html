@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			/*火狐不支持100%，除非html也是，，一起写是保证了兼容*/
+			html,body{
+				height: 100%;
+				background-color: green;
+			}
+			
+			// 高度都设置 100% 之后,body的高度随便屏幕的改变 而改变 , 保证全屏显示
+			
+			
+			//百分比有效的前提条件 1,父标签有高度可循,中途不能有height:auto:  或者没有设置高度
+							  2 元素不能为inline
+		</style>
+		
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript">
+			window.onresize = function(){
+				 console.log(document.body.offsetHeight)
+			}
+	</script>
+</html>

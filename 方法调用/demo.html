@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		
+		<script type="text/javascript">
+			 function foo(){
+			 	console.log(this)
+			 }
+			 
+			 foo()   //window
+			 
+			 var o = {'name' : 'hezhi'}
+			 o.foo = foo;
+			 
+			 o.foo()  //o
+			 
+			 var arr = [];
+			 arr.push( o.foo )
+			 
+			 arr[0]();   //arr
+			 
+			 arr.pop()()   //window
+			 
+			 
+			 var obj = { name : 'zq'};
+			 
+			 (obj.foo = o.foo)()   //window
+			 //凡是赋值运算，都是讲被赋值的赋值拷贝一份，将拷贝的值 赋值给一个变量
+		</script>
+	</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+		
+		//构造器模式
+		//this 指向new 运算符创建的这个对象
+		
+		//返回值的问题；
+		返回基本数据类型,无效;返回对象类型,有效,原始this丢弃,原型链的结构被破坏
+		
+		function Person(){
+			return [];
+		}
+		
+		var list = new Person();
+		
+		list  的原型将不再是  Person  而是 Array.prototype
+		</script>
+	</body>
+</html>

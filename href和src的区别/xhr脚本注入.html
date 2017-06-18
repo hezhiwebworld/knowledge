@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		
+		<script type="text/javascript">
+			var xhr = new XMLHttpRequest();
+			
+			xhr.open('get','demo.js',true);
+			
+			xhr.onreadystatechange = function(){
+				if(xhr.readyState==4){
+					if(xhr.status>=200&&xhr.status<300||xhr.status==304){
+						var script = document.createElement('script');
+						script.type = "text/javascript";
+						script.text = xhr.responseText;
+						document.body.appendChild(script);
+					}
+				}
+			}
+			
+			xhr.send(null);
+		</script>
+		<script type="text/javascript">
+			alert(2)
+		</script>
+	</body>
+</html>

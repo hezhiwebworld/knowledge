@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		
+		<script type="text/javascript">
+			var  foo = {
+				hasOwnProperty : function(){
+					return false;
+				},
+				bar : "hello world"
+			}
+			
+			//当一个对象碰巧遇到有这个hasOwnProperty属性， 就会更改原型上内置的属性
+			
+			var s = foo.hasOwnProperty('bar')   //一直输出false;
+			
+			console.log(s)
+//											手动更改元素的执行上下文
+			var r = Object.prototype.hasOwnProperty.call(foo,'bar');
+			
+			console.log(r)
+		</script>
+	</body>
+</html>

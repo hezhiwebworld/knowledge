@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		
+		<div>1</div>
+		<div>2</div>
+		<div>3</div>
+		<div>4</div>
+		<script type="text/javascript">
+			//把i当参数传递进去
+//			for(var i = 0; i < 5 ;i++){
+//				setInterval((function(arg){
+//					console.log( arg )
+//				})(i),100)
+//			}
+			
+			//把i当参数传递进去
+			for(var i = 0; i < 5 ;i++){
+				(function(i){
+					setInterval(function(){
+					    console.log( i )
+ 				    },100)
+				})(i)
+			}
+			
+			//错误的想法
+			var adiv = document.getElementsByTagName('div');
+//			for (var i =0;i < adiv.length ;i++) {
+//				adiv[i].onclick = function(){
+//					
+//					//adiv[i].style.background = "pink"
+//					console.log(i)             //如何正确的获取到i
+//				}
+//			}
+			
+			//第一种写法
+//			for (var i =0;i < adiv.length ;i++) {
+//				adiv[i].onclick = (function(arg){
+//						return function(){
+//							 console.log(arg)
+//						}
+//				})(i)
+//			}
+			
+			//第二种写法
+			for (var i =0;i<adiv.length;i++) {
+				(function(arg){
+					adiv[i].onclick = function(){
+						console.log(arg)
+					}
+				})(i)
+			}
+			
+		</script>
+	</body>
+</html>

@@ -1,0 +1,873 @@
+<html>
+  <head>
+	  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <title>i5ting_ztree_toc:node</title>
+		<link href="toc/style/github-bf51422f4bb36427d391e4b75a1daa083c2d840e.css" media="all" rel="stylesheet" type="text/css"/>
+		<link href="toc/style/github2-d731afd4f624c99a4b19ad69f3083cd6d02b81d5.css" media="all" rel="stylesheet" type="text/css"/>
+		<link href="toc/css/zTreeStyle/zTreeStyle.css" media="all" rel="stylesheet" type="text/css"/>
+	  <style>
+		pre {
+		    counter-reset: line-numbering;
+		    border: solid 1px #d9d9d9;
+		    border-radius: 0;
+		    background: #fff;
+		    padding: 0;
+		    line-height: 23px;
+		    margin-bottom: 30px;
+		    white-space: pre;
+		    overflow-x: auto;
+		    word-break: inherit;
+		    word-wrap: inherit;
+		}
+
+		pre a::before {
+		  content: counter(line-numbering);
+		  counter-increment: line-numbering;
+		  padding-right: 1em; /* space after numbers */
+		  width: 25px;
+		  text-align: right;
+		  opacity: 0.7;
+		  display: inline-block;
+		  color: #aaa;
+		  background: #eee;
+		  margin-right: 16px;
+		  padding: 2px 10px;
+		  font-size: 13px;
+		  -webkit-touch-callout: none;
+		  -webkit-user-select: none;
+		  -khtml-user-select: none;
+		  -moz-user-select: none;
+		  -ms-user-select: none;
+		  user-select: none;
+		}
+
+		pre a:first-of-type::before {
+		  padding-top: 10px;
+		}
+
+		pre a:last-of-type::before {
+		  padding-bottom: 10px;
+		}
+
+		pre a:only-of-type::before {
+		  padding: 10px;
+		}
+
+		.highlight { background-color: #ffffcc } /* RIGHT */
+		</style>
+  </head>
+  <body>
+	  <div>
+				<div style='width:25%;'>
+						<ul id="tree" class="ztree" style='width:100%'>
+
+						</ul>
+				</div>
+        <div id='readme' style='width:70%;margin-left:20%;'>
+          	<article class='markdown-body'>
+            	<h1 id="-">前端入门到出家</h1>
+<h2 id="html-html5">html/html5</h2>
+<h3 id="h5-">h5--语义标签</h3>
+<ul>
+<li>header / nav / footer / section / </li>
+</ul>
+<blockquote>
+<p>语义标签的好处</p>
+<blockquote>
+<p>有利于文档裸奔，有利于seo（搜索引擎优化）</p>
+<blockquote>
+<p> 合理的title、description、keywords：搜索对着三项的权重逐个减小，title值强调重点即可，重要关键词出现不要超过2次，而且要靠前，不同页面title要有所不同；description把页面内容高度概括，长度合适，不可过分堆砌关键词，不同页面description有所不同；keywords列举出重要关键词即可</p>
+<p> 语义化的HTML代码，符合W3C规范：语义化代码让搜索引擎容易理解网页</p>
+<p> 重要内容HTML代码放在最前：搜索引擎抓取HTMl顺序是从上到下，有的搜索引擎对抓取长度有限制，保证重要内容一定会被抓取</p>
+<p> 重要内容不要用js输出：爬虫不会执行js获取内容</p>
+<p> 少用iframe：搜索引擎不会抓取iframe中的内容</p>
+<p> 非装饰性图片必须加alt</p>
+<p>提高网站速度：网站速度是搜索引擎排序的一个重要指标</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<h3 id="h5-">h5--表单</h3>
+<ol>
+<li><p>新增的type</p>
+</li>
+<li><p>新增的标签</p>
+</li>
+</ol>
+<pre><code class="lang-js">    //老版本的下拉菜单
+     &lt;select&gt;
+        &lt;option&gt;选项&lt;/option&gt;
+        &lt;option&gt;选项&lt;/option&gt;
+        &lt;option&gt;选项&lt;/option&gt;
+        &lt;option&gt;选项&lt;/option&gt;
+        &lt;option&gt;选项&lt;/option&gt;
+    &lt;/select&gt;
+
+    //新增的自定义下拉菜单
+    &lt;input type=&quot;text&quot; list=&quot;city&quot; /&gt;
+    &lt;!-- 数据列表的标签--&gt;
+    &lt;datalist id=&quot;city&quot;&gt;
+        &lt;option value=&quot;上海市&quot;&gt;&lt;/option&gt;
+        &lt;option value=&quot;北京市&quot;&gt;&lt;/option&gt;
+        &lt;option value=&quot;广州市&quot;&gt;&lt;/option&gt;
+        &lt;option value=&quot;西红柿&quot;&gt;&lt;/option&gt;
+        &lt;option value=&quot;西安市&quot;&gt;&lt;/option&gt;
+        &lt;option value=&quot;什么都不是&quot;&gt;&lt;/option&gt;
+    &lt;/datalist&gt;
+
+    //新增的自定义下拉菜单要配合文本输入框一起使用
+</code></pre>
+<ol>
+<li>表单事件</li>
+</ol>
+<h3 id="h5-">h5--音频标签</h3>
+<ul>
+<li>video/audio</li>
+</ul>
+<h3 id="h5-dom-">h5--dom拓展</h3>
+<h4 id="-queryselector-queryselectorall">选择器 querySelector/queryselectorAll</h4>
+<blockquote>
+<p>根据css选择器来选择元素 直接通过id  class  标签等</p>
+</blockquote>
+<h4 id="-classlist">类名的操作 classList</h4>
+<pre><code class="lang-js">    var odemo = document.querySelector(&#39;.demo&#39;)
+    odemo.classList.add(&#39;icur&#39;);  //添加
+    odemo.classList.remove(&#39;icur&#39;)  //移除
+    odemo.classList.toggle(&#39;icur&#39;)    //切换
+    odemo.classList.contains(&#39;icur&#39;)  //检测是否包含
+</code></pre>
+<h3 id="-data-">自定义属性  data-开头</h3>
+<pre><code class="lang-js">    &lt;div class=&quot;demo&quot; data-my-name=&quot;hezhi&quot;&gt;&lt;/div&gt;
+    &lt;script type=&quot;text/javascript&quot;&gt;
+        var odemo = document.querySelector(&#39;.demo&#39;)
+        console.log(odemo.dataset[&#39;myName&#39;]);  //获取自定义属性 //注意html/js写法的区别
+        odemo.dataset[&#39;myAge&#39;]=&quot;18&quot;;    //设置自定义属性   dataset是一个属性
+    &lt;/script&gt;
+</code></pre>
+<h2 id="css-css3-0">css/css3.0</h2>
+<h3 id="c3-">c3--新增文本特性</h3>
+<ul>
+<li><p>text-shadow （水平偏移量，垂直偏移量，高斯模糊，阴影颜色） /  HSLA（色调，饱和度，亮度，透明度）  // writing-mode 书写模式</p>
+</li>
+<li><p>writing-mode 文字书写方向  lr-tb  从左向右，</p>
+</li>
+</ul>
+<p><img src="img/mode.png" alt="mode"></p>
+<h3 id="c3-">c3--新增选择器</h3>
+<h4 id="-">伪类选择器   ============特殊标记 ： 单冒号</h4>
+<ul>
+<li>nth-child()</li>
+</ul>
+<pre><code class="lang-js">    //当参数是一个正数的时候，
+    li:nth-child(3)========表示选中第三个li
+    //参数是表达式n===2n====2n-1
+    li:nth-child(2n)=======表示选中所有偶数li
+    //当参数是 -n+5
+    li:nth-child(-n+5)=====表示选中前5个li
+</code></pre>
+<ul>
+<li>E:checked =====匹配所有被选中的文本框</li>
+</ul>
+<h4 id="-">伪对象选择器</h4>
+<pre><code class="lang-js">    //选中首字母
+    E::first-letter===========此伪对象仅作用于块对象。内联对象要使用该伪对象，必须先将其设置为块级对象。
+    //选中第一行
+    E::first-line=============此伪对象仅作用于块对象。内联对象要使用该伪对象，必须先将其设置为块级对象。
+
+    //E::before 设置目标元素结构前面的内容，一般配合content;
+    //E::after 设置目标元素结构后面的内容，一般配合content;
+    --------------------------------------------------
+    此方法生成的元素是行类元素
+    --------------------------------------------------
+    //content的语法规则
+    .string p:after{content:&quot;是&quot;;}
+    .attr p:after{content:attr(title);}
+    .url p:before{content:url(../../skin/ico.png);}
+</code></pre>
+<h3 id="c3-">c3--新增盒模型</h3>
+<ul>
+<li>盒模型的宽度计算规则</li>
+</ul>
+<p><img src="img/box.png" alt="box"></p>
+<ul>
+<li>新增盒模型=====box-sizing=====也叫做怪异盒模型</li>
+</ul>
+<pre><code class="lang-js">    当box-sizing取值为border-box：此时盒模型为内减模式，盒子的绝对宽度 = width
+    =============================================================
+    当box-sizing取值为content-box: 此时盒模型为外增模式，盒子的绝对宽度= width+padding+border
+</code></pre>
+<h3 id="c3-">c3--过渡/动画</h3>
+<h3 id="c3-">c3--变换</h3>
+<h3 id="c3-c3-">c3--布局-------------------c3最重要的改变</h3>
+<h2 id="-">新增特性一般都需要添加浏览器的私有前缀</h2>
+<ul>
+<li><p>-webkit-  ======  chrome // 以及当前手机浏览器 // sofori // 国内的双核浏览器</p>
+</li>
+<li><p>-moz- </p>
+</li>
+<li><p>-ms-</p>
+</li>
+<li><p>-0-</p>
+</li>
+</ul>
+<h2 id="js">js</h2>
+<h3 id="-">基础语法省略</h3>
+<ul>
+<li>词法作用域======正常变量访问的权限</li>
+</ul>
+<p><img src="img/chain.png" alt="chain"></p>
+<h4 id="-sort-">数组的排序sort方法与参数</h4>
+<pre><code class="lang-js">    //sort排序默认使用字典排序   10 &lt; 2 ,123 &gt; 12
+</code></pre>
+<h4 id="js-">js内置的一些对象</h4>
+<ul>
+<li><p>Object ==Array===Function</p>
+</li>
+<li><p>Date===RegExp======Math</p>
+</li>
+<li><p>Number === String == Boolean ==== 包装对象</p>
+</li>
+</ul>
+<h4 id="typeof-">typeof 操作符</h4>
+<ul>
+<li><p>值类型   ----返回基本数据类型</p>
+</li>
+<li><p>复杂类型 ----返回object</p>
+</li>
+<li><p>函数例外   ---- 返回 function</p>
+</li>
+</ul>
+<h4 id="-">==隐式转换的规则</h4>
+<p><img src="img/1.png" alt="1"></p>
+<pre><code class="lang-js">    //====以上比较规则，适用所有===//
+     console.log({}==!{});    // false
+    =&gt;    {}.valueOf().toString()  ==  &quot;[object Object]&quot;
+    =&gt;  consloe.log(&quot;[object Object]&quot; == false)
+
+
+    //数组有点区别
+     console.log([]==![])     //true
+     =&gt; [].valueOf().toString() ==  &#39;&#39;
+     =&gt; console.log( &#39;&#39; == false)
+     =&gt; console.log( 0 == 0)  //true
+</code></pre>
+<h4 id="-delete-">关系运算符===逻辑运算符==delete关键字===忽略（不懂自己查文档）</h4>
+<ul>
+<li>delete可以删除对象的属性，和没有用var 申明的变量=====返回值是布尔值</li>
+</ul>
+<h4 id="arguments-">arguments 伪数组的用法</h4>
+<pre><code class="lang-js">    //将为伪数组转化成真的数组
+    function aaa(){
+        var args = Array.prototype.slice.call(arguments,0);
+
+        console.log(args);    // [&quot;1&quot;, &quot;2&quot;, &quot;3&quot;, &quot;5&quot;]
+    }
+
+    aaa(&#39;1&#39;,&#39;2&#39;,&#39;3&#39;,&#39;5&#39;);
+
+    //求数组中的最大值
+
+    var arr = [1,2,3,4,6]
+    Math.max.apply(Math,arr)
+</code></pre>
+<h4 id="es5-">es5扩展的数组的方法</h4>
+<pre><code class="lang-js">    //forEach()
+    语法： 数组.forEach( callback )
+    var callback = function( a , b ){}
+    =====a表示数组元素，b数组元素所对应的索引
+
+    //map()
+    语法 ：数组.map( callnack)
+</code></pre>
+<h4 id="es5-object-">es5扩展的object方法</h4>
+<pre><code class="lang-js">    //兼容性ie8，手机端基本都支持=======老师讲的
+    Objects.keys( 对象  )  ========将对象的key 提取出来，返回一个数组
+    Objects.values( 对象  )  ========将对象的value 提取出来，返回一个数组
+</code></pre>
+<h3 id="dom-api-html-dom-dom-">dom--提供一套操作页面元素的api==严格意义上讲这是html-dom  只是dom标准里面的一面。</h3>
+<blockquote>
+<p>所谓的文档对象模型就是将文档看成对象，将文档中的每一个东西看成对象</p>
+</blockquote>
+<h4 id="dom-">dom节点------------------需要复习一下</h4>
+<h4 id="dom-">dom---（增）</h4>
+<ul>
+<li><p>createElement();</p>
+</li>
+<li><p>cloneNode();</p>
+</li>
+<li><p>appendChild()</p>
+</li>
+<li><p>innerHTML</p>
+</li>
+</ul>
+<h4 id="dom-">DOM ---（删）</h4>
+<ul>
+<li><p>removeChild();</p>
+</li>
+<li><p>innerHTML=&#39;&#39;;</p>
+</li>
+</ul>
+<h4 id="dom-">DOM--(查)   //略过</h4>
+<h4 id="dom-">dom---(改)</h4>
+<ul>
+<li>obj.classList.add()</li>
+</ul>
+<h3 id="bom-api">bom（内置对象）---提供一套操作浏览器的API</h3>
+<h4 id="-">内置对象</h4>
+<h5 id="window-">window  //一些内置的全局的方法</h5>
+<ul>
+<li>window.open()   </li>
+<li>window.alert()</li>
+</ul>
+<h4 id="location">location</h4>
+<h5 id="location-">location对象的属性</h5>
+<ul>
+<li><p>location.href   //获取当前页面的url ，href是一个属性，可以取值，可以赋值</p>
+</li>
+<li><p>location.host    //当前页面的域名</p>
+</li>
+<li><p>location.reload   //重新加载页面</p>
+</li>
+<li><p>location.hash    // 设置或返回从#开始的锚</p>
+</li>
+<li><p>location.hostname  //设置返回当前url的主机名</p>
+</li>
+<li><p>location.port     //返回或设置当前url的端口号</p>
+</li>
+<li><p>location.protocol   //设置或者返回当前url的协议</p>
+</li>
+<li><p>location.search     // 设置或者返回问号？开始的url查询部分</p>
+</li>
+</ul>
+<h5 id="location-">location对象的方法</h5>
+<ul>
+<li><p>location.assign()   //加载新的文档</p>
+</li>
+<li><p>location.reload()    //重新加载当前文档</p>
+</li>
+<li><p>location.replace()    //用心的文档替换当前文档</p>
+</li>
+</ul>
+<h4 id="navigator-">navigator  //获取当前浏览器的一些相关信息</h4>
+<ul>
+<li>navigator.userAgent   //返回由客户机发送服务器的user-agent头部的值</li>
+</ul>
+<h3 id="js-">js中异常处理------相关阅读</h3>
+<ul>
+<li><a href="http://javascript.ruanyifeng.com/grammar/error.html">JavaScript错误机制</a></li>
+</ul>
+<h3 id="js-">js中事件委托的机制------------------需要把细节部分补充一下</h3>
+<h4 id="js-">js中兼容所有的浏览器的事件绑定方式</h4>
+<pre><code class="lang-js">    /**
+     * 
+     * @param {Object} target
+     * @param {Object} type
+     * @param {Object} callback
+     */
+    function addEvent(target, type, callback) {
+        if(target.addEventListener) {
+            target.addEventListener(type, callback)
+        } else if(target.attachEvent) {
+            target.attachEvent(&#39;on&#39; + type, callback)
+        } else {
+            //        target[&quot;on&quot; + type] = callback;
+            addevent(target, type, callback);
+        }
+    }
+
+    /***
+     * 
+     * @param {Object} obj
+     * @param {Object} type
+     * @param {Object} callback
+     */
+    function addevent(target, type, callback) {
+        var oldcallback = target[&#39;on&#39; + type];
+
+        if(typeof oldcallback !== &quot;function&quot;) {
+            target[&#39;on&#39; + type] = callback;
+        } else {
+            target[&#39;on&#39; + type] = function() {
+
+                callback();
+                oldcallback();
+            }
+        }
+    }
+
+    /***
+     * 
+     * @param {Object} target
+     * @param {Object} type
+     * @param {Object} callback
+     */
+    function removeEvent(target, type, callback) {
+        if(target.removeEventListener) {
+            target.removeEventListener(type, callback);
+        } else if(target.detachEvent) {
+            target.detachEvent(&#39;on&#39; + type, callback)
+        } else {
+            target[&#39;on&#39; + type] = null;
+        }
+    }
+</code></pre>
+<h3 id="javascript-">javascript面向对象的思想</h3>
+<h4 id="-">面向对象的三大特征</h4>
+<ul>
+<li>封装</li>
+</ul>
+<blockquote>
+<blockquote>
+<p>将属性和方法封装成一个对象，实现一系列的功能，只需要对外界暴露一些接口</p>
+</blockquote>
+</blockquote>
+<ul>
+<li>继承</li>
+</ul>
+<blockquote>
+<blockquote>
+<p>js利用是原型链的继承模式，js所独有的继承模式</p>
+</blockquote>
+</blockquote>
+<ul>
+<li>多态=======完全不知道在说什么</li>
+</ul>
+<blockquote>
+<blockquote>
+<p>js不支持多态？？？？？？？？？？？？？？？？？？？？？？</p>
+</blockquote>
+</blockquote>
+<ul>
+<li>面向对象的好处</li>
+</ul>
+<blockquote>
+<blockquote>
+<p>代码的复用====代码的管理（分类简化）=====</p>
+</blockquote>
+</blockquote>
+<pre><code class="lang-js">    toString 的设计者，就使用 格式 [object 类型名] 来设计toSting方法
+
+    默认使用的是 ： [object Object]
+    第一个object 是类型的含义，指该数据的是一个对象
+    第二个Object 是描述什么类型，即构造函数的名字
+
+    =========================================
+    空类型的数据 null  undefined  toString() 会报错
+</code></pre>
+<h4 id="-">创建对象的若干种的方式</h4>
+<h5 id="-new-object-">字面量==={} 和内置的构造函数  new Object() ========  两者没有区别，详细过程（不懂）自己看书</h5>
+<h5 id="-">自定义构造函数来创建对象</h5>
+<pre><code class="lang-js">    //一个简单的实例：
+            function Person(options){
+                this.setting = {
+                     name : &#39;人名&#39;,
+                     age : &#39;年龄&#39;,
+                     work : &#39;coding&#39;
+                }
+                //初始化参数
+                for (var attr in options) {
+                    this.setting[attr] = options[attr]
+                }
+            }
+            var p1 = new Person();
+            var p2 = new Person({
+                name : &#39;hezhi&#39;,
+                age : &#39;18&#39;,
+                work : &#39;coded&#39;
+            })
+            console.log(p1);
+            console.log(p2)
+</code></pre>
+<ul>
+<li>构造函数的问题===================================================</li>
+</ul>
+<pre><code class="lang-js">    function Person(){
+        this.age = = 2;
+        this.say = function(){console.log(&#39;汪汪&#39;)}
+    }
+    var d1 = new Person();
+    var d2 = new Person();
+    //每次调用构造函数，new在内存中开辟新的空间，但是方法say是每个人都有的功能
+    //这个方法会造成内层的浪费，   ====解决方案是将方法写在原型链上，通过继承的方式来解决这个问题
+
+    console.log(d1.say===d2.say)   //  ==&gt; false
+</code></pre>
+<pre><code class="lang-js">    function say(){
+        console.log(1);
+    }
+    center = say
+
+    function Person(){
+        this.age = = 2;
+        this.say = center      //利用对象的赋值是引用类型，say的指向一个地址
+    }
+    var d1 = new Person();
+    var d2 = new Person();
+    //每次调用构造函数，new在内存中开辟新的空间，但是方法say是每个人都有的功能
+    //这个方法会造成内层的浪费，   ====解决方案是将方法写在原型链上
+
+    console.log(d1.say===d2.say)   //  ==&gt; false
+</code></pre>
+<ul>
+<li>原型的使用注意点 ========================================================</li>
+</ul>
+<pre><code class="lang-js">    function Person(name){
+        this.name = name
+    }
+    var test = {
+          constructor : Person,   //手动修正constructor的指向
+          say : function(){
+              console.log(&#39;汪汪&#39;)
+          }
+    }
+
+    Person.prototype = test;   //当原型被重新赋值一个对象时，需要注意constructor的指向问题
+    var p1 = new Person();
+    console.log(p1.constructor)
+</code></pre>
+<blockquote>
+<p>原型访问原理</p>
+<blockquote>
+<p>为实例对象添加属性，不会影响原型。</p>
+<p>访问实例对象的属性，如果实例不存在，就会去原型上查找，一直找到Object.prototype,如果还找不到，就会报错</p>
+<p>一般情况下，只会将方法放在原型中，不放属性</p>
+<p>当原型被一个对象替换，替换之前创建的对象，和替换之后创建的对象是不一样的</p>
+<p>对象的关联属性，就是创建对象那一刻，构造函数的prototype</p>
+</blockquote>
+</blockquote>
+<h4 id="-">原型的继承方式</h4>
+<h5 id="-">混入式继承-----------一般不推荐使用</h5>
+<pre><code class="lang-js">    //通过for in的形式来赋值
+    //obj是一个实例化的对象
+    for(var key in obj){
+        obj1.prototype[key] = obj[key]
+    }
+</code></pre>
+<h5 id="-">替换式原型继承-----------也不推荐使用---明显弱智</h5>
+<pre><code class="lang-js">    //obj是一个实例化的对象
+    obj1.prototype = obj
+</code></pre>
+<h5 id="-">封装性三种利用形式</h5>
+<p>1、封装数据</p>
+<p>2、封装方法--例如系统的内置api无法被压缩</p>
+<pre><code class="lang-js">    利用将系统内置的api封装成一个自定义函数，
+</code></pre>
+<p>3、作为数据与行为的封装</p>
+<pre><code class="lang-js">    将数据与行为封装到一起，行为是来维护，操作这个数据的，这是一个自治结构
+</code></pre>
+<h5 id="-">如何实现封装</h5>
+<pre><code class="lang-js">    1.字面量过程，（literal）
+    var p = {
+        name : &#39;hezhi&#39;,
+        say : function(){
+            console.log( o );
+        }
+    }
+    //缺陷：无法复用
+    2.使用工厂设计模式（工厂方法，工厂函数） factory
+     function createPerson(name,age,gender){
+         var o = {};
+         o.name = name;
+         o.age = age;
+         o.say = function(){}
+         return o;
+     }
+     //缺点： 方法没有复用
+     js 的动态特性，js中没有约定对象的大小,可以随意给对象赋值
+     js 是解释执行的  {}=={}  []==[]   //=&gt; false
+
+     3.引入构造函数，引入继承（ 原型 ）
+     function Person(){
+         //....
+     }
+     //方法挂载在原型上
+     Person.prototype.say = function(){
+         //...
+     }
+</code></pre>
+<h4 id="-">凡是赋值运算，一定是将被赋值的这个数据拷贝一份，然后将拷贝的变量存储在变量中；</h4>
+<h3 id="js-">js的解析中概念</h3>
+<h4 id="-">在解析的时候{} 有两层含义，一个是 代码块，另一个是  对象的字面量。</h4>
+<ul>
+<li><p>{}  单独出现，默认被理解为 代码块</p>
+</li>
+<li><p>如果想{} 作为对象被解释，需要将 {} 转换成表达式</p>
+</li>
+</ul>
+<h4 id="-">所谓的表达式   是指由数据和运算符连接的，具有结果的  代码结构</h4>
+<ul>
+<li><p>123  ===== 常量表达式</p>
+</li>
+<li><p>&#39;abc&#39;   </p>
+</li>
+<li><p>1+2    ====== 算数表达式</p>
+</li>
+<li><p>a = 1+2  ====== 赋值表达式  </p>
+</li>
+<li><p>{}   ===== 对象字面量表达式</p>
+</li>
+</ul>
+<h4 id="-">词法作用域</h4>
+<ul>
+<li><p>作用域指的是一个变量可以被使用的范围</p>
+</li>
+<li><p>词法作用域是用的时代码的规范来约定变量的使用范围，其范围的约定是不合代码的运行有关
+之和代码的编写有关</p>
+</li>
+<li><p>什么事块级作用域就是使用代码块来限定变量的使用范围</p>
+</li>
+</ul>
+<h5 id="js-">js中的词法作用域</h5>
+<ul>
+<li>什么是声明</li>
+</ul>
+<pre><code class="lang-js">    所谓的声明就是   变量的声明和函数的声明，其目的就是让js解析引擎知道有什么东西；
+    声明是不参与运算的，是不参与执行的，是在预解析阶段就完成的
+
+    变量的声明就是var关键字
+
+    var num = 123 ；   这是一个语法糖，所谓的语法糖就是那些本质不是这个语法；但是这样写会比较方便
+
+    因此这一句话应该是：
+     var num    //声明
+     num  = 123   //赋值语句
+
+     函数的声明，使用语法： 
+     function 函数名(){
+     }
+
+     在一个独立于任何语句（表达式 ，if结构 ，while 结构 等）的独立结构中，或者函数中
+     出现的代码，为函数声明
+</code></pre>
+<ul>
+<li>预解析的规则</li>
+</ul>
+<pre><code class="lang-js">    //预解析：函数声明，变量声明
+    js的代码执行要经历两个步骤，首先是预解析，预解析会通读代码，如果发现错误则停下，
+    如果遇到声明则记录，
+
+    在声明的时候，如果是变量名的声明，解析器内部就会记录下这个变量，如果使用，则遍历检查是否
+    有记录，
+    在声明的时候，如果是函数声明，则解析器会先记录函数的名字，然后将函数的名字和函数体关联起来；
+    在预解析中，如果出现重复的声明，则第一次声明会起作用，其后所有的同名的声明是无效
+    ==============================================================
+    感觉以上的说法有些问题：
+    ==============================================================
+    //比较简单的预解析
+    js解析器会通读代码，寻找var function 关键字 或者参数
+
+    变量则赋值  undefine，   提升到当前作用域的顶部
+    函数则赋值 函数体       提升到当前作用域的顶部
+
+    如果遇到函数和变量同名，函数覆盖变量
+
+    如果遇到函数与函数同名，后者则覆盖前者  （后来居上的原则）
+</code></pre>
+<h3 id="-md-">面向对象重新做一份md=============================老师太牛逼，我太渣</h3>
+<h3 id="js-api-">js新增api 并且附上实例</h3>
+<h4 id="-input">用户输入事件 input</h4>
+<pre><code class="lang-js">    txt.addEventListener(&quot;change&quot;, function () {
+        console.log(&quot;呵呵&quot;);
+      });
+
+      txt.addEventListener(&quot;input&quot;, function () {
+        console.log(&quot;哈哈&quot;);
+      })
+</code></pre>
+<h3 id="js-">js程序性能的测试</h3>
+<pre><code class="lang-js">    //据老师讲有兼容性问题
+    console.time(&#39;hello&#39;)
+    for (var i=0; i&lt;5000;i++) {
+        console.log(i)
+    }
+    console.timeEnd(&#39;hello&#39;)
+
+    //模拟实现的console.log
+
+    var start = (new Date()).getTime()
+    for(var i=0;i&lt;5000;i++){
+        console.log( i )
+    }
+    var end = (new Date()).getTime()
+    --------------------------------
+    console.log(end - start)
+</code></pre>
+<h2 id="jq">jq</h2>
+<h3 id="js-dom-">js的升级版，最大的作用是简化了dom的操作，一起强大生态库</h3>
+<h4 id="jq-">jq的插件扩展机制</h4>
+<h4 id="jq-each-js-foreach-">jq的each可以遍历数组，遍历对象====js的forEach的区别</h4>
+<pre><code class="lang-JS">    //each   || forEach  
+    each的两形态
+    1. $.each( arr , callback )
+    2. $(&#39;li&#39;).each( callback )
+    jq中，回掉函数的参数是（ k ，v ）;=====因为jq的each不仅可以便利数组，还可以遍历对象
+
+    js中，回掉函数的参数是（ v ， i ）;=====参数顺序不同于jq，不能遍历对象
+
+    在js数组的便利不能使用this，在jq中可以使用this，表示当前遍历的元素对象
+
+
+    [1,23,3].forEach(function( v , i , arr){
+
+        this 指向  obj
+
+    },obj)
+
+    jq中遍历可以中断   ====  return false ;
+    js中遍历不能中断   ====  js中新增的几个数组的方法貌似都不能中断
+
+
+    jq 的 each     ====      返回遍历的对象
+    js 的foreach   ====      返回空；
+</code></pre>
+<h4 id="jq-map-js-map">jq 中map 与js map</h4>
+<pre><code class="lang-js">    $.map( arr ,callback )   参数的位置 v i  ====== 不能使用this，这里的this值得是window
+    $.(&#39;li&#39;).map( callback ) 参数的位置 i  v ====== 可以使用this
+
+    ------------------------------------------
+    在 jq 中如果函数没有返回值，则这一项没有
+
+    在js中 如果函数没有返回值，则返回undefined
+</code></pre>
+<h4 id="jq-">jq中一些有用但是生僻的方法</h4>
+<ul>
+<li>attr 与  prop</li>
+</ul>
+<pre><code class="lang-js">    1. attr 支持所有的属性操作（包括自定义属性）
+
+    2. prop 只能支持（内置的属性，不包括自定义属性）
+    ------------------------------------
+    知识性的错误，两者真正的区别就是自定义属性能否操作
+    =====================================
+    $(&#39;input&#39;).attr(&#39;checked&#39;,&#39;true&#39;);
+    $(&#39;input&#39;).prop(&#39;checked&#39;,&#39;true&#39;)
+    =====================================
+    $(&#39;input&#39;).attr(&#39;myname&#39;,&#39;hezhi&#39;);
+    $(&#39;input&#39;).prop(&#39;myname&#39;,&#39;hezhi&#39;)
+    =====================================
+</code></pre>
+<h4 id="-ajax">服务请求ajax</h4>
+<ul>
+<li>$.ajax() /  $.get()  / $.post()</li>
+</ul>
+<h5 id="ajax-">ajax请求的实例</h5>
+<pre><code class="lang-js">    当dataType 为jsonp的时候，ajax请求就不是真正意义上的请求
+
+    //jsonp的原理
+    利用script标签的scr可以跨域的特性，
+
+    预先定义函数名，后台通过接收，并且将数据当回掉函数的参数传递过来，
+
+    当加载的数据，会被当作js执行  
+
+    一般后台返回的数据情况应该  callback(&#39;data&#39;);
+
+    预先定义好的函数就会被调用
+</code></pre>
+<blockquote>
+<p>跨域访问的限制</p>
+<blockquote>
+<p>不能操作dom元素</p>
+<p>不永许进行XMLHTTPresquest</p>
+</blockquote>
+<p>服务端解决跨域</p>
+<blockquote>
+<p> header( &#39;Access-Control-Allow-Origin:*&#39; )</p>
+<p> header( &#39;Access-Control-Allow-Origin:<a href="http://www.study.com">http://www.study.com</a>&#39; )</p>
+</blockquote>
+<p>浏览器端解决跨域---------------大多具有兼容性问题，一般不使用</p>
+<blockquote>
+<p>document.domain + iframe顶级域名相同的可以通过</p>
+<p>location.hash + iframe</p>
+<p>window.postMessage()</p>
+<p>window.name + iframe</p>
+</blockquote>
+</blockquote>
+<h4 id="width-height-left-top-">width / height / left  /  top 的获取</h4>
+<ul>
+<li>可视区的宽高</li>
+</ul>
+<pre><code class="lang-js">    $(window).height() //  $(window).width()
+</code></pre>
+<ul>
+<li>据上，据左的距离</li>
+</ul>
+<pre><code class="lang-js">    $(&#39;div&#39;).offset().top //$(&#39;div&#39;).offset().left()
+</code></pre>
+<h5 id="-">前后数据交互</h5>
+<ul>
+<li>json / xml</li>
+</ul>
+<h2 id="-web">移动web</h2>
+<h3 id="-">注意事项</h3>
+<ul>
+<li>适口的设置 </li>
+</ul>
+<pre><code class="lang-js">    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width,inital-scale=1;maximun-scale=1,minimun-scale=1,user-scalable=no&quot;&gt;
+</code></pre>
+<ul>
+<li>媒体查询 // 检测容器的宽度</li>
+</ul>
+<pre><code class="lang-js">    @media screnn and (max-width :1200px) and (min-width :1200px){
+            添加样式
+    }
+</code></pre>
+<ul>
+<li>比较特别的移动端兼容性样式</li>
+</ul>
+<pre><code class="lang-js">    //点击高亮显示
+    -webkit-tap-highlight-color:background :transparent;
+    //表单控件的 阴影的样式
+    -webkit-apprance
+    //表单控件的自动补全，黄色背景
+</code></pre>
+<ul>
+<li>touch事件 在移动端   点击事件有300ms延迟，这个很影响性能</li>
+</ul>
+<pre><code class="lang-js">    //利用移动端的touch事件来模拟一个点击事件
+</code></pre>
+<ul>
+<li>移动端事件兼容</li>
+</ul>
+<pre><code class="lang-js">    // animationend   ---  transitionend  注意书写方式
+
+    odmeo.addEventListener(&#39;animationend&#39;,function(){
+
+    })
+    odmeo.addEventListener(&#39;webjitAnimationEnd&#39;,function(){
+
+    })
+</code></pre>
+<ul>
+<li>移动端插件库的使用   // zepto  //  animate.css // swiper //</li>
+</ul>
+<blockquote>
+<p>zepto,属于轻量级的jq，通过模块的形势加载，核心模块比较小</p>
+</blockquote>
+<h2 id="http-">http协议方面的问题</h2>
+<h3 id="-">数据传递是通过字符串键值对的形势</h3>
+<h4 id="get-post-">get请求图详解   -------  post的图基本类似</h4>
+<p><img src="img/get.png" alt="get图"></p>
+<h4 id="get-post-">get响应图详解   -------  post的图基本类似</h4>
+<p><img src="img/response.png" alt="get图"></p>
+
+          	</article>
+        </div>
+		</div>
+  </body>
+</html>
+<script type="text/javascript" src="toc/js/jquery-1.4.4.min.js"></script>
+<script type="text/javascript" src="toc/js/jquery.ztree.all-3.5.min.js"></script>
+<script type="text/javascript" src="toc/js/ztree_toc.js"></script>
+<script type="text/javascript" src="toc_conf.js"></script>
+
+<SCRIPT type="text/javascript" >
+<!--
+$(document).ready(function(){
+    var css_conf = eval(markdown_panel_style);
+    $('#readme').css(css_conf)
+    
+    var conf = eval(jquery_ztree_toc_opts);
+		$('#tree').ztree_toc(conf);
+});
+//-->
+</SCRIPT>

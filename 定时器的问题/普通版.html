@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#demo{
+				width: 100px;
+				height: 100px;
+				background-color:red;
+				position: absolute;
+				left: 200px;
+				top: 200px;
+			}
+		</style>
+		
+	</head>
+	<body>
+		<div id="demo"></div>
+	</body>
+	<script src="buffermove.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		
+		var odemo = document.getElementById("demo")
+		odemo.onmouseover = function(){
+			buffermove(this,{width:200,height:200,left :150,top :150},function(){alert(1)})
+			
+		}
+		odemo.onmouseout = function(){
+			buffermove(this,{width:100,height:100,left :200,top :200})
+		}
+			
+		
+	</script>
+	
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			//ie  支持另一种实现形式；会发出readStateChange事件；
+			var script = document.createElement('script');
+			script.type =  "text/javascript";
+			
+			script.onreadystatechange = function(){
+				if(script.readState=="loaded" || script.readState=="complete"){
+					//释放事件句柄   防止事件二次执行
+					script.onreadystatechange = null;
+					alert('脚本加载完成');
+				}
+			}
+			
+			//其他浏览器的实现形式：当创建的脚本加载完成后，会发出一个load时事件
+			//支持的浏览器 ff   opera   chorme   safari
+			var script = document.createElement('script');
+			script.type =  "text/javascript";
+			
+			script.onload = function(){
+				alert('脚本加载完毕 ')
+			}
+			
+		</script>
+	</body>
+</html>

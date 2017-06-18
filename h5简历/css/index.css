@@ -1,396 +1,750 @@
-*{
-	padding: 0;
-	margin: 0;
-	list-style: none;
-	border: none;
-	text-decoration: none;
+
+/*@import url('https://fonts.googleapis.com/css?family=Cookie');
+*/
+
+
+.swiper-slide{
+	position: relative;
+	overflow: hidden;
+	z-index: 1;
 }
-body{
-	cursor: pointer;
-}
 
-
-
-.nav{
-	position: fixed;
-	z-index: 10;
-	height: 100px;
-	background: rgba(0,0,0,0.5);
-	color: white;
+.container {
+	height: 678px;
 	width: 100%;
-	display: flex;
-	text-align: center;
-	line-height: 100px;
-}
-.nav a{
-	flex: 1;
-	
-}
-@keyframes hezhi-move{
-	0%{
-		transform:translateY(0px) ;
-	}
-	50%{
-		transform:translateY(300px);
-	}
+    position: absolute;
+   top: 0;
+   left: 0;
+   font-family: 'Cookie', cursive;
+   overflow: hidden;
 }
 
-.swiper-pagination-switch {
-	font-size: 30px;
-	width: 60px;
-	height:60px;
-	line-height: 120px;
-	background: url(../img/png-0727.png) no-repeat;
-	animation:hezhi-move 10s infinite;
-	background-size: cover;
-	
+#days {
+  font-size: 50px;
+  color: #FFF;
+  text-align: center;
+  letter-spacing: 3px;
 }
 
-.pagination {
-    position: fixed;
-    z-index: 100;
-    margin-top: -250.5px;
-    top: 50%;
-    right: 17px;
+.drop {
+	position: absolute;
+	top: 0;	
+	z-index: -1;
+    opacity: 0;
+}
+.snow {
+	height: 8px;
+	width: 8px;
+	border-radius: 100%;
+	background-color: #FFF;
+  box-shadow: 0 0 10px #FFF
 }
 
-.swiper-active-switch {
-     background: url(../img/png-0726.png) no-repeat;
-     background-size: cover;
+
+.animate {
+	animation: falling 4.5s infinite ease-in;	
 }
 
-/*nav条部分*/
 
+@keyframes falling {
+	0% {top: 0; opacity: 1;}
+	100% {top: 800px; opacity: 0}
+}
 
+/*第一屏*/
 
-.grjl::before{
-	content: '';
-	display: inline-block;
-	height: 80px;
-	width: 80px;
-	border-radius: 50%;
-	border: 10px double black;
-	background: url(../img/png-0726.png) no-repeat;
-	background-size: cover;
-	background-position: center center;
-	vertical-align: middle;
+.jl-logo{
+	width: 200px;
+	height: 200px;
+	position: absolute;
+	top: 200px;
+	left: 200px;
+	padding: 30px;
 	box-sizing: border-box;
 }
-.grjl span{
-	vertical-align: middle;
-	padding-left: 20px;
-}
-.grjl span:nth-child(1){
-	display: inline-block;
-	line-height: 40px;
-	padding: 10px 35px;
-	background: white;
-	border-radius: 20px 20px 20px 20px /20px;
-}
-
-.zyjn span{
-	display: inline-block;
-	line-height: 40px;
-	position: relative;
-}
-
-.zyjn span::before,
-.zyjn span::after{
-	content: '';
-	display: inline-block;
-	height: 40px;
-	padding: 10px 65px;
-	background: white;
-	border-radius: 40px 40px 40px 40px /40px;
-	letter-spacing: 5px;
+.jl-logo span{
 	position: absolute;
-	top: -11px;
-    left: -39px;
-	z-index: -1;
-	transition: transform 0.3s, background-color 0.3s;
-	transition-timing-function: cubic-bezier(0.25, 0, 0.3, 1);
-	
-}
-.zyjn span::before{
-	background: rgba(0,0,0,0.5);
-	transform: scale(0.7, 0.7);
-	border: 2px solid white;
-}
-.zyjn span::after{
-	background: white;
-}
-.zyjn span:hover::before{
-	transform: scale(1,1)
-}
-
-.zyjn span:hover::after{
-	transform: scale(0.7,0.7);
-}
-/*nav条部分*/
-
-/*个人简介*/
-.user-info{
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%,-50%);
-	writing-mode: tb-rl;
-}
-
-.user-info div span{
-	font-size: 30px;
-	font-family: "微软雅黑";
-}
-.user-info div span:nth-of-type(1){
-	padding-bottom: 30px;
-}
-/*个人简介*/
-
-/*进度条*/
-.progressbar{
-	position: fixed;
-	top:120px;
-	left: 10px;
-	height: 50px;
-	z-index: 99;
-	width: auto;
-}
-.progressbar{
-	width: 0px;
-	position: fixed;
-	font-size: 0;
-}
-.progressbar .pro-left{
-	padding-right: 50px;
-	height: 50px;
-	float: left;
-	width: 100%;
-	margin-top:20px;
-	box-sizing: content-box;
-}
-.progressbar .pro-right{
-	width: 50px;
-	height: 50px;
-	background: url(../img/png-0727.png);
-	background-size: cover;
-	position: absolute;
-	right: -50px;
-	top:0px;
-}
-.progressbar .pro-left::before{
-	content: '';
-	display: inline-block;
-	height: 10px;
-	width: 100%;
-	position: absolute;
-	z-index: 99;
-	background: linear-gradient(45deg,
-		#fff 0%,
-		#fff 25%,
-		#000 25%,
-		#000 50%,
-		#fff 50%,
-		#fff 75%,
-		#000 75%,
-		#000 100%
-	);
-	background-size: 10px 10px;
-	animation: progressbar 1s linear infinite;
-	border-radius: 5px;
-}
-
-@keyframes progressbar{
-	from{background-position: 0px 0px ;}
-	to{background-position: 10px 0px ;}
-}
-
-/*进度条*/
-
-/*专业技能*/
-.box{
-	width: 800px;
-	height: 400px;
-	margin: 200px auto;
-	border: 1px solid black;
-}
-
-
-/*金丹*/
-
-
-
-	
-
-
-
-
-/*专业技能*/
-
-/*旋转*/
-
-.box-3{
-	    width: 800px;
-	
-		position: relative;
-		border: 1px solid red;
-		margin: 400px auto;
-}
-.jd-item1{
-	width: 100px;
-	height: 100px;
-	border-right: 10px solid #00ff96;
+	transition: all 1s;
 	border-radius: 50%;
-	position: absolute;
-	left: 0;
-	top: 0;
-	right: 0;
-	bottom: 0;
-	margin: auto;
+	border-style: double;
+	border-color: #ccc;
+	border-width: 10px;
+	box-sizing: border-box;
 }
-.jd-item:nth-child(n){
-	
-	
-	/*transition: all 2s linear infinite;*/
-	 transform: rotate(90deg);
-	animation: arcAnimation 2s linear infinite;
+.jl-logo span:nth-child(1){
+
+	height: 200px;
+	width: 200px;
+	background:url(../img/22.png) no-repeat;
+	backface-visibility: hidden;
+	transform: rotateY(-180deg);
+	background-origin: content-box;
+	background-clip:content-box;
+	-webkit-background-size: cover;
+	background-size: cover;
+}
+.jl-logo  span:nth-child(2){
+	height: 200px;
+	width: 200px;
+	background: url(../img/21.png) no-repeat;
+	backface-visibility: hidden;
+	background-origin: content-box;
+	background-clip:content-box;
+	-webkit-background-size: cover;
+	background-size: cover;
+	background-position: right top; 
 }
 
-@-webkit-keyframes arcAnimation {
-	  100% {
-	    transform: rotate(450deg);
-	  }
+.jl-logo:hover span:nth-child(1){
+	transform: rotateY(0deg);
 }
+
+.jl-logo:hover span:nth-child(2){
+	transform: rotateY(180deg);
+}
+
+
+
+
+.user-info{
+	width: 600px;
+	height: 250px;
+	position: absolute;
+	top: 250px;
+	left: 600px;
+	overflow: hidden;
+}
+
+.user-info  div span{
+	font-size: 30px;
+	display: inline-block;
+}
+
+.user-info  div span:nth-child(2){
+	margin-left: 40px;
+	transform: translateY(-400px);
+}
+
+.user-name{
+	transform: translateX(-300px);
+}
+.user-sex{
+	transform: translateX(-300px);
+}
+.user-school{
+	transform: translateX(-300px);
+}
+.user-job{
+	transform: translateX(-300px);
+}
+.user-zym{
+	transform: translateX(-300px);
+}
+
+.user-name{
 	
-@keyframes arcAnimation {
-  100% {
-    transform: rotate(450deg);
+	animation: fuweix 0.5s 1s;
+	animation-fill-mode: forwards;
+}
+.fe{
+	animation: fuweiy 0.5s 2s;
+	animation-fill-mode: forwards;
+}
+
+.user-sex{
+	animation: fuweix 0.5s 2.5s;
+	animation-fill-mode: forwards;
+}
+.male{
+	animation: fuweiy 0.5s 3s;
+	animation-fill-mode: forwards;
+}
+.user-school{
+	animation: fuweix 0.5s 3.5s;
+	animation-fill-mode: forwards;
+}
+.cjdx{
+	animation: fuweiy 0.5s 4s;
+	animation-fill-mode: forwards;
+}
+
+.user-job{
+	animation: fuweix 0.5s 4.5s;
+	animation-fill-mode: forwards;
+}
+.en{
+	animation: fuweiy 0.5s 5s;
+	animation-fill-mode: forwards;
+}
+.user-zym{
+	animation: fuweix 0.5s 5.5s;
+	animation-fill-mode: forwards;
+}
+.dg{
+	animation: fuweiy 0.5s 6s;
+	animation-fill-mode: forwards;
+}
+
+@keyframes fuweix{
+	100%{
+		transform: translateX(0px);
+	}
+}
+
+@keyframes fuweiy{
+	  0%{
+      transform:translate(0,-2000px);
+      opacity: 0;
+  }
+
+  60%{
+    transform:translate(0,25px);
+    opacity: 1;
+  }
+
+  75%{
+    transform:translate(0,-15px);
+  }
+
+  90%{
+    transform:translate(0,10px);
+  }
+
+  100%{
+    transform:translate(0,0px);
   }
 }
 
 
-/*旋转*/
+/*第二瓶*/
+.slide2{
 
-/*
- 能力
- * */
+	/*perspective 属性指定了观察者与z=0平面的距离，使具有三维位置变换的元素产生透视效果。z>0的三维元素比正常大，而z<0时则比正常小，大小程度由该属性的值决定。默认情况下，消失点位于元素的中心，但是可以通过设置perspective-origin属性来改变其位置。*/
+	-webkit-perspective: 1000px;
+	perspective: 1000px;
+	background-color: #212121;
+	font-family: '微软雅黑';
+}
+.book {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	margin-top: -150px;
+	width: 300px;
+	height: 300px;
+	background-color: #fff;
+	transform: rotateX(30deg);
+}
+.preserve-3d {
 
-.power{
+	/*transform-style属性指定了，该元素的子元素是（看起来）位于三维空间内，还是在该元素所在的平面内被扁平化。*/
+	transform-style: preserve-3d;
+}
+.book-page {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 300px;
+	height: 300px;
+	border: 1px solid #1976D2;
+	text-align: center;
+}
+.book-page-box {
+	transform-origin: 0 50%;
+	transform: rotateY(0deg);
+}
+@keyframes flipBook1 {
+	0% {
+		transform: rotateY(0deg);
+	}
+	50% {
+		transform: rotateY(-160deg);
+	}
+	100% {
+		transform: rotateY(0deg);
+	}
+}
+
+
+@keyframes flipBook2 {
+	0% {
+		transform: rotateY(0deg);
+	}
+	50% {
+		transform: rotateY(-150deg);
+	}
+	100% {
+		transform: rotateY(0deg);
+	}
+}
+
+
+@keyframes flipBook3 {
+	0% {
+		
+		transform: rotateY(0deg);
+	}
+	50% {
+		
+		transform: rotateY(-140deg);
+	}
+	100% {
+		
+		transform: rotateY(0deg);
+	}
+}
+
+
+/*书的封面*/
+.book-page-1 .page-front {
+	background-color: #1976D2;
+}
+.book-page-1 .page-back {
+	background-color: #fff;
+}
+.book-page-1 .page-front p {
+	font-size: 30px;
+	color: #fff;
+	margin-top: 100px;
+}
+.flip-animation-1 {
+	animation: flipBook1 17s;
+}
+
+/*书的第二页*/
+.book-page-2 .page-back, .book-page-2 .page-front {
+	background-color: #fff;
+}
+.book-page-2 .page-front p {
+	font-size: 30px;
+	color: #1976D2;
+	margin-top: 100px;
+}
+.flip-animation-2 {
+	animation: flipBook2 13s 2s;
+	
+}
+
+/*书的第三页*/
+.book-page-3 .page-back, .book-page-3 .page-front {
+	background-color: #fff;
+}
+.book-page-3 .page-front p {
+	font-size: 30px;
+	color: #1976D2;
+	margin-top: 100px;
+}
+.flip-animation-3 {
+	animation: flipBook3 10s 3s;
+	
+}
+
+/*书的第四页*/
+.book-page-4 .page-front p {
+	font-size: 30px;
+	color: #1976D2;
+	margin-top: 100px;
+}
+
+/*第三屏*/
+
+.works-box{
+	width: 960px;
+	height: 640px;
+	margin: 0 auto;
+	background-color: black;
+	position: relative;
+	z-index: -2;
+}
+.works-small-left{
+	width:390px;
+	height: 248px;
+	background: url(bg.png) repeat-x top left;
+	position: absolute;
+	top: 150px;
+	left: -40px;
+	opacity: .45;
+}
+.wrap-left{
+	position: absolute;
+	top: 4px;
+	left: 5px;
+	width: 380px;
+	height: 240px;
+	
+    overflow: hidden;
+}
+.wrap-left ul,
+.wrap-right ul{
+	width: 9999px;
+	height: 240px;
+	
+}
+.wrap-left ul li,
+.wrap-right ul li{
+	width: 380px;
+	height: 240px;
+	float: left;
+}
+.wrap-left ul li img,
+.wrap-right ul li img{
+	width: 380px;
+}
+.works-small-right{
+	width:390px;
+	height: 248px;
+	background: url(bg.png) repeat-x top left;
+	position: absolute;
+	top: 150px;
+	right: -40px;
+	opacity: .45;
+}
+.wrap-right{
+	position: absolute;
+	top: 4px;
+	left: 5px;
+	width: 380px;
+	height: 240px;
+    overflow: hidden;
+}
+
+
+
+#frame-center-shadow {
+    position: absolute;
+    top: 150px;
+    left: 45px;
+    width: 870px;
+}
+.works-large-center{
+	position: absolute;
+    top: 80px;
+    left: 150px;
+    width: 660px;
+    height: 420px;
+    background: url(bg.png) repeat-x top left;
+}
+
+.wrap-center{
+	position: absolute;
+    top: 10px;
+    left: 10px;
+    width: 640px;
+    height: 400px;
+    overflow: hidden;
+}
+.wrap-center ul{
+	height: 400px;
+	width: 9999px;
+}
+.wrap-center ul li{
+	list-style: none;
+	float: left;
+	width: 640px;
+	height: 400px;
+}
+.works-title{
+	height: 20px;
+	width: 640px;
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	text-align: center;
+}
+.works-more{
+	height: 20px;
+	width: 640px;
+	position: absolute;
+	bottom: 0px;
+	left: 0px;
+	text-align: center;
+	
+}
+.works-img{
+	position: absolute;
+    width: 640px;
+	height: 400px;
+	transition: all .5s ;
+	z-index: 99;
+}
+.works-img img{
+	width: 100%;
+	height: 100%;
+}
+.works-img:hover{
+	transform: translateY(20px);
+	height: 360px;
+}
+.back {
+    position: absolute;
+    top: 230px;
+    left: 70px;
+    width: 51px;
+    height: 88px;
+    background: url(../img/frame-arrows.png) no-repeat top left;
+    opacity: 0.6;
+    filter: alpha(opacity=60);
+    z-index: 6;
+    cursor: pointer;
+   
+}
+.next{
+	
+	position: absolute;
+    top: 230px;
+    right: 70px;
+    width: 51px;
+    height: 88px;
+    background: url(../img/frame-arrows.png) no-repeat top right;
+    opacity: 0.6;
+    filter: alpha(opacity=60);
+    z-index: 6;
+    cursor: pointer;
+}
+
+
+.works-shadow{
+	width: 960px;
+	height: 170px;
+	position: absolute;
+    left: 0px;
+    top: 435px;
+    overflow: hidden;
+    z-index: -1;
+}
+
+.shadow-color{
+	position: absolute;
+	width: 960px;
+	height: 170px;
+	background: green;
+	z-index: -2;
+}
+
+.works-shadow img{
+	width: 960px;
+	position: relative;
+	z-index: -1;
+}
+
+/*花圈*/
+
+.slide4{
+	position: relative;
+	background-color: black;
+	width: 100%;
+	height: 100%;
+}
+.demo-box *{
+	position: absolute;
+	top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+}
+
+.cir {
+  width: 100px;
+  height: 100px;
+}
+.circle:nth-child(1) {
+  -webkit-transform: rotate(30deg) translate(80px);
+          transform: rotate(30deg) translate(80px);
+}
+.circle:nth-child(2) {
+  -webkit-transform: rotate(60deg) translate(80px);
+          transform: rotate(60deg) translate(80px);
+}
+.circle:nth-child(3) {
+  -webkit-transform: rotate(90deg) translate(80px);
+          transform: rotate(90deg) translate(80px);
+}
+.circle:nth-child(4) {
+  -webkit-transform: rotate(120deg) translate(80px);
+          transform: rotate(120deg) translate(80px);
+}
+.circle:nth-child(5) {
+  -webkit-transform: rotate(150deg) translate(80px);
+          transform: rotate(150deg) translate(80px);
+}
+.circle:nth-child(6) {
+  -webkit-transform: rotate(180deg) translate(80px);
+          transform: rotate(180deg) translate(80px);
+}
+.circle:nth-child(7) {
+  -webkit-transform: rotate(210deg) translate(80px);
+          transform: rotate(210deg) translate(80px);
+}
+.circle:nth-child(8) {
+  -webkit-transform: rotate(240deg) translate(80px);
+          transform: rotate(240deg) translate(80px);
+}
+.circle:nth-child(9) {
+  -webkit-transform: rotate(270deg) translate(80px);
+          transform: rotate(270deg) translate(80px);
+}
+.circle:nth-child(10) {
+  -webkit-transform: rotate(300deg) translate(80px);
+          transform: rotate(300deg) translate(80px);
+}
+.circle:nth-child(11) {
+  -webkit-transform: rotate(330deg) translate(80px);
+          transform: rotate(330deg) translate(80px);
+}
+.circle:nth-child(12) {
+  -webkit-transform: rotate(360deg) translate(80px);
+          transform: rotate(360deg) translate(80px);
+}
+.circle:nth-child(13) {
+  -webkit-transform: rotate(16.36364deg) translate(180px);
+          transform: rotate(16.36364deg) translate(180px);
+}
+.circle:nth-child(14) {
+  -webkit-transform: rotate(32.72727deg) translate(180px);
+          transform: rotate(32.72727deg) translate(180px);
+}
+.circle:nth-child(15) {
+  -webkit-transform: rotate(49.09091deg) translate(180px);
+          transform: rotate(49.09091deg) translate(180px);
+}
+.circle:nth-child(16) {
+  -webkit-transform: rotate(65.45455deg) translate(180px);
+          transform: rotate(65.45455deg) translate(180px);
+}
+.circle:nth-child(17) {
+  -webkit-transform: rotate(81.81818deg) translate(180px);
+          transform: rotate(81.81818deg) translate(180px);
+}
+.circle:nth-child(18) {
+  -webkit-transform: rotate(98.18182deg) translate(180px);
+          transform: rotate(98.18182deg) translate(180px);
+}
+.circle:nth-child(19) {
+  -webkit-transform: rotate(114.54545deg) translate(180px);
+          transform: rotate(114.54545deg) translate(180px);
+}
+.circle:nth-child(20) {
+  -webkit-transform: rotate(130.90909deg) translate(180px);
+          transform: rotate(130.90909deg) translate(180px);
+}
+.circle:nth-child(21) {
+  -webkit-transform: rotate(147.27273deg) translate(180px);
+          transform: rotate(147.27273deg) translate(180px);
+}
+.circle:nth-child(22) {
+  -webkit-transform: rotate(163.63636deg) translate(180px);
+          transform: rotate(163.63636deg) translate(180px);
+}
+.circle:nth-child(23) {
+  -webkit-transform: rotate(180deg) translate(180px);
+          transform: rotate(180deg) translate(180px);
+}
+.circle:nth-child(24) {
+  -webkit-transform: rotate(196.36364deg) translate(180px);
+          transform: rotate(196.36364deg) translate(180px);
+}
+.circle:nth-child(25) {
+  -webkit-transform: rotate(212.72727deg) translate(180px);
+          transform: rotate(212.72727deg) translate(180px);
+}
+.circle:nth-child(26) {
+  -webkit-transform: rotate(229.09091deg) translate(180px);
+          transform: rotate(229.09091deg) translate(180px);
+}
+.circle:nth-child(27) {
+  -webkit-transform: rotate(245.45455deg) translate(180px);
+          transform: rotate(245.45455deg) translate(180px);
+}
+.circle:nth-child(28) {
+  -webkit-transform: rotate(261.81818deg) translate(180px);
+          transform: rotate(261.81818deg) translate(180px);
+}
+.circle:nth-child(29) {
+  -webkit-transform: rotate(278.18182deg) translate(180px);
+          transform: rotate(278.18182deg) translate(180px);
+}
+.circle:nth-child(30) {
+  -webkit-transform: rotate(294.54545deg) translate(180px);
+          transform: rotate(294.54545deg) translate(180px);
+}
+.circle:nth-child(31) {
+  -webkit-transform: rotate(310.90909deg) translate(180px);
+          transform: rotate(310.90909deg) translate(180px);
+}
+.circle:nth-child(32) {
+  -webkit-transform: rotate(327.27273deg) translate(180px);
+          transform: rotate(327.27273deg) translate(180px);
+}
+.circle:nth-child(33) {
+  -webkit-transform: rotate(343.63636deg) translate(180px);
+          transform: rotate(343.63636deg) translate(180px);
+}
+.circle:nth-child(34) {
+  -webkit-transform: rotate(360deg) translate(180px);
+          transform: rotate(360deg) translate(180px);
+}
+
+.circle .arc {
+  border-right: 10px solid #00ff96;
+  border-radius: 50%;
+  -webkit-transform: rotate(90deg);
+          transform: rotate(90deg);
+  -webkit-animation: arcAnimation 2s linear infinite;
+          animation: arcAnimation 2s linear infinite;
+}
+
+@keyframes arcAnimation {
+  100% {
+    -webkit-transform: rotate(450deg);
+            transform: rotate(450deg);
+  }
+}
+
+/*btn*/
+.btn{
 	width: 100px;
-	height: 100px;
-	background-color: red;
+	height: 160px;
 	position: absolute;
 	top:200px;
-	left:100px;
+	left: 20px;
+	background: none;
 }
-.power span{
-
-	font-size: 50px;
-	font-family: "微软雅黑";
-	font-weight: 900;
-	text-shadow: -1px -1px 1px #fff,  1px 1px 1px #000;
+.btn:hover{
+	background: none;
 }
-
-/*火箭*/
-
-.roket{
-	height: 100px;
+.btn-item{
+	height: 40px;
 	width: 100px;
-	background: url(../img/rocket.png);
-	background-size: cover;
-}
-
-.people{
-	height: 200px;
-	width: 200px;
+	text-align: center;
+	line-height: 40px;
+	margin-top: 10px;
+	background-color: deepskyblue;
 	
-	margin: 200px auto;
-	position: relative;
+}
+.btn-item a{
+	display: block;
+	height: 100%;
+	width: 100%;
+	color: white;
+	font-size: 25px;
+	font-weight: 900;
 }
 
-.head{
-	height: 50px;
-	width: 50px;
-	border-radius: 50%;
-	border: 1px solid black;
-	position: absolute;
-	left: 80px;
+.cir1{
+	height: 100px;
 }
-.tz{
-	height: 40px;
-	width: 2px;
-	background: black;
-	position: absolute;
-	top: 52px;
-    left: 105px;
+.cir2{
+	width: 100px;
+}
+.cir3{
+	width: 0px;
+}
+.cir4{
+	height: 100px;
+	width: 0px;
 }
 
-
-.sl{
-	height: 40px;
-	width: 2px;
-	background: black;
-	position: absolute;
-	top: 55px;
-    left: 91px;
-	transform: rotate(45deg);
-}
-
-.sr{
-	height: 40px;
-	width: 2px;
-	background: black;
-	top: 83px;
-    left: 119px;
-    transform: rotate(-45deg);
-	position: absolute;
-}
-
-
-.fl{
-	height: 40px;
-	width: 2px;
-	background: black;
-	top: 83px;
-    left: 91px;
-	transform: rotate(45deg);
-	position: absolute;
-}
-.fr{
-	height: 40px;
-	width: 2px;
-	background: black;
-	position: absolute;
-	top: 55px;
-    left: 119px;
-    transform: rotate(-45deg);
-}
-/*小人步行*/
-@keyframes people{
-	from{
-		transform: rotate(45deg);
-	}
-	to{
-		
-	}
-}
-
-/*火箭*/
-.roket{
-	transform-origin: center center; 
-	transform: rotate(180deg) translateX(-1360px) translateY(100px);
-	/*transform:  rotate(180deg) translateX(-1060px) translateY(-300px);*/
-	animation: toroket 5s infinite;
-}
-
-@keyframes toroket{
-	
-	30%{transform:  rotate(180deg) translateX(-1060px) translateY(-300px);}
-	31%{transform:  rotate(180deg) translateX(-1060px) translateY(-300px);}
-	100%{transform:  rotate(225deg) translateX(0px) translateY(-300px); }
-}
-
-
-/*作品展示*/
 
 
 

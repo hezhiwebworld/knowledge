@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		
+		<script type="text/javascript">
+			 function isfn(obj){
+			 	//首先判断一个obj是否存在
+			 	if(obj){
+			 		//先利用正则匹配
+			 		if(typeof (/.*/) !== 'function'){
+			 			return  obj
+			 		}else{
+			 			return Object.prototype.toString.call(obj) === "[object Function]"
+			 		}
+			 	}else{
+			 		return false;
+			 	}
+			 }
+		</script>
+	</body>
+</html>

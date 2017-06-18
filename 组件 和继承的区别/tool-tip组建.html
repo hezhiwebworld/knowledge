@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			li{
+				list-style: none;
+				float: left;
+				background-color: green;
+				margin: 10px 20px;
+			}
+			.tip{
+				position: absolute;
+				border: 1px solid black;
+				display: none;
+			}
+		</style>
+	</head>
+	<body>
+		<ul>
+			<li>产品管理</li>
+			<li>交易</li>
+			<li>徐晓</li>
+			<li>经融</li>
+			<li>人名币</li>
+			<li>大数据<div class="tip">新增数据功能<a class="close" href="javascript:;">我知道了</a></div></li>
+		</ul>
+		
+		<script type="text/javascript">
+			window.onload = function(){
+				//当用户登陆后  会有一个唯一id
+				
+				var time = (new Date()).getDate()   //登陆时间
+				var tip = new ToolTip()
+				
+				tip.init({
+					id : 0,
+					num : 0 //访问次数
+				})
+				
+				var oClose = document.getElementById("close");
+				
+				oClose.onclick = function(){
+					
+					var tip  = new ToolTip();
+					
+					tip.init({
+						id : 0,
+						time : 
+					})
+				}
+				
+			}
+			
+			function ToolTip(){
+				this.setting = {
+					id :  0,
+					num : 0 ,
+					time : (new Date()).getDate()
+				}
+			}
+			
+			ToolTip.prototype.init = function(options){
+				
+				extend(this.setting,options);
+			
+				if(this.setting.id==1){
+					
+				}
+			}
+			
+			ToolTip.prototype.getday = function(){
+				var day = new Date()
+			}
+			
+			ToolTip.prototype.show = function(){
+				
+			}
+			
+			ToolTip.prototype.close = function(){
+				
+			}
+			
+			
+			function extend(obj1,obj2){
+				for (var attr in obj2) {
+					obj1[attr] = obj2[attr]
+				}
+				
+			}
+			
+			
+		</script>
+	</body>
+</html>

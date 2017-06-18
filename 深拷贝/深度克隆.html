@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+<script>
+    function deepClone(obj){
+        var obj1 = {}
+        if(typeof obj != "object"){
+            console.log('===========================')
+            return obj;
+        }
+        for(var key in obj){
+            var temp = deepClone(obj[key])
+             obj1[key] = temp ;
+//
+         }
+
+        return obj1;
+    }
+    var obj = {
+        name : 'hezhi',
+        sex : {
+            max : 'man'
+        }
+    }
+   var res =  deepClone(obj)
+    console.log('----------------')
+    console.log(res);
+    console.log('----------------')
+    res.sex.max= '1';       //多层嵌套拷贝，但是修改拷贝的结果 不会影响拷贝原型
+    console.log(obj)
+</script>
+</body>
+</html>

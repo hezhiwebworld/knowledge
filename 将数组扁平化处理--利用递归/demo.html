@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script>
+       var arr= [1, [2, [ [3, 4], 5], 6]] => [1, 2, 3, 4, 5, 6]
+       var result = [];
+     
+        function format(){
+            var  data = arr;
+            for(var i =0;i<data.length;i++){
+                // console.log(arr[i])
+                 //typeof data[i]
+                if(typeof data[i] !== 'object'){
+
+                    result.push(data[i])
+                }else{
+                	//利用递归之前，需要先更新数组
+                    arr=data[i]
+                    format(arr)
+                }
+            }
+        }
+       format(arr)
+
+        console.log(result);
+    </script>
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			var Foo ={};
+			Foo.method = function() {
+			    function test() {
+			        console.log(this)
+			    }
+			    test();
+			}
+			Foo.method()
+		</script>
+	</body>
+</html>

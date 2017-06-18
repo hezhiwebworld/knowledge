@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			
+			function foo(){
+				var i=0;
+				return function (){
+					console.log(this.i);
+				}
+			}
+			var f1=foo(),
+				f2=foo();
+			f1();//window.i不是应该没声明,也没有赋值过,为什么是undefined,而不是报错
+			f1();
+			f2();
+
+		</script>
+	</body>
+</html>

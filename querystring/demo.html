@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		
+		<script type="text/javascript">
+			//application/x-www-form-urlencoded   信息编码方式
+			var   str = '?cd=wwww&name=hh&callback=11sdccswwxx';
+			var  index = str.indexOf('?')
+			//如果？存在，这里做个判断
+			
+			if(str.charAt(0) === '?'){
+				str = str.substring(1);
+			}
+			var arr  = str.split('&');	
+			console.log(arr);
+			for (var i=0;i<arr.length;i++) {
+				arr[i] =  arr[i].split('=')
+			}
+			var obj = {};
+			for (var i=0;i<arr.length;i++) {
+				var key = arr[i][0]
+				obj[key] = arr[i][1]
+			}
+			console.log(obj)
+		</script>
+	</body>
+</html>

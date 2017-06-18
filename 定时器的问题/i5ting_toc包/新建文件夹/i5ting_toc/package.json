@@ -1,0 +1,109 @@
+{
+  "_args": [
+    [
+      {
+        "raw": "i5ting_toc",
+        "scope": null,
+        "escapedName": "i5ting_toc",
+        "name": "i5ting_toc",
+        "rawSpec": "",
+        "spec": "latest",
+        "type": "tag"
+      },
+      "E:\\笔记"
+    ]
+  ],
+  "_from": "i5ting_toc@latest",
+  "_id": "i5ting_toc@1.1.4",
+  "_inCache": true,
+  "_location": "/i5ting_toc",
+  "_nodeVersion": "4.4.5",
+  "_npmOperationalInternal": {
+    "host": "packages-18-east.internal.npmjs.com",
+    "tmp": "tmp/i5ting_toc-1.1.4.tgz_1476981499413_0.026989290490746498"
+  },
+  "_npmUser": {
+    "name": "i5ting",
+    "email": "shiren1118@126.com"
+  },
+  "_npmVersion": "2.10.1",
+  "_phantomChildren": {},
+  "_requested": {
+    "raw": "i5ting_toc",
+    "scope": null,
+    "escapedName": "i5ting_toc",
+    "name": "i5ting_toc",
+    "rawSpec": "",
+    "spec": "latest",
+    "type": "tag"
+  },
+  "_requiredBy": [
+    "#USER"
+  ],
+  "_resolved": "https://registry.npmjs.org/i5ting_toc/-/i5ting_toc-1.1.4.tgz",
+  "_shasum": "30b6389dce7f652fdfba20c85b825e6f840d0638",
+  "_shrinkwrap": null,
+  "_spec": "i5ting_toc",
+  "_where": "E:\\笔记",
+  "author": "",
+  "bin": {
+    "i5ting_toc": "bin/tocmd.js"
+  },
+  "bugs": {
+    "url": "https://github.com/i5ting/tocmd.npm/issues"
+  },
+  "dependencies": {
+    "bufferhelper": "^0.2.0",
+    "commander": "^2.5.0",
+    "config": "^1.7.0",
+    "handlebars": "^2.0.0",
+    "marked": "^0.3.2",
+    "object-assign": "^1.0.0",
+    "open": "0.0.5",
+    "shelljs": "^0.3.0"
+  },
+  "description": "tocmd.npm:a npm wrapper of i5ting_ztree_toc",
+  "devDependencies": {
+    "gulp-livereload": "^2.1.1",
+    "gulp-watch": "^0.7.0",
+    "mocha": "*"
+  },
+  "directories": {},
+  "dist": {
+    "shasum": "30b6389dce7f652fdfba20c85b825e6f840d0638",
+    "tarball": "https://registry.npmjs.org/i5ting_toc/-/i5ting_toc-1.1.4.tgz"
+  },
+  "gitHead": "13df05fcd6d35f622f7512b9bce19b7f8add2dca",
+  "homepage": "https://github.com/i5ting/tocmd.npm",
+  "keywords": [
+    "doc",
+    "markdown",
+    "md",
+    "toc",
+    "table of content",
+    "ztree",
+    "i5ting_ztree_toc",
+    "i5ting"
+  ],
+  "license": "ISC",
+  "main": "index.js",
+  "maintainers": [
+    {
+      "name": "i5ting",
+      "email": "shiren1118@126.com"
+    }
+  ],
+  "name": "i5ting_toc",
+  "optionalDependencies": {},
+  "preferGlobal": "true",
+  "readme": "ERROR: No README data found!",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/i5ting/tocmd.npm.git"
+  },
+  "scripts": {
+    "start": "npm publish .",
+    "test": " node bin/tocmd.js -f sample.md -v -o"
+  },
+  "version": "1.1.4"
+}

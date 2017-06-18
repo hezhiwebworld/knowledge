@@ -1,0 +1,289 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Swiper在PC端的全屏页面效果展示</title>
+  <meta name="description" content="Swiper2+CSS3，没有使用animate.js和Animate.css，用TransitionEnd替换有时会失灵的onSlideChangeEnd，Loop模式下也没问题，提高了可用性">
+  <link rel="stylesheet" href="css/idangerous.swiper.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" type="text/css" href="css/animate.css"/>
+  <link rel="stylesheet" type="text/css" href="css/common.css"/>
+  <link rel="stylesheet" type="text/css" href="css/index.css"/>
+</head>
+<body>
+
+	<div class="swiper-container">
+      <div class="swiper-wrapper">
+	      	<!--第一屏-->
+	        <div class="swiper-slide slide1">
+	        	    <div class="container"> 
+	        	    	    <div class="jl-logo">
+	        	    	    	<a href="https://github.com/hezhiwebworld"><span></span></a>
+	        	    	    	<span></span>
+	        	    	    </div>
+										  <div class="user-info">
+					        			<div><span class="user-name">姓&nbsp;&nbsp;&nbsp;&nbsp;名</span><span class="fe">前端路人乙</span></div>
+					        			<div><span class="user-sex">性&nbsp;&nbsp;&nbsp;&nbsp;别</span><span class="male">男</span></div>
+					        			<div><span class="user-school">学&nbsp;&nbsp;&nbsp;&nbsp;校</span><span class="cjdx">长江大学</span></div>
+					        			<div><span class="user-job">职&nbsp;&nbsp;&nbsp;&nbsp;业</span><span class="en">迷路的前端工程师</span></div>
+					        			<div><span class="user-zym">座右铭</span><span class="dg">幸福就像递归&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					        				最终源于自己</span></div>
+					        		</div>								  	      	    	
+								</div>
+			    </div>		
+			    <!--第2屏-->
+	        <div class="swiper-slide slide2">
+	        			
+	        		<div class="book preserve-3d">
+								<!-- 书的最后一页 -->
+								<div class="book-page-box book-page-4 preserve-3d">
+									<div class="book-page page-front">
+										<p>第三页</p>
+									</div>
+								</div>
+								<!-- 书的第三页 -->
+								<div class="book-page-box book-page-3 preserve-3d flip-animation-3">
+									<div class="book-page page-front">
+										<p>第二页</p>
+									</div>
+								</div>
+								<!-- 书的第二页 -->
+								<div class="book-page-box book-page-2 preserve-3d flip-animation-2">
+									<div class="book-page page-front">
+										<p>html5/css3.0</p>
+									</div>
+								</div>
+								<!-- 书的封面 -->
+								<div class="book-page-box book-page-1 preserve-3d flip-animation-1">
+									<div class="book-page page-front">
+										<p>
+											技能熟练
+											<br>
+											迷路的前端工程师
+										</p>
+									</div>
+								</div>
+							</div>
+							<!--翻页结束-->
+	        </div>
+	        	<!--第3屏-->
+	        <div class="swiper-slide slide3">
+               <div class="works-box">
+               			<!--左侧-->
+               	    <div class="works-small-left">
+               	    	 <div class="wrap-left">
+               	    	 	 <ul>
+               	    	 	  <li><img src="img/creative.jpg" alt="" /></li>
+               	    	 	  <li><img src="img/creative.jpg" alt="" /></li>
+               	    	 	 	<li><img src="img/creative.jpg" alt="" /></li>
+               	    	 	 	<li><img src="img/creative.jpg" alt="" /></li>
+               	    	 	  <li><img src="img/creative.jpg" alt="" /></li>
+               	    	 	 	<li><img src="img/creative.jpg" alt="" /></li>
+               	    	 	 </ul>
+               	    	 </div>
+               	    </div>
+               	    <!--右侧-->
+               	    <div class="works-small-right">
+               	    	 <div class="wrap-right">
+               	    	 	 <ul>
+               	    	 	 	<li><img src="img/creative.jpg" alt="" /></li>
+               	    	 	  <li><img src="img/creative.jpg" alt="" /></li>
+               	    	 	 	<li><img src="img/creative.jpg" alt="" /></li>
+               	    	 	 	<li><img src="img/creative.jpg" alt="" /></li>
+               	    	 	  <li><img src="img/creative.jpg" alt="" /></li>
+               	    	 	 	<li><img src="img/creative.jpg" alt="" /></li>
+               	    	 	 </ul>
+               	    	 </div>
+               	    </div>
+               	    <!--阴影-->
+               	    <img id="frame-center-shadow" src="img/frame-shadow.png" />
+
+               	    <!--中间-->
+               	    <div class="works-large-center">
+               	    	 <div class="wrap-center">
+               	    	 	 <ul>
+               	    	 	 	  <li>
+               	    	 	 	  	<a href="#">
+               	    	 	 	  		<span class="works-title">标题一</span>
+               	    	 	 	  		<span class="works-more">详情请移步</span>
+               	    	 	 	  		<span class="works-img"><img src="img/creative.jpg"/></span>
+               	    	 	 	  	</a>
+               	    	 	 	  </li>
+               	    	 	 	   <li>
+               	    	 	 	  	<a href="#">
+               	    	 	 	  		<span class="works-title">标题一</span>
+               	    	 	 	  		<span class="works-more">详情请移步</span>
+               	    	 	 	  		<span class="works-img"><img src="img/creative.jpg"/></span>
+               	    	 	 	  	</a>
+               	    	 	 	  </li>
+               	    	 	 	   <li>
+               	    	 	 	  	<a href="#">
+               	    	 	 	  		<span class="works-title">标题一</span>
+               	    	 	 	  		<span class="works-more">详情请移步</span>
+               	    	 	 	  		<span class="works-img"><img src="img/creative.jpg"/></span>
+               	    	 	 	  	</a>
+               	    	 	 	  </li>
+               	    	 	 	   <li>
+               	    	 	 	  	<a href="#">
+               	    	 	 	  		<span class="works-title">标题一</span>
+               	    	 	 	  		<span class="works-more">详情请移步</span>
+               	    	 	 	  		<span class="works-img"><img src="img/creative.jpg"/></span>
+               	    	 	 	  	</a>
+               	    	 	 	  </li>
+               	    	 	 	   <li>
+               	    	 	 	  	<a href="#">
+               	    	 	 	  		<span class="works-title">标题一</span>
+               	    	 	 	  		<span class="works-more">详情请移步</span>
+               	    	 	 	  		<span class="works-img"><img src="img/creative.jpg"/></span>
+               	    	 	 	  	</a>
+               	    	 	 	  </li>
+               	    	 	 	   <li>
+               	    	 	 	  	<a href="#">
+               	    	 	 	  		<span class="works-title">标题一</span>
+               	    	 	 	  		<span class="works-more">详情请移步</span>
+               	    	 	 	  		<span class="works-img"><img src="img/creative.jpg"/></span>
+               	    	 	 	  	</a>
+               	    	 	 	  </li>
+               	    	 	 	  
+               	    	 	 </ul>
+               	    	 </div>
+               	    </div>
+               	    <!--返回按钮-->
+               	    <div class="nav-arrow back"></div>
+										<div class="nav-arrow next"></div>
+										
+										<div class="works-shadow">
+											 <div class="shadow-color"></div>
+											 <img src="img/glow-fg.png" alt="" />
+										</div>
+               </div> 
+	        </div>
+	        	<!--第4屏-->
+	        <div class="swiper-slide slide4">
+	                <div class="demo-box">
+	                		<div class="circle cir">
+	                			<div class="arc"></div>
+	                		</div>
+	                		<div class="circle cir">
+	                			<div class="arc"></div>
+	                		</div>
+	                		<div class="circle cir">
+	                			<div class="arc"></div>
+	                		</div>
+	                		<div class="circle cir">
+	                			<div class="arc"></div>
+	                		</div>
+	                		<div class="circle cir">
+	                			<div class="arc"></div>
+	                		</div>
+	                		<div class="circle cir">
+	                			<div class="arc"></div>
+	                		</div>
+	                		<div class="circle cir">
+	                			<div class="arc"></div>
+	                		</div>
+	                		<div class="circle cir">
+	                			<div class="arc"></div>
+	                		</div>
+	                		<div class="circle cir">
+	                			<div class="arc"></div>
+	                		</div>
+	                		<div class="circle cir">
+	                			<div class="arc"></div>
+	                		</div>
+	                		<div class="circle cir">
+	                			<div class="arc"></div>
+	                		</div>
+	                		<div class="circle cir">
+	                			<div class="arc"></div>
+	                		</div>
+	                		<div class="circle cir">
+	                			<div class="arc"></div>
+	                		</div>
+	                		<div class="circle cir">
+	                			<div class="arc"></div>
+	                		</div>
+	                		<div class="circle cir">
+	                			<div class="arc"></div>
+	                		</div>
+	                		<div class="circle cir">
+	                			<div class="arc"></div>
+	                		</div>
+	                		<div class="circle cir">
+	                			<div class="arc"></div>
+	                		</div>
+	                		<div class="circle cir">
+	                			<div class="arc"></div>
+	                		</div>
+	                		<div class="circle cir">
+	                			<div class="arc"></div>
+	                		</div>
+	                		<div class="circle cir">
+	                			<div class="arc"></div>
+	                		</div>
+	                		<div class="circle cir">
+	                			<div class="arc"></div>
+	                		</div>
+	                		<div class="circle cir">
+	                			<div class="arc"></div>
+	                		</div>
+	                		<div class="circle cir">
+	                			<div class="arc"></div>
+	                		</div>
+	                		<div class="circle cir">
+	                			<div class="arc"></div>
+	                		</div>
+	                		<div class="circle cir">
+	                			<div class="arc"></div>
+	                		</div>
+	                		<div class="circle cir">
+	                			<div class="arc"></div>
+	                		</div>
+	                		<div class="circle cir">
+	                			<div class="arc"></div>
+	                		</div>
+	                		<div class="circle cir">
+	                			<div class="arc"></div>
+	                		</div>
+	                		<div class="circle cir">
+	                			<div class="arc"></div>
+	                		</div>
+	                		<div class="circle cir">
+	                			<div class="arc"></div>
+	                		</div>
+	                		<div class="circle cir">
+	                			<div class="arc"></div>
+	                		</div>
+	                		<div class="circle cir">
+	                			<div class="arc"></div>
+	                		</div>
+	                		<div class="circle cir">
+	                			<div class="arc"></div>
+	                		</div>
+	                		<div class="circle cir">
+	                			<div class="arc"></div>
+	                		</div>
+	                		
+	                </div>
+	        				
+	        				<div class="btn">
+		        				<div class="btn-item"><a href="#">七十二变</a></div>
+		        				<div class="btn-item"><a href="#">七十二变</a></div>
+		        				<div class="btn-item"><a href="#">七十二变</a></div>
+		        				<div class="btn-item"><a href="#">七十二变</a></div>
+		        				<div class="btn-item"><a href="#">七十二变</a></div>
+		        				<div class="btn-item"><a href="#">五子棋</a></div>
+		        				<div class="btn-item"><a href="#">未完待续</a></div>
+	        				</div>
+	        </div>
+       </div>
+  </div>
+    
+    <div class="pagination"></div>
+    
+  <script src="js/jquery-1.10.1.min.js"></script>
+  <script src="js/idangerous.swiper.min.js"></script>
+  <script src="js/pcpage.js"></script>
+  <script src="js/index.js" type="text/javascript" charset="utf-8"></script>
+ </body>
+</html>

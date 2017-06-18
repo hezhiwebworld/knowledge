@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<ul id="nav">
+			<li><a href="http://1111">1111</a></li>
+			<li><a href="http://2222">2222</a></li>
+			<li><a href="http://3333">3333</a></li>
+			<li><a href="http://4444">4444</a></li>
+		</ul>
+		<script type="text/javascript">
+			var Eventtool = {
+				getEvent : function (ev){
+					return ev || event
+				},
+				getTarget : function(ev){  //ie8 就不支持target
+					return this.getEvent(ev).target || this.getEvent(ev).scrElement;
+				},
+				addEvent : function (ele,type,handle){
+					if(ele.addEventListener){
+						ele.addEventListener( type , handle , false)
+					}else if(ele.attachEvent){
+						ele.attachEvent('on' + 'type',handle)
+					}
+				},
+				removeEvent : function(ele,type,handle){
+					if(ele.removeEventListener){
+						ele.removeEventListener(type,handle,false)
+					}else if(ele.detachEvent){
+						ele.detachEvent('on'+type,handle)
+					}
+				},
+				returnFalse : function(){
+					
+				}
+			}
+			var onav = document.getElementById("nav");
+			
+			onav.onclick = function(ev){
+				var ev = ev || event;
+				for (var key in ev) {
+					console.log( key );
+				}
+			}
+			
+		</script>
+	</body>
+</html>

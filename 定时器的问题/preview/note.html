@@ -1,0 +1,228 @@
+<html>
+  <head>
+	  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <title>i5ting_ztree_toc:note</title>
+		<link href="toc/style/github-bf51422f4bb36427d391e4b75a1daa083c2d840e.css" media="all" rel="stylesheet" type="text/css"/>
+		<link href="toc/style/github2-d731afd4f624c99a4b19ad69f3083cd6d02b81d5.css" media="all" rel="stylesheet" type="text/css"/>
+		<link href="toc/css/zTreeStyle/zTreeStyle.css" media="all" rel="stylesheet" type="text/css"/>
+	  <style>
+		pre {
+		    counter-reset: line-numbering;
+		    border: solid 1px #d9d9d9;
+		    border-radius: 0;
+		    background: #fff;
+		    padding: 0;
+		    line-height: 23px;
+		    margin-bottom: 30px;
+		    white-space: pre;
+		    overflow-x: auto;
+		    word-break: inherit;
+		    word-wrap: inherit;
+		}
+
+		pre a::before {
+		  content: counter(line-numbering);
+		  counter-increment: line-numbering;
+		  padding-right: 1em; /* space after numbers */
+		  width: 25px;
+		  text-align: right;
+		  opacity: 0.7;
+		  display: inline-block;
+		  color: #aaa;
+		  background: #eee;
+		  margin-right: 16px;
+		  padding: 2px 10px;
+		  font-size: 13px;
+		  -webkit-touch-callout: none;
+		  -webkit-user-select: none;
+		  -khtml-user-select: none;
+		  -moz-user-select: none;
+		  -ms-user-select: none;
+		  user-select: none;
+		}
+
+		pre a:first-of-type::before {
+		  padding-top: 10px;
+		}
+
+		pre a:last-of-type::before {
+		  padding-bottom: 10px;
+		}
+
+		pre a:only-of-type::before {
+		  padding: 10px;
+		}
+
+		.highlight { background-color: #ffffcc } /* RIGHT */
+		</style>
+  </head>
+  <body>
+	  <div>
+				<div style='width:25%;'>
+						<ul id="tree" class="ztree" style='width:100%'>
+
+						</ul>
+				</div>
+        <div id='readme' style='width:70%;margin-left:20%;'>
+          	<article class='markdown-body'>
+            	<h3 id="-">定时器的问题</h3>
+<h4 id="-">定时器常识性问题</h4>
+<ul>
+<li>定时器中函数的this始终指向window</li>
+</ul>
+<pre><code class="lang-js">    setInterval(function(){
+            console.log(this)    //window
+    },100)
+</code></pre>
+<ul>
+<li>如何在定时器正确的输出1，2，3，4，5</li>
+</ul>
+<pre><code class="lang-js">    //错误的想法
+    for(var i = 0; i &lt; 5 ;i++){
+        setInterval(function(){
+            console.log(i)
+        },100)
+    }
+    //
+</code></pre>
+<pre><code class="lang-js">        //把i当参数传递进去
+            for(var i = 0; i &lt; 5 ;i++){
+                setInterval((function(arg){
+                    console.log( arg )
+                })(i),100)
+            }
+
+            //把i当参数传递进去
+            for(var i = 0; i &lt; 5 ;i++){
+                (function(i){
+                    setInterval(function(){
+                        console.log( i )
+                     },100)
+                })(i)
+            }
+</code></pre>
+<ul>
+<li>拿到i 有什么作用<em>来个大栗子</em></li>
+</ul>
+<pre><code class="lang-js">            var adiv = document.getElementsByTagName(&#39;div&#39;);
+            for (var i =0;i &lt; adiv.length ;i++) {
+                adiv[i].onclick = function(){
+
+                    //adiv[i].style.background = &quot;pink&quot;
+                    console.log(i)             //如何正确的获取到i
+                }
+            }
+
+            //做选项卡的时候 ，以前通用的使用添加索引值的玩法  
+
+
+
+            //第一种写法
+            for (var i =0;i &lt; adiv.length ;i++) {
+                adiv[i].onclick = (function(arg){
+                        return function(){
+                             console.log(arg)
+                        }
+                })(i)
+            }
+
+            //第二种写法
+            for (var i =0;i&lt;adiv.length;i++) {
+                (function(arg){
+                    adiv[i].onclick = function(){
+                        console.log(arg)
+                    }
+                })(i)
+            }
+</code></pre>
+<h4 id="-">定时器的执行顺序问题  ---第一坑</h4>
+<pre><code class="lang-js">    //执行顺序问题
+    setInterval(function(){
+            console.log(2)
+        },100)
+    console.log(1)    
+
+    //当定时器的时间设置为0的时候，执行顺序
+    setInterval(function(){
+            console.log(2)
+        },0) ; 
+    console.log(1)    
+
+    详情可见：深入理解JavaScript定时机制和定时器注意问题===
+</code></pre>
+<ul>
+<li><a href="http://www.cnblogs.com/joyco773/p/6038022.html">http://www.cnblogs.com/joyco773/p/6038022.html</a></li>
+</ul>
+<h4 id="-bug-">定时器有关的案例，都有一个浏览器本身的bug    ---第二坑</h4>
+<ul>
+<li><p>当页面不可见（最小化）的时候，浏览器为了性能考虑，会定时器减缓，减缓的幅度是未知的</p>
+</li>
+<li><p>如何解决这个bug呢</p>
+</li>
+</ul>
+<pre><code class="lang-js">    window.onfocus = function(){
+        console.log(1);
+        timer = setInterval(handle,2000);
+    };
+
+    window.onblur = function(){
+        console.log(2);
+        clearInterval(timer);
+    };
+</code></pre>
+<ul>
+<li>h5 新增的页面可见性的api</li>
+</ul>
+<pre><code class="lang-js">    function handleVisibilityChange() {
+      if (document.hidden) {
+          //如果页面处于被认为是对用户隐藏状态时返回true，否则返回false。
+         oCtrl.pause()
+      } else  {
+         console.log(2)
+         oCtrl.play()
+      }
+    }
+
+    document.addEventListener(&quot;visibilitychange&quot;, handleVisibilityChange, false);
+</code></pre>
+<ul>
+<li><a href="http://www.zhangxinxu.com/wordpress/2012/11/page-visibility-api-introduction-extend/">http://www.zhangxinxu.com/wordpress/2012/11/page-visibility-api-introduction-extend/</a></li>
+</ul>
+<h4 id="-">普通版运动函数和时间版运动函数 ===第三坑</h4>
+<ul>
+<li><p>当作这种居中放大的例子的时候，普通版运动函数明显出现抖动的情况，匀速运动的时候，抖动比缓冲运动幅度较大</p>
+</li>
+<li><p>时间版运动函数则，在相同的时间内到达目标点，所以不会出现抖动</p>
+</li>
+</ul>
+<h4 id="-twenn-">时间版运动函数利用的时twenn算法</h4>
+<p><img src="1.png" alt="tween"></p>
+<pre><code class="lang-js">    //当前时间一直在变，怎么获取当前时间
+        var starttime = (new Date()).getTime()
+
+        var changetime = (new Date()).getTime();
+
+        t = changetime - starttime    //利用时间戳
+</code></pre>
+
+          	</article>
+        </div>
+		</div>
+  </body>
+</html>
+<script type="text/javascript" src="toc/js/jquery-1.4.4.min.js"></script>
+<script type="text/javascript" src="toc/js/jquery.ztree.all-3.5.min.js"></script>
+<script type="text/javascript" src="toc/js/ztree_toc.js"></script>
+<script type="text/javascript" src="toc_conf.js"></script>
+
+<SCRIPT type="text/javascript" >
+<!--
+$(document).ready(function(){
+    var css_conf = eval(markdown_panel_style);
+    $('#readme').css(css_conf)
+    
+    var conf = eval(jquery_ztree_toc_opts);
+		$('#tree').ztree_toc(conf);
+});
+//-->
+</SCRIPT>

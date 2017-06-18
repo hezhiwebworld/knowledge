@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			.demo{
+				height: 100px;
+				width: 200px;
+				margin: 50px auto;
+				background-color: green;
+				position: relative;
+			}
+			.demo div{
+				height: 2px;
+				width: 2px;
+				background-color: black;
+				
+			}
+		</style>
+	</head>
+	<body>
+		
+		<div class="demo">
+		</div>
+		
+		<script type="text/javascript">
+			
+			var a = 100;
+			var b = 50;
+			var odemo = document.querySelector('.demo')
+			for (var i=0;i<360;i++) {
+				var div = document.createElement('div');
+				div.style.left = a*Math.sin(i) +(odemo.offsetWidth)/2  + 'px';
+				div.style.top = b*Math.cos(i)+(odemo.offsetHeight)/2  +'px';
+				odemo.appendChild(div);
+			}
+			
+			var adiv = odemo.querySelectorAll('div');
+			for (var i = 0 ; i < adiv.length ; i  ++ ) {
+				adiv[i].style.position = "absolute";
+			}
+			
+			bind(odemo,'click',handle)
+			//事件绑定
+			function bind(obj,type,handle){
+				if(Object.prototype.toString.call(obj) == '[object HTMLDivElement]'){
+					if(obj.addEventListener){
+						return obj.addEventListener(type,handle,false);
+					}else if(obj.attachEvent){
+						return objx.attachEvent('on'+type,handle);
+					}
+				}
+			}
+			
+			//事件的处理程序
+			function handle(ev){
+				//alert('这是椭圆');
+				var ev  = ev || event;
+				//  将原点控制在odemo的中心
+				var disx = ev.clientX - odemo.offsetLeft -(odemo.offsetWidth)/2 ;
+				var disy = ev.clientY -odemo.offsetTop-(odemo.offsetHeight)/2 ;
+				console.log(disx,disy)
+				var disa = Math.pow(disx,2)/Math.pow(a,2);
+				var disb = Math.pow(disy,2)/Math.pow(b,2);
+				var r = disa + disb;
+				console.log(disa,disb,r);
+				if(r<1){
+					alert('这是椭圆');
+				}
+				
+			}
+			
+			//获取元素到body的距离
+			function absDistance(){
+				
+			}
+		</script>
+	</body>
+</html>

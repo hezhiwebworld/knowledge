@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			function Bar() {
+			    return 2;
+			}
+			       //  Bar {}
+			Bar()
+			console.log(Bar())
+			function Test() {
+			    this.value = 2;
+			
+			    return {
+			        foo: 1
+			    };
+			}
+			 Test();   //  Object {foo: 1}
+			console.log(Test())
+			
+		</script>
+	</body>
+</html>

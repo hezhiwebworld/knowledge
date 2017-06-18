@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#box,#box1{
+				width: 300px;
+				height: 300px;
+				border: 1px solid black;
+				position: absolute;
+				top: 0;
+				left: 0;
+			}
+			.title{
+				height: 30px;
+				line-height: 30px;
+				background-color: #ccc;
+			}
+			.close{
+				float: right;
+			}
+		</style>
+	</head>
+	<body>
+		<input type="button" value="11111"/>
+		<input type="button" value="22222"/>
+		<input type="button" value="33333"/>
+		<!--<div id="box">
+			<div class="title">
+				<span>标题</span><span class="close">X</span>
+			</div>
+		</div>-->
+		<script type="text/javascript">
+			window.onload = function (){
+				
+				var ainput = document.getElementsByTagName('input');
+				
+				ainput[0].onclick = function(){
+					var t1 = new Diaog();
+					t1.init()
+				}
+				
+				ainput[1].onclick = function(){
+					var t2 = new Diaog();
+				
+					t2.init({
+						id : 'box1',
+						w :150,
+						dir :'right'
+					})
+				}
+			}
+			
+			function Diaog(id){
+				 this.obox = null;
+				 this.settings ={ //默认参数
+				 	id : 'box',
+				 	w :300,
+				 	h :300,
+				 	dir : "center" //控制方向
+				 }
+			}
+			
+			Diaog.prototype.init = function(options){
+				extend(this.settings,options)
+				//
+				//将这个变量变成对象的属性
+				
+				this.create();
+			}
+			
+			Diaog.prototype.create = function (){
+				
+				this.obox = document.createElement('div');
+				this.obox.id = this.settings.id;
+				this.obox.innerHTML = "<div class=\"title\"><span>标题</span><span class=\"close\">X</span></div>"
+				
+				this.obox.style.width = this.settings.w + 'px';
+				this.obox.style.height = this.settings.h + 'px';
+				
+				document.body.appendChild(this.obox);
+				this.setStyle();  //必须分开，不然无法居中
+			}
+			
+			Diaog.prototype.setStyle = function(){
+				
+				if(this.settings.dir ==  'center'){
+					this.obox.style.left = (viewWidth() - this.obox.offsetWidth)/2 + 'px';
+				    this.obox.style.top = (viewHeight() - this.obox.offsetHeight)/2 + 'px';
+				}else if(this.settings.dir ==  'right'){
+					this.obox.style.left = (viewWidth() - this.obox.offsetWidth) + 'px';
+				    this.obox.style.top = (viewHeight() - this.obox.offsetHeight) + 'px';
+				}
+				
+				
+			}
+			
+			//拷贝，复制
+			function extend(obj1,obj2){
+				for( var attr in obj2){
+					obj1[attr] = obj2[attr]
+				}
+			}
+			
+		    //封装可视区的宽高
+		    
+		     function viewWidth(){
+		     	return document.documentElement.clientWidth;
+		     }
+		     
+		     function viewHeight(){
+		     	return document.documentElement.clientHeight;
+		     }
+		</script>
+	</body>
+</html>

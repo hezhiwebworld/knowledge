@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			function foo(){
+				var a  = 10;
+				function bar(){
+					a *=2;
+					return a;
+				}
+				return bar;
+			}
+			
+			var bzz =  foo();  //函数是对象，对a引用
+			console.log(bzz());
+			console.log(bzz());
+			console.log(bzz());
+			
+			var bxx = foo()   //这是另一个副本
+			
+			console.log(bxx())
+		</script>
+	</body>
+</html>
