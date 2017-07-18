@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //entries()
+        var arr = ['a','b','c']
+         for( let index of arr.keys() ){
+            console.log( index );
+         }
+         for(let elem of arr.values() ){
+             console.log( elem )
+         }
+         for(let [index,elem] of arr.entries() ){
+             console.log( index, elem )
+         }
+         //includes 方法返回一个布尔值
+         [1,2,3].includes(2)   //返回一个true
+         //该方法的第二个参数表示搜索的起始位置，默认为0
+
+         //indexOf()  里面采用的严格=== ，这会导致误判
+
+         [NaN].indexOf(NaN)
+
+         [NaN].includes(NaN)
+    </script>
+</body>
+</html>

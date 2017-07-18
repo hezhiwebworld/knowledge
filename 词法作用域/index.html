@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			var arr = [];
+		     for (var i = 0; i < 10; i++) {
+		        arr.push(function () {
+		            return console.log(i);
+		        });
+		    };
+		
+			
+		    for ( var j = 0; j < 10; j++ ) {
+		      arr[ j ]();
+		    }
+		</script>
+	</body>
+</html>

@@ -2,7 +2,78 @@
 # 前端入门到出家
 
 ## html/html5
+### 实际问题
+1. 怎么让一个不定宽高的DIV居中
+```js
+	//绝对定位
+	//c3的transform
+	//display:table-cell
+```
+2. 定位的几种形式
+```js
+	fix      - > 固定定位 始终都是以body为依据
+	relative - > 以自身为依据
+	absolute - > 脱离普通文档流
+```
+3. px em rem 的区别
+```js
+	px  - > 绝对单位
+	em  - > 相对长度单位
+	rem - > 相对跟元素的单位
+```
+4. BFC重新计算元素内部的高度
+```js
+	触发的方式
+	float:left/right
+	position:absolute/fixed
+	display: inlink-block/table-cell
+	overflow: hidden
+	//ps=> 具有包裹性的元素大多都可以出发BFC
+```
+5. word-break========表格的换行规则
+6. 选择器的优先级=====省略
+7. DOCTYP---文档类型声明
+```js
+	告诉浏览器用什么模式解析该文档
+```
+8. 元素水平居中
+```js
+	//行类块+文本元素
+	//块及元素
+	1. margin-left:auto;margin-right:auto;    
+	2. margin:0 auto;
+	3. 将块元素转化为行内快
 
+```
+9. table的一些属性
+```js
+	border-collapse : separate | collapse  //相邻边框合并
+	border-spacing =====cellspacing
+```
+10. 字符串的一些方法
+```js
+	string1.cancat(string2)
+```
+11. ie中不能使用const声明变量
+12. td自动换行的问题
+```js
+	table宽度固定，td自动换行
+```
+13. 嵌套使用的ul li ,里层的li设置float以后
+外层li不设置float,里面的ul顶部和它外面的li
+总是有一段间距
+```js
+	ul{
+		zoom: 1
+	}
+```
+14. 超链接访问过后hover样式不出现的问题
+```js
+	- link
+	- visited
+	- hover
+	- active
+```
 ### h5--语义标签
 
 - header / nav / footer / section / 
@@ -33,6 +104,12 @@
 ### h5--表单
 
 1. 新增的type
+
+```js
+	<input type="number" />
+	<input type="date" />
+	<input type="color" />
+```
 
 2. 新增的标签
 
@@ -94,7 +171,26 @@
 	</script>
 ```
 
+### 本地信息存储
 
+```js
+	//以下两个属性都代表同一个Storage对象---一个持久化关联数组
+	//数组使用字符串来索引，存储的值也都是字符床形式的
+	1> sessionStorage  
+	存储的有效期：当前标签关闭之前都是有效的。当前标签页关闭之后，所有通过sessionStorage 存储的数据都将被删除
+	作用域： 限定在同源文档，而且还被限定在窗口中
+	//一个标签里面包含iframe元素，那么他们所包含的文档时同源的
+	2> localStorage
+	存储的有效期： 永久的
+	作用域： 限定在文档源级别的。
+	//同源文档之间共享数据，需要注意的是locaStorage的作用域也受浏览器供应商的限制
+	
+	语法：
+	localStorage.setItem(key,value);  //存储信息
+	localStorage.getItem(key);    //获取信息
+	localStorage.removeItem(key)   //删除某项
+	localStorage.clear()		//全部删除
+```
 
 ## css/css3.0
 
@@ -106,6 +202,14 @@
 
 ![mode](img/mode.png)
 
+### 新特性
+1. 背景相关的
+```js
+	background-size/backgound-origin/background-clip/background-image(多背景，中间以都好分割)
+	//渐变/过渡/自定义动画/媒体查询/display：flex
+	//border-image
+	//2d变换
+```
 ### c3--新增选择器
 
 #### 伪类选择器   ============特殊标记 ： 单冒号
@@ -182,10 +286,34 @@
 
 ### 基础语法省略
 
-- 词法作用域======正常变量访问的权限
+#### 数据类型的隐式转换
 
+#### js中所有的数据类型都可以当成对象来使用，除了两个空值
 
-![chain](img/chain.png)
+```js
+	//数字
+	2.toString()  //这里会报错，以为js解析器，会试图将点 转化为浮点数
+	//以下有几种修正的方式
+	2 .toString();
+	(2).toString();
+	2..toString();
+```
+
+#### 数组的方法
+
+- 1 slice 方法 返回指定的数组的一个片段，或者子数组 ===该数组参数支持负数
+
+```js
+	//实用案例
+	Array.prototype.slice.call(arguments,0) //将伪数组数组话
+```
+
+- 2 splice 方法 在数组中插入或者删除元素的通用的方法，
+
+```js
+	//前两个参数指定了需要删除的数组的元素，后面任意个数的参数指的是需要插入的元素
+	
+```
 
 ####  数组的排序sort方法与参数
 
@@ -654,6 +782,11 @@
 
 ####  词法作用域
 
+- 词法作用域======正常变量访问的权限
+
+
+![chain](img/chain.png)
+
 - 作用域指的是一个变量可以被使用的范围
 
 - 词法作用域是用的时代码的规范来约定变量的使用范围，其范围的约定是不合代码的运行有关
@@ -685,6 +818,14 @@
 	 出现的代码，为函数声明
 ```
 
+- js中什么是词法作用域=====函数即域
+
+```js
+	作用域就是指变量从可以被访问开始到不能被访问结束，这个范围就是作用域
+	就是在访问变量的时候，会出现在当前作用域中查找是否存在该变量的声明，
+	如果存在则使用，如果不存在则在上一级作用域中查找
+	只有函数可以限制作用域
+```
 
 - 预解析的规则
 
@@ -709,13 +850,33 @@
 	如果遇到函数和变量同名，函数覆盖变量
 	
 	如果遇到函数与函数同名，后者则覆盖前者  （后来居上的原则）
+	
+	//函数传参的时候
+	function foo( num ){
+	}
+	var number =123;
+	foo( number );
+
+	有一个结论：
+	在进入函数之前就要分配内存，函数的参数也在这个时候初始化;
+	在执行 foo( number )这句话的时候：
+	1> 马上要调用函数了 foo，让js引擎将内存分配好
+	2> 将参数number的值拷贝一份，将副本直接放到已经分配好的内存中（ 函数的参数）
+	3> 进入函数进行函数内部的预解析
+	*函数的参数是在进入函数之前已经分配好，但是属于函数内部作用域的数据*
 ```
 
 - javaScript的垃圾回收机制
 
 ```js
-
-	标记清除
+	常见的垃圾回收算法( 了解 )
+    1> 值域法
+      在浏览器底层有一个常量, 是一个值域的范围, 凡是 js 的代码内存消耗量超过了这个范围, 触发垃圾回收算法.
+      会遍历 js 引擎记录的所有变量, 然后根据变量指向内存得知内存那些是有用的, 那些是无用的, 来进行回收.
+    2> 标记法
+      凡是创建一个对象, 都会考虑对象是否被引用. 凡是一开始被引用的对象在内存底层有一个标记记录有多少个变量引用该对象.
+      凡是增加一个引用, 我们的值就自增一次, 减少一个引用就自减一次. 直到这个引用为 0, 就表明没有变量在引用这个数据. 
+      那么就回收.
 ```
 
 - 闭包一
@@ -762,7 +923,32 @@
 ```
 
 ```js
-	//
+	=================
+	闭包的概念
+	=================
+	function f1(){
+		var num = 123;
+		return function f2(){
+			console.log( num )
+		}
+	}
+	
+	var f0  = f1();
+	
+	利用0级作用域中f0函数，调用2级作用域上的f2来间接的访问1级作用域中的变量；
+	此时0级作用域中 ，除了使用f0以外，没有任何方法可以访问1级作用域中德数据。
+	
+	因此该模型构成闭包的基本模型
+	function foo(){
+		var num = Math.random();
+		return  function(){
+			return num;
+		}
+	}
+	
+	var fn = foo();   //创建一个闭包，利用fn获得闭包中德数据
+	var res1 = fn();  //
+	var res2 = fn();
 	
 ```
 
@@ -781,7 +967,28 @@
 
 
 
+### 正则分组
 
+#### 分组的编号
+
+```js
+	//从左往右，右圆括号，依次从1开始编号
+```
+
+#### 分组的使用问题
+
+```js
+	-> 提取解析
+		邮箱的正则： [\d\w-\_]+(\)
+	-> 替换保留原始数据
+	'2017-12-28'.replace( /(\d+)-(\d+)-(\d+)-/g,'$1年$2月$3日')
+```
+
+#### 不捕获分组
+
+```js
+	(?:)  参与匹配，不参与捕获
+```
 
 
 
@@ -945,6 +1152,30 @@
 
 >> window.name + iframe
 
+##### ajax全局事件
+
+```html
+	类似于生命周期的概念
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 #### width / height / left  /  top 的获取
 
 - 可视区的宽高
@@ -989,7 +1220,13 @@
 	//表单控件的 阴影的样式
 	-webkit-apprance
 	//表单控件的自动补全，黄色背景
-	
+
+	//css去掉iphone，ipad默认按钮样式
+	input[type="button"], input[type="submit"], input[type="reset"] {
+	-webkit-appearance: none;
+	}
+	textarea { -webkit-appearance: none;}
+		
 ```
 - touch事件 在移动端   点击事件有300ms延迟，这个很影响性能
 
@@ -1016,6 +1253,37 @@
 
 > zepto,属于轻量级的jq，通过模块的形势加载，核心模块比较小
 
+- 移动端最小触控区域的大小
+
+```js
+	ios---44*44px
+	android--48*48px
+	移动端小图标一般是16-20px,
+	可以给文字，图标，按钮等可操作元素扩展触控区域，padding--line-height等都是不错的方法
+```
+#### 移动端兼容性的问题
+1. 忽略将页面中的数字识别为电话号码
+```js
+	<meta name="format-detection" content="telephone=no"/>
+```
+2. 忽略安卓平台中对邮箱地址的识别
+```js
+	<meta name="format-detection" content="email=no">
+```
+3. 常见的问题
+```js
+	移动端如何定义字体font-family,中文字体使用系统默认
+	移动端字体单位如何选择px/rem--取决于所需要的设备
+
+	//点透事件
+	1. 延迟
+	2. fastclick
+	3. zepto的touch模块，tap事件也是为了解决在click的延迟问题
+
+	//超链接
+	-webkit-tap-highlight-color: rgba(0,0,0,0)
+```
+
 ## http协议方面的问题
 
 ### 数据传递是通过字符串键值对的形势
@@ -1027,5 +1295,365 @@
 #### get响应图详解   -------  post的图基本类似
 
 ![get图](img/response.png)
+
+
+## h5----canvas
+
+### 绘制直线
+
+```js
+	基本语法 ctx = canvas.getContext('2d');
+	//线的起始点坐标
+	ctx.moveTo(x,y);
+	//线的重点的坐标
+	ctx.lineTo(x,y);
+	//描边专用
+	ctx.stroke();
+	//填充专用
+	ctx.fill();
+	//开启路径
+	ctx.beginPath();
+	//闭合路径
+	ctx.closePath();
+	
+	
+```
+
+### 绘制矩形
+
+```js
+	绘制矩形的方法
+	//空心矩形
+	ctx.strokeRect();
+	//实心矩形
+	ctx.fillRect();
+	//参数都是四个
+	分别表示的是：起点的坐标，和 矩形的长宽高
+```
+
+### 绘制圆弧
+
+```js
+	//最后一个参数，是否开启逆时针为正，
+	ctx.arc( x , y ,半径r , 起始角度 , 终止角度 )
+```
+
+### 绘制图片
+
+```js
+	var img = document.createElement('img');
+	img.src = "";
+	
+	img.onload = function(){
+						//从画布（ dx , dy ） 开始绘画
+		ctx.drawImage( img , dx , dy)
+						//从画布 （  dx ,dy ） 开始绘画，绘制大小  dWidth  dHeight
+		ctx.drawImage( img , dx , dy , dWidth , dHeight )
+						// s 前缀的参数就是指图源的矩形区域   d 前缀的参数就是画布的绘制矩形区域
+		ctx.drawImage( img , sx ,sy , sWidth , sHeight , dx , dy , dWidth , dHeight )
+		// 图片对象， 图坐标x，图坐标y ，图w，图h ，画布x ，画布y ，画布 w，画布h
+		//将图片的一个指定的矩形区域，绘制到画布的一个指定的矩形区域
+		ctx.drawImage(img,250,250,50,50,0,0,50,50);
+						 
+	}
+```
+
+### 绘制文本
+
+```js
+	//空心文字  === 可选参数的意思 ,限制文字的最大宽度
+	ctx.strokeText( text , x , y ,可选参数)
+	//实心文字=== 可选参数的意思 ,限制文字的最大宽度
+	ctx.fillText( text , x , y ,可选参数)
+	
+	//计算文本的尺寸
+	ctx.measureText(); ===该方法返回一个文本尺寸对象，常用属性width ，来去的文字的宽度
+	//文字水平对齐的方式
+	ctx.textAlign = value;
+	value 常用取值： left , right , center 
+	//文字垂直对齐方式
+	ctx.textBaseline = value;
+	value 常用取值 ： top , middle ,bottom
+	
+```
+
+
+
+
+
+
+
+### 坐标系变换 
+
+- 1> 变换可以累加
+
+```js
+	ctx.fillRect(0,0,50,50)
+			
+	ctx.translate(100,0)  //第一次变换
+	
+	ctx.fillRect(0,0,50,50)
+	
+	ctx.translate(0,100)  //在第一次变换的基础上进行第二次变换
+	
+	ctx.fillRect(0,0,50,50)
+```
+
+- 2> 伸缩变换（ scale ）==== ctx.scale(x,y)
+
+> 绘制椭圆     x 轴   和  y 轴 任意一个轴变换，另一个轴变换
+
+> 伸缩变幻还有一个功能就是让 y轴反向    将y 轴的曲率设为-1
+
+- 3> 旋转变化（ rotate ）
+
+> 擦除的时候，最好利用对角线，
+
+- 4> 环境
+
+> 如果需要频繁的操作变换，我希望可以在恢复的时候可以一步到位====可以采用采用状态保持
+调用一个ctx.save() 方法，可以将当前状态保存起来。
+如果再调用ctx.restore() 方法以后，表示回复到刚才 save的状态
+那么此时在beginPath（），相当于从save之前开始继承。
+
+> 状态保持的机制是基于状态栈实现的. 也就是说 save 一次就存储一个状态. restore 一次就将刚刚存入的恢复. 如果 save 两次, 就需要 restore 两次, 才可以恢复到最先的状态.
+
+## http 
+
+### cookie
+
+```js
+	cookie 有个特性：
+		当前网页中的所有的cookie会随着我们发送的请求自动发给服务器
+
+	服务器可以告诉浏览器如果设置cookie的值，服务器在响应数据给浏览器时，可以
+	额外给浏览器一个key, value
+	浏览器就会自动把它保存到cookie中
+
+	-------------------------------------------------
+	注意这里是自动保存，自动发送，不需要我们写代码进行处理
+```
+![http图](img/http.png)
+
+![http图](img/http2.png)
+
+
+## history用于操作历史记录堆栈
+
+```js
+	history.back()--------history.forward() ----- history.go(number)
+```
+
+```js
+	//具体用法
+	history.pushState( {} , '页面标题' , 'xxx.html')
+	
+	history.replaceState( null , '页面标题 ' , 'xxx.html')
+
+	window.addEventListener('popstate',function(){
+		var currentState = history.state
+		<!--
+			正常操作
+		-->
+	})
+
+
+	//有一种技术---pjax
+```
+
+## js性能的优化
+
+```js
+	//减少请求数
+
+	//优化js的执行性能
+
+```
+
+## 安全的相对性===传递请求
+
+```js
+	// wifi 劫持
+```
+
+## git
+
+1. 配置用户名和邮箱
+```js
+	git config --global user.name '用户名'
+	git config --global user.email '邮箱'
+```
+2. 项目的本地备份（在自己电脑上备份）
+2.1. 生成一个用于本地备份的文件夹（初始化git）
+```js
+	git init
+```
+2.2. 将文件变化备份在暂存区
+```js
+	git add -A  -----记录着文件的变化
+```
+2.3. 将暂存区的代码移至仓库
+```js
+	git commit -m "对此次更改的说明"
+```
+3. 查看备份过几次的记录（成功的执行一次commit命令）
+```js
+git log --online
+```
+4. 版本回退
+```js
+	git reset  --hard  "版本编号"
+	//下面这个会进入vim 编辑器;需要退出esc+ :wq
+	git revert "版本号"
+```
+## 把本地仓库中的某个分支上传到远端某个仓库
+1. 新建远端仓库
+2. 把本地某个仓库的某个分支推送到远端仓库
+
+## 下载远端仓库的代码
+```js
+	//方式一
+	git clone  远端仓库地址
+	//方式二
+	先初始化一个空的仓库--git init
+	git pull  远端仓库地址   dev:dev   可以指定要下载的分支
+
+	//查看分支
+	git branch
+```
+
+
+### .gitignore文件
+- git备份时忽略的文件名
+
+```js
+	git push 远端仓库的地址 master:master
+	git push 远端仓库的地址 master：xxx
+```
+
+## browser-sync-------多屏幕
+
+
+## gulp
+> 前端自动化构建工具！
+> 对博学古项目进行打包
+
+1.gulp及browser-sync配置反响代理
+> 通常浏览器用的包，项目代码在浏览器中执行 npm i  
+
+## Fetch API
+
+- fetch() ---返回一个promise对象
+```js
+	fetch(url).then( response => response.json() )
+				.then( insertPhotos(json) )
+
+	//配置请求对象
+	var req = new Request(URL, {method: 'GET', cache: 'reload'});
+	fetch(req).then( response => response.json() )
+				.then( insertPhotos(json) )
+	//基于原有的对象继续配置
+	var postReq = new Request(req, {method: 'POST'});
+	//请求头
+	var headers = new Headers();
+    headers.append('Accept', 'application/json');
+	
+	//缺点无法中断请求获取错误信息
+
+```
+
+## angularjs 
+### 适用场景
+- 增删改查，一般是后台管理系统
+- 页面中超过1000个指令
+
+### 单页应用程序--spa
+- 单页应用程序 与 传统多页面应用程序的优势：
+- 1. 减少请求的体积，提高了应用程序的性能
+- 2. 用户体现更好
+- 3. 原生app
+- 4. 可以选择性保留状态
+> ajax 不利于seo , 解决方案（页面静态化）
+
+#### 单页应用程序中使用的技术： ajax +  喵点 + hashchange
+
+#### 深度链接 deep link
+
+1. 喵点技术--实现页面的内部跳转#/ 模拟url 
+
+### angular中如何操作dom
+
+```js
+	//angular.element()这个方法只能接受一个dom对象，或者一个函数
+	//相当于jqLite==轻量级的jq
+	angular.element(function(){
+
+	})
+	angular.element(document.body)
+	//js原生的选择器，获取的页面上的某个元素返回的都是dom对象
+```
+#### 依赖注入
+1.  解决了参数顺序的问题
+
+#### 控制器的创建的方式
+1. 推断式
+2. 注入式
+3. 面向对象的方式
+#### track by 是为了让dom对象具有唯一标识
+```js
+	track by fn
+	function fn() {
+		var a=1;
+		return a++;
+	}
+```
+#### 过滤器----
+1. | 表示过滤器的符号--管道符
+2. | 后面跟着过滤器的名称
+3. ：后面表示过滤的条件
+4. 过滤的时候，如果参数是一个对象，那么将会根据属性来过滤
+
+#### 服务的概念
+```js
+	//特点：
+	//服务中的代码是不会执行的
+	//通过service方法创建的服务，函数会当作构造函数使用
+	//在控制器中注入的服务，是当前构造函数的实例
+	//服务中的代码只会在第一次使用的时候执行一次，然后缓存起来
+	.service('serviceName',function(){
+		this.say = function(){
+			console.log('这是服务中的say方法')
+		}
+	})
+	.controller('Ctrl',function( $serviceName ){
+		
+	})
+```
+
+
+## css 的一些钩子hooks
+```js
+	p{
+		color:green;
+		*color:blue;
+		_color:black
+	}
+```
+## 常见的一些布局的技巧
+
+1. 两栏自适应的布局
+```js
+	左侧div浮动，且固定宽度，右侧divoveflow：hidden
+```
+2. 两栏等高布局
+```js
+	//两种技巧
+	//第一种用正padding负margin
+	//第二种利用背景色来填充高度较小的一列
+```
+
+
+
+
 
 

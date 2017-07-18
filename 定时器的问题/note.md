@@ -8,9 +8,19 @@
 - 定时器中函数的this始终指向window
 
 ```js
+	//第一种情况
 	setInterval(function(){
-			console.log(this)    //window
+			console.log(this)    
 	},100)
+	
+	//第二种情况
+	var obj = {
+		handle : function(){
+			console.log(this)
+		}
+	}
+	setTimeout(obj.handle,100)
+	
 ```
 
 - 如何在定时器正确的输出1，2，3，4，5
@@ -29,7 +39,7 @@
 ```js
 		//把i当参数传递进去
 			for(var i = 0; i < 5 ;i++){
-				setInterval((function(arg){
+				setTimeout((function(arg){
 					console.log( arg )
 				})(i),100)
 			}
@@ -37,7 +47,7 @@
 			//把i当参数传递进去
 			for(var i = 0; i < 5 ;i++){
 				(function(i){
-					setInterval(function(){
+					setTimeout(function(){
 					    console.log( i )
  				    },100)
 				})(i)
@@ -85,7 +95,7 @@
 #### 定时器的执行顺序问题  ---第一坑
 
 ```js
-	//执行顺序问题
+	//执行顺序问题==
 	setInterval(function(){
 			console.log(2)
 		},100)
