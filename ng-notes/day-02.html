@@ -1,0 +1,363 @@
+<html>
+  <head>
+	  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <title>i5ting_ztree_toc:day-02</title>
+		<link href="toc/style/github-bf51422f4bb36427d391e4b75a1daa083c2d840e.css" media="all" rel="stylesheet" type="text/css"/>
+		<link href="toc/style/github2-d731afd4f624c99a4b19ad69f3083cd6d02b81d5.css" media="all" rel="stylesheet" type="text/css"/>
+		<link href="toc/css/zTreeStyle/zTreeStyle.css" media="all" rel="stylesheet" type="text/css"/>
+	  <style>
+		pre {
+		    counter-reset: line-numbering;
+		    border: solid 1px #d9d9d9;
+		    border-radius: 0;
+		    background: #fff;
+		    padding: 0;
+		    line-height: 23px;
+		    margin-bottom: 30px;
+		    white-space: pre;
+		    overflow-x: auto;
+		    word-break: inherit;
+		    word-wrap: inherit;
+		}
+
+		pre a::before {
+		  content: counter(line-numbering);
+		  counter-increment: line-numbering;
+		  padding-right: 1em; /* space after numbers */
+		  width: 25px;
+		  text-align: right;
+		  opacity: 0.7;
+		  display: inline-block;
+		  color: #aaa;
+		  background: #eee;
+		  margin-right: 16px;
+		  padding: 2px 10px;
+		  font-size: 13px;
+		  -webkit-touch-callout: none;
+		  -webkit-user-select: none;
+		  -khtml-user-select: none;
+		  -moz-user-select: none;
+		  -ms-user-select: none;
+		  user-select: none;
+		}
+
+		pre a:first-of-type::before {
+		  padding-top: 10px;
+		}
+
+		pre a:last-of-type::before {
+		  padding-bottom: 10px;
+		}
+
+		pre a:only-of-type::before {
+		  padding: 10px;
+		}
+
+		.highlight { background-color: #ffffcc } /* RIGHT */
+		</style>
+  </head>
+  <body>
+	  <div>
+				<div style='width:25%;'>
+						<ul id="tree" class="ztree" style='width:100%'>
+
+						</ul>
+				</div>
+        <div id='readme' style='width:70%;margin-left:20%;'>
+          	<article class='markdown-body'>
+            	<h1 id="angularjs-day02">AngularJS -day02</h1>
+<h2 id="-angular-jquery-">在Angular中使用&quot;jQuery&quot;</h2>
+<ul>
+<li>语法：<code>angular.element</code></li>
+<li>Angular中操作的功能称为：<code>jqLite</code>（轻量级jQuery）</li>
+</ul>
+<h3 id="-">示例</h3>
+<pre><code class="lang-js">// 获取 jqLite 对象
+var $ = angular.element;
+$(document).ready(function() { });
+</code></pre>
+<h3 id="-">注意点</h3>
+<ul>
+<li>1 jqLite 中只实现了jQuery的部分功能</li>
+<li>2 jqLite中选择器只能是DOM对象</li>
+<li>3 <strong>尽量使用ng中提供的功能</strong></li>
+</ul>
+<h2 id="angularjs-">AngularJS的一般开发流程</h2>
+<ul>
+<li>1 引入 angular.js 文件</li>
+<li>2 创建模块：<code>angular.module(&#39;模块名&#39;, [])</code></li>
+<li>3 在页面中指定<code>ng-app=&quot;模块名&quot;</code>，告诉NG管理指定的页面部分</li>
+<li>4 创建控制器：<code>模块名.controller(&#39;控制器名&#39;, function() {})</code> </li>
+<li>5 在页面中指定<code>ng-controller=&quot;控制器名&quot;</code>，指定管理内容的控制器</li>
+<li>6 建模（根据页面原型抽象出数据模型），最终得到视图模型（ViewModel）</li>
+<li>7 将抽象好的数据，添加到 <code>$scope</code>中，即：暴露数据和行为给视图</li>
+<li>8 在页面中使用 <code>ng-model</code> 或者 <code>{{}}</code> 拿到并绑定数据</li>
+</ul>
+<h2 id="-">模块的划分</h2>
+<ul>
+<li>1 按照模块划分（推荐）</li>
+<li>2 按照文件类型划分</li>
+</ul>
+<h3 id="-">按照模块划分</h3>
+<ul>
+<li>根据项目中具体的功能模块进行划分</li>
+<li>比如：登录模块、注册模块、编写博客 等等不同的功能模块</li>
+<li>每个功能模块都有自己的 Model View Controller 对应的文件</li>
+<li>开发过程中，每个人完成一个独立的模块</li>
+</ul>
+<h3 id="-">按照文件划分</h3>
+<ul>
+<li>根据文件的功能进行划分</li>
+<li>将所有的文件放到3个文件夹中：M、V、C</li>
+</ul>
+<h2 id="-controller-">控制器（controller） -创建方式</h2>
+<h3 id="-1-2-29-">低版本（1.2.29之前）</h3>
+<ul>
+<li>使用全局函数创建控制器，会造成：全局污染</li>
+</ul>
+<h3 id="-">推断式</h3>
+<pre><code class="lang-js">angular
+    .module(&#39;testApp&#39;, [])
+    .controller(&#39;DemoController&#39;, function($scope) {
+
+    });
+</code></pre>
+<h3 id="-">安全方式创建</h3>
+<ul>
+<li>问题：项目上线的时候，会进行代码压缩，$scope会被修改</li>
+<li>解决：代码会被压缩和混淆，但是 字符串 是不会被压缩的</li>
+</ul>
+<h4 id="-">创建控制器</h4>
+<ul>
+<li>优势：根据指定的参数名直接获取到想要的参数，而非根据参数的顺序</li>
+</ul>
+<pre><code class="lang-js">// 第一个参数：控制器的名称
+// 第二个参数：数组，最后一项表示回调函数，除此之外其他的参数表示依赖的参数列表
+app.controller(&quot;DemoController&quot;, [&quot;$scope&quot;, &quot;$log&quot;, function($scope, $log) {
+    $log.log(&quot;打印日志了&quot;);
+}]);
+</code></pre>
+<h3 id="-">面向对象方式</h3>
+<ul>
+<li>特点：将回调函数当作构造函数来使用，直接使用<code>this</code>添加数据</li>
+<li>也可以通过 <code>$scope.age</code> 添加数据</li>
+<li>注意：在html中使用指令的时候，格式变为：<code>DemoController as demo</code></li>
+</ul>
+<pre><code class="lang-html">&lt;div ng-app=&quot;testApp&quot; ng-controller=&quot;DemoController as demo&quot;&gt;
+    &lt;p&gt;{{demo.name}}&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;script&gt;
+angular.module(&#39;testApp&#39;, [])
+    .controller(&#39;DemoController&#39;, [&#39;$scope&#39;, function($scope) {
+        // 添加模型属性
+        this.name = &#39;Jack&#39;;
+    }]);
+&lt;/script&gt;
+</code></pre>
+<h2 id="-di-dependency-injection-">依赖注入（DI -Dependency injection）</h2>
+<ul>
+<li>目的: 简化传入参数的操作，防止代码压缩导致参数无法使用的问题</li>
+</ul>
+<h3 id="-">原理分析</h3>
+<ul>
+<li>1 获取到依赖项(参数)列表</li>
+<li>2 查找依赖项所对应的对象</li>
+<li>3 代码执行时，将其注入</li>
+</ul>
+<pre><code class="lang-js">/**
+ * [提取参数]
+ * @param  {Function} fn [回调函数]
+ * @return {[type]}      [参数列表数组]
+ */
+function extractArgs(fn) {
+    var r = /^[^\(]*\(\s*([^\)]*)\)/;
+    var args = r.exec( fn.toString() );
+    return args[1].split(&#39;,&#39;);
+}
+
+extractArgs(function($scope, $log) {});
+// 方法的返回值：[&quot;$scope&quot;, &quot;$log&quot;]
+</code></pre>
+<ul>
+<li>参考文章：<a href="http://www.cnblogs.com/etoah/p/5460441.html">Angular依赖注入分析</a></li>
+</ul>
+<h2 id="-">解决页面闪烁问题</h2>
+<ul>
+<li>方式一： 将引用angularjs文件放到head中</li>
+<li>方式二： 使用 <code>ng-bind</code> 指令</li>
+<li>方式三： 使用 <code>ng-cloak</code> 指令</li>
+</ul>
+<h3 id="ng-bind-">ng-bind 指令</h3>
+<ul>
+<li>作用：设置元素的 <code>textContent</code>，功能类似于：<code>{{}}</code></li>
+<li>注意：只能在双标签中使用（因为只有双标签才有 textContent 属性）</li>
+<li>注意： <code>ng-bind</code>指令无法输出 html 内容（即：实现innerHTML的功能）</li>
+</ul>
+<pre><code class="lang-html">&lt;p ng-bind=&quot;name&quot;&gt;&lt;/p&gt;
+</code></pre>
+<h3 id="ng-cloak-">ng-cloak 指令</h3>
+<ul>
+<li>作用：用来解决表达式闪烁问题</li>
+<li>原理：angular在加载完成后会移除所有带有&quot;ng-cloak&quot;的样式</li>
+<li>使用场景：页面中存在大量表达式</li>
+</ul>
+<pre><code class="lang-html">&lt;style&gt;
+    .ng-cloak {
+        display: none;
+    }
+&lt;/style&gt;
+
+&lt;p class=&quot;ng-clock&quot;&gt;{{name}}&lt;/p&gt;
+</code></pre>
+<h2 id="-">常用指令介绍</h2>
+<ul>
+<li>指令：就是一个命令，让 Angular 按照我们预先设置好的规则办事</li>
+</ul>
+<h3 id="ngsanitize-">ngSanitize 模块</h3>
+<ul>
+<li>语法： <code>ng-bind-html=&quot;&lt;div&gt;&lt;/div&gt;&quot;</code></li>
+<li>作用： 在页面中输出 html内容</li>
+<li>注意： 这个模块是一个独立的模块（需要单独下载，并在页面中引用）</li>
+<li>安装： <code>npm install angular-sanitize</code></li>
+</ul>
+<pre><code class="lang-html">&lt;div ng-bind-html=&quot;name&quot;&gt;&lt;/div&gt;
+&lt;script src=&quot;angular-sanitize.js&quot;&gt;&lt;/script&gt;
+&lt;script&gt;
+    // 引入 ngSanitize 模块
+    var app = angular.module(&quot;testApp&quot;, [&quot;ngSanitize&quot;]);
+    app.controller(&quot;testController&quot;, [&quot;$scope&quot;, function($scope) {
+        $scope.name = &quot;&lt;h1&gt;雨啊雨&lt;/h1&gt;&quot;;
+    }]);
+&lt;/script&gt;
+</code></pre>
+<h3 id="ng-repeat-">ng-repeat 指令</h3>
+<ul>
+<li>作用：遍历集合中的数据，为集合中的每条数据创建一个当前元素（即，带有指令的元素）</li>
+<li>说明：功能类似于 for-in 循环</li>
+</ul>
+<pre><code class="lang-html">&lt;ul&gt;
+    &lt;li ng-repeat=&quot;item in datas&quot;&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;script&gt;
+app.controller(&#39;TestController&#39;, [&#39;$scope&#39;, function($scope) {
+    $scope.datas = [
+        {name: &#39;jack&#39;, age: 19},
+        {name: &#39;tom&#39;, age: 21},
+        {name: &#39;rose&#39;, age: 22}
+    ];
+}]);
+&lt;/script&gt;
+</code></pre>
+<ul>
+<li>使用 <code>track by $index</code> 解决，数据重复的问题</li>
+</ul>
+<pre><code class="lang-html">&lt;ul&gt;
+    &lt;li ng-repeat=&quot;item in datas track by $index&quot;&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</code></pre>
+<h4 id="ng-repeat-">ng-repeat 的循环项属性</h4>
+<ul>
+<li><code>$odd</code>/<code>$even</code>，用来表示当前项的奇偶性，类型为：布尔值</li>
+<li><code>$first</code>/<code>$last</code>/<code>$middle</code>，用来表示当前项的位置，类型为：布尔值</li>
+<li><code>$index</code>，用来表示当前项的索引号，从0开始计算</li>
+</ul>
+<pre><code class="lang-html">&lt;ul&gt;
+    &lt;!-- 隔行变色效果的实现 --&gt;
+    &lt;li ng-repeat=&quot;item in datas&quot; class=&quot;{{$odd?&#39;red&#39;:&#39;green&#39;}}&quot;&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</code></pre>
+<h2 id="ng-class-">ng-class指令</h2>
+<ul>
+<li>语法：<code>ng-class=&quot;expression&quot;</code>，expression是model中的一个数据或表达式</li>
+<li>作用：根据 expression 的值，给当前元素添加指定的类</li>
+</ul>
+<h3 id="-">对象值</h3>
+<ul>
+<li>示例：<code>ng-class=&quot;{red: $odd, green: $even}&quot;</code></li>
+<li>解释：<code>ng-class</code>通过指定一个对象（对象字面量），键为：类名，值为：布尔值</li>
+<li>作用：判断对象中属性的值，如果为true则添加与该属性名相同的类，否则不添加</li>
+</ul>
+<h3 id="-">模型中的变量</h3>
+<ul>
+<li>示例：<code>ng-class=&quot;type&quot;</code></li>
+</ul>
+<pre><code class="lang-html">&lt;div ng-class=&quot;type&quot;&gt;&lt;/div&gt;
+&lt;script&gt;
+    app.controller(&quot;demoController&quot;, [&quot;$scope&quot;, function($scope) {
+        $scope.type = &quot;red&quot;;
+    }]);
+&lt;/script&gt;
+</code></pre>
+<h2 id="-">其他指令</h2>
+<h3 id="ng-hide-ng-show-">ng-hide/ng-show 显示和隐藏（知道）</h3>
+<ul>
+<li>作用：控制当前元素的展示和隐藏，类型为：布尔值</li>
+<li>语法： <code>ng-show=&quot;布尔值&quot;</code></li>
+</ul>
+<pre><code class="lang-html">&lt;div ng-show=&quot;isShow&quot;&gt;&lt;/div&gt;
+</code></pre>
+<h3 id="ng-if">ng-if</h3>
+<ul>
+<li>作用：控当前元素的显示或隐藏状态，这里的隐藏指的是：页面中不存在当前元素</li>
+<li>语法：<code>ng-if=&quot;布尔值&quot;</code></li>
+</ul>
+<pre><code class="lang-html">&lt;div ng-hide=&quot;false&quot;&gt;&lt;/div&gt;
+</code></pre>
+<h3 id="ng-switch-">ng-switch (了解)</h3>
+<ul>
+<li>作用：类似于js中的switch-case，但一般配合<code>ng-switch-when</code>来使用</li>
+</ul>
+<pre><code class="lang-html">&lt;div ng-switch=&quot;name&quot;&gt;
+    &lt;div ng-switch-when=&quot;jack&quot;&gt;我是jack&lt;/div&gt;
+    &lt;div ng-switch-when=&quot;tom&quot;&gt;我是tom&lt;/div&gt;
+    &lt;div ng-switch-when=&quot;rose&quot;&gt;我是rose&lt;/div&gt;
+&lt;/div&gt;
+&lt;script&gt;
+    $scope.name = &quot;jack&quot;;
+&lt;/script&gt;
+</code></pre>
+<h3 id="-">表单元素的指令</h3>
+<ul>
+<li><code>ng-checked</code>: 复选框是否选中</li>
+<li><code>ng-selected</code>: 下拉框是否选中</li>
+<li><code>ng-disabled</code>: 是否禁用</li>
+<li><p><code>ng-readonly</code>: 是否只读</p>
+</li>
+<li><p>特点：都是单向数据绑定，只能实现从数据到视图的绑定</p>
+</li>
+</ul>
+<pre><code>ng-checked / ng-selected 可以使用 ng-model 代替, 但是要注意ng-model是双向绑定
+</code></pre><h3 id="-">事件指令</h3>
+<ul>
+<li>作用：Angular中用来绑定事件的</li>
+</ul>
+<pre><code>ng-click / ng-submit / ng-dblclick / ng-blur / ng-focus / ng-change
+</code></pre><h2 id="-html5-">兼容HTML5标准的指令</h2>
+<ul>
+<li>说明：HTML5中的自定义属性规定使用 <code>data-</code> 作为属性的开头，<pre><code>  angluar中的所有指令完全支持HTML5中的语法
+</code></pre></li>
+</ul>
+
+          	</article>
+        </div>
+		</div>
+  </body>
+</html>
+<script type="text/javascript" src="toc/js/jquery-1.4.4.min.js"></script>
+<script type="text/javascript" src="toc/js/jquery.ztree.all-3.5.min.js"></script>
+<script type="text/javascript" src="toc/js/ztree_toc.js"></script>
+<script type="text/javascript" src="toc_conf.js"></script>
+
+<SCRIPT type="text/javascript" >
+<!--
+$(document).ready(function(){
+    var css_conf = eval(markdown_panel_style);
+    $('#readme').css(css_conf)
+    
+    var conf = eval(jquery_ztree_toc_opts);
+		$('#tree').ztree_toc(conf);
+});
+//-->
+</SCRIPT>
